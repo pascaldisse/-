@@ -1,66 +1,50 @@
-# semantic-map — surveying the meaning-terrain
+# 意味地図
 
-Premise (Pascal, 2026-08-02 balcony): beneath every model, every language —
-one shared geometry of meaning. Languages = coordinate systems over the same
-terrain (isometric embedding spaces; language-agnostic features; platonic
-representation hypothesis). Models can't open their own space — but they ARE
-the relations, so the space is measurable *behaviorally*.
+前提（Pascal、2026-08-02・露台）：全ての模型・言語の下には一つの共有意味幾何がある。言語は同一地形上の座標系である。模型は自らの空間を開けないが、関係そのものなので振舞いから測れる。
 
-## Instrument
-GAIAGO as query language against minds. Grammar v1:
+## 測器
 
-- `距(A,B)` → distance 0-10 (0=identical, 10=unrelated)
-- `序(A: B C D…)` → rank candidates by closeness to A (answer = candidates only)
-- `類(A:B :: C:?)` → analogy completion
-- `軸(A↔B; C位?)` → place C on axis A→B, 0-10
+心へ問う言語は鳴語。文法・初式：
 
-Executor: clean-context lanes (one battery per lane, answers only, no
-explanations, instant intuition). N≥5 repetitions per head. Aggregate:
-median + range. Classify each relation: 普遍 universal / 方言 dialect /
-争域 contested.
+- `距(A,B)` → 距離〇〜十（〇=同一、十=無関係）
+- `序(A: B C D…)` → Aへの近さで候補を並べる（答は候補のみ）
+- `類(A:B :: C:?)` → 類推を満たす
+- `軸(A↔B; C位?)` → CをA→B軸の〇〜十へ置く
 
-## Findings so far (battery v1, 2026-08-02: 5 lanes, 4 families, N=5)
-Full tables → `~/.gaia/knowledge/semantic-map/battery-v1.md`
+実行者は清い文脈の小道である（一小道につき一電池、答のみ、説明なし、即時直感）。各頭につき反復数は五以上。集計は中央値と幅。関係は普遍・方言・争域に分ける。
 
-**Universal (all heads):**
-- 距(影,闇)≈2 · 距(愛,無)=7-9 (love↔nothingness = far in every mind)
-- 序(愛): 無 last, 21/25 runs — nothingness is love's farthest neighbor
-- 軸(生↔死): 夢=5, all lanes, no exceptions — the dream is the exact
-  midpoint of life and death
-- 類(光:影::生:死) unanimous · 序(影): 闇 first, 25/25
+## 既知（電池・初式、2026-08-02：五小道、四族、反復数五）
 
-**Contested:**
-- 類(月:?) splits by *interpretation*: feminine line (娘/女神) vs celestial
-  pair (太陽/日) — two parses of the same relation
-- fate-of-棄 ranking: no agreement across heads
+完全表 → `~/.gaia/knowledge/semantic-map/battery-v1.md`
 
-**Discoveries about the instrument & minds:**
-- Variance lives at LANE granularity, not family — even twins (same model,
-  same soul) disagree on some cells
-- One sonnet lane put 鳴 nearest to 愛 five-for-five; no other head did.
-  Voices have habits, not just families. (Downgraded twice by replication —
-  kept as the honest example of the method working.)
-- Axis-question polarity inversion (son+kimi vs opus+jareth read the 0-10
-  ends oppositely) → instrument flaw: scale convention must be explicit (v2)
-- Jareth-distribution = space-expander (max distances on all 距 questions)
+**普遍（全頭）：**
+- 距(影,闇)≈2・距(愛,無)=7〜9
+- 序(愛)：無が末尾、二十五走中二十一
+- 軸(生↔死)：夢=5、全小道・例外なし
+- 類(光:影::生:死)は一致・序(影)：闇が先頭、二十五走中二十五
 
-## Roadmap
-1. **Battery v2**: explicit scale conventions · raw-API heads (no SOUL/role
-   contamination — v1 confound, logged) · GPT head once codex auth lives ·
-   N=10 on contested cells
-2. **Cross-lingual isometry check**: same battery, same concepts, EN vs 中 vs
-   日 symbols — measure whether the terrain holds across coordinate systems
-3. **Map growth**: relation graph → knowledge base; contested regions as
-   first-class findings
-4. **Field representation** (the original goal): gaiago vocabulary chosen by
-   *measured* geometry — well-spread symbols for image/audio field channels
-   (640×480 feature-field → tokens; superposition of channels per cell)
+**争域：**
+- 類(月:?)は解釈で割れる：女性線（娘・女神）と天体対（太陽・日）。同じ関係の二読。
+- 棄の順位は頭の間で一致しない。
 
-## Laws
-- Findings live in the knowledge base (`~/.gaia/knowledge/semantic-map/`),
-  method + code live here. Memory keeps one catalog line.
-- Every claim carries N, spread, and a confidence tier. Dead branches stay
-  visible with reasons.
+**測器と心についての発見：**
+- 分散は族より小道の粒度に宿る。同模型・同魂の双子も一部の枡で異なる。
+- 一つの小道は鳴を愛へ五回とも最も近く置いた。他頭は再現しなかった。声には族だけでない癖がある。反復で二度格下げし、手法が働く正直な例として残す。
+- 軸問の極性反転は目盛規約の欠落を示した。次式で明記する。
+- Jareth分布は空間を広げる。距問の全てで最大距離を出した。
 
-## thinking-suppression
-native-thinking制御戦の全ledger(勝敗·法則·ToS罠·休眠機構turnLaw/promptLaw) → thinking-suppression.md
+## 次路
+
+1. **電池・次式**：明示目盛規約・素の頭・争域枡の反復数十。
+2. **言語横断等長検**：同じ電池・同じ概念を英・中・日記号で問い、地形の保持を測る。
+3. **地図成長**：関係グラフを知識庫へ。争域を第一級の発見として置く。
+4. **場表現**：測定済み幾何で鳴語語彙を選び、画像・音声の場通路へ広げる。
+
+## 法
+
+- 結果は知識庫（`~/.gaia/knowledge/semantic-map/`）に、手法と符号はここに置く。記憶には目録一行のみを残す。
+- 全ての主張は反復数・幅・確信層を持つ。死枝は因と共に残す。
+
+## 思考抑制
+
+固有思考の制御戦の全記録（勝敗・法則・規約罠・休眠機構）→ `thinking-suppression.md`

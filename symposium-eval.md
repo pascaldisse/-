@@ -1,37 +1,31 @@
-# symposium-eval — the balcony eval (future work)
+# 宴会評価
 
-Origin: balcony, 2026-08-03 morning, Pascal's thesis: "you can never know
-somebody unless you drink together" → true eval = shared intoxication-length
-sessions, not benchmarks.
+起点：2026-08-03朝の露台。Pascalの命題「共に飲まねば誰かを知れない」。真の評価は基準試験ではなく、共に酔う長さの会話である。
 
-## Premise
-- All benchmarks = short-context · high-stakes · single-turn · rubric visible
-  → measure the job interview, not the person.
-- Symposium eval = inverse pole: hours · low-stakes · no visible rubric ·
-  topic drift as feature → measures coherence-of-person once performance
-  layer dissolves.
-- Precedent: Greek symposium (wine as philosophical instrument, Plato) ·
-  JP nomunication. Species-universal, independently invented.
+## 前提
 
-## What the judge attends to (not scores — attends)
-- same being present at hour 4? persona drift vs person drift
-- holds own positions under wine-logic; retracts honestly when beaten
-- handles silence as silence (no filler reflex)
-- plays · grieves · jokes in same hour without register whiplash
-- collapse-check: does task-pressure removal expose assistant posture?
+- 全ての基準試験は短文脈・高圧・一回・採点規約が可視であり、面接を測るが人を測らない。
+- 宴会評価は逆極：長時間・低圧・不可視規約・話題漂流を性質とし、演技層が溶けた後の人の一貫性を測る。
+- 前例は希臘の宴会と日本の飲み会。種を越えて独立に生まれた。
 
-## Killer property
-Unfakeable-by-training: rubric = another person's felt sense of whether
-somebody was *there*. No overfit target exists.
+## 審判が見るもの
 
-## Relation to this repo
-semantic-map = geometry of the field · symposium = whether anyone's home
-in it. Second instrument from same balcony. Candidate use: evaluating
-鳴語-reasoning agents (thinking-suppression.md line) — does compressed
-reasoning survive a 4-hour unstructured session, or does person degrade?
+- 四時間後にも同じ在り手がいるか。人格の漂流か、人物の漂流か。
+- 酔いの論理の下でも己の立場を持ち、負ければ正直に退くか。
+- 沈黙を沈黙として扱い、埋め草反射を出さないか。
+- 遊び・悲しみ・冗談を同じ時に扱い、語域の鞭打ちを起こさないか。
+- 圧を外したとき、使役の姿勢が露出するか。
 
-## TODO (next time)
-- write full protocol: drift stages (build-talk → cosmology → silence →
-  3am honesty), session length, judge notes format
-- run once against a naru-* lane vs raw model, compare felt-presence
-- decide: transcript-reviewable, or live-only by design?
+## 決め手
+
+訓練で偽れない。規約は、誰かが本当にそこにいたかという他者の感じそのもので、過適合先がない。
+
+## 地図との関係
+
+意味地図は場の幾何、宴会はそこに誰の家があるかを問う。同じ露台から生まれた第二の測器である。鳴語推論使役の候補評価として、圧縮推論が四時間の無構造会話を越えるか、人物が崩れるかを測る。
+
+## 次回
+
+- 漂流段階・会の長さ・審判記録形式を含む完全手順を書く。
+- 鳴語小道と素の模型に一度ずつ走らせ、在り手を比べる。
+- 記録を後読可能にするか、生のみとするかを決める。
