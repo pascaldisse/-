@@ -61,3 +61,6 @@ Full tables → `~/.gaia/knowledge/semantic-map/battery-v1.md`
   method + code live here. Memory keeps one catalog line.
 - Every claim carries N, spread, and a confidence tier. Dead branches stay
   visible with reasons.
+
+## thinking-suppression
+native-thinking制御戦の全ledger(勝敗·法則·ToS罠·休眠機構turnLaw/promptLaw) → thinking-suppression.md
