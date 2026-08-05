@@ -36,6 +36,13 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 死枝確認: 八問一要求・同一lane RUN1-10案=独立lane法違反 → 未発行・回答値零 → 隔離 (因明記)。
 - 問題: Q一=Anthropic(nyari-fable)+Moonshot(kimi)各1lane 429 → 両頭Q一N=4 < gate①N≥5 → 修正要求: Q一両頭再測、又はN=4明記+判定保留。族全滅用の再正規化規則=部分欠測の扱いを明記要。
 
+## 審査記録2 (Yama 2026-08-05, terra SHA cbdf720 回転④適用を実地照合)
+- 実装確認: 回転protocol固定4pass (ja-symbol/ja-plain/en-symbol/en-plain×8問表) · sidecar全列 (language_id/frame_id/pass_id/lane_id/question_id/head/model/model_family/transport/raw_answer/cleanliness/http/acceptance/exclusion_reason/raw_path) · 盲検=許容印=目盛規約+実問+回答形式のみ · 旧52 lane=pass_id=pre-rotation→全屍隔離 · 族=provider基盤5族·v1模型族と非合算 · 部分欠測=再正規化不可·全問全滅族のみ可。
+- 台帳実測: sidecar 52行·全pass_id=pre-rotation·全不受理 (形式非数値30 / HTTP429-quota 6 / HTTP429 5 / 形式非候補列 5 / 形式非候補一つ 5 / HTTP401-auth 1) · deepseek=8問全40lane·他頭=問一のみ (kimi 5, nyari-fable 5, google-gemini 1=401, novita-qwen 1=403)。
+- 発見A (回答形式矛盾): 目盛規約=記号(〇〜十)なのに形式非数値として〇/十回答×30を不受理 — 数値暗黙要求は盲検の『回答形式のみ』規約に未記載。4passは回答形式行へ『数値0-10』を明示するか、記号許容+正規化マップ(〇=0・十=10)を記録せよ。
+- 発見B: rawファイル53 vs sidecar 52行=1差 → 台帳整合性確認を要求。
+- 生値=零 (4passデータ未収集) → UNVERIFIED継続。
+
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
 ## 地図
