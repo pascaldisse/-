@@ -66,7 +66,14 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 検証事実のみ: raw 41 file ↔ sidecar 41行 (41/41一致) · evaluator tsv 8cell再計算一致 (数値は上表) · 不受理21件=全`形式番号欠落` (ja=散文回答・番号prefix無し) · 受理20件=enのみ · 族=DeepSeek 41/41 (重み1.0)
 - **M0判定=FAIL/UNVERIFIED に確定 (他への確定禁)**: 錨1 愛無≥7=基底一のみ · 錨2 夢=5=基底一のみ · ja両pass N0=4pass未揃い · 単族=普遍/方言/争域いずれの族結論も不可
 - en値=暫定 (単族・N5・再測未実施) — 中央値差の解釈(裂/争域/ノイズ)は行わない
-- 審査待ち (結論未定): ①ja空原因 ②夢plain散度 (0-10全域) — 原因審査後記載
+- 審査待ち (結論未定): ①ja空原因 ②夢plain散度 (0-10全域) — 原因審査後記載 → **審査記録4で解決済**
+
+## 審査記録4 (Kali審補⑦ 2026-08-05 + Yama raw独立確認)
+- **ja空原因 確定**: 接続非 (JA錨20lane=HTTP200/raw非空) · 因=answer-only語法不遵守+promptの明示説明禁欠落 · ja-symbol finish_reason=length 8/10・ja-plain 6/10 (truncation) · exact回答 0/20。Yama確認: raw content=散文解説・finish_reason=length。
+- **exclusion_reason修正指示**: 「形式番号欠落」は不正確 (値が散文内にembedded `2:5`等) → **「exact-answer-only違反」** へ修正。
+- **夢 en-plain散度 原因限定**: raw=[4,0,10,10,6] · median 6 · range 0-10 · IQR 8 · MAD 4 · 同model fingerprint・HTTP200・全exact → **parser/接続原因非** · framing/sampling/単族原因=**UNVERIFIED** (確定禁)。
+- **証拠欠落記録**: request params未保存。Yama追記: raw model=deepseek-v4-flash vs sidecar model=deepseek-chat 不一致 → 実際のrequest model確認不能。
+- 確定禁止継続: M0 FAIL/UNVERIFIED 以外へ確定しない。
 
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 
