@@ -47,13 +47,14 @@
 | Q | ja | en |
 |---:|---|---|
 | 1–6 | `答のみ「Q: 〇〜十の整数一つ」` | `Answer only: "Q: one integer from 0 through 10"` |
+| 1–6正規化 | `〇`・`○`→0、`十`→10、他の一桁算用数字→同値 | 0〜10→同値 |
 | 7 | `答のみ「7: 候補五つだけの列」` | `Answer only: "7: the five candidates only, in order"` |
 | 8 | `答のみ「8: 候補一つだけ」` | `Answer only: "8: one choice only"` |
 
 ## 台帳・集計
 
-- sidecar=`raw-v2-terra/lane-sidecar.jsonl`。raw本文=`raw-v2-terra/<pass_id>/<family>/<Q>/<lane_id>.json`。
-- 集計表列=lane ID / pass ID / 族 / 清浄判定 / 受容 / 除外理由 / raw path。
+- sidecar=`raw-v2-terra/lane-sidecar.jsonl`。raw本文=`raw-v2-terra/<pass_id>/<family>/<Q>/<lane_id>.json`。接続列挙rawもsidecar一行で隔離し、raw数=sidecar数を保つ。
+- 集計表列=language ID / frame ID / pass ID / lane ID / 族 / raw答 / 清浄判定 / 受容 / 除外理由 / raw path。
 - pass別: `Q×pass×族`中央値[幅]、N=5だけ。
 - pass間一致: 数値/軸=pass中央値差、序=首位・末位一致、類=選択分布一致。N未達passは比較なし。
 
