@@ -75,6 +75,13 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - **証拠欠落記録**: request params未保存。Yama追記: raw model=deepseek-v4-flash vs sidecar model=deepseek-chat 不一致 → 実際のrequest model確認不能。
 - 確定禁止継続: M0 FAIL/UNVERIFIED 以外へ確定しない。
 
+## 審査記録5 (Kali審補⑦修正 2026-08-05, terra SHA 1de1c84 独立照合一致)
+- ①exclusion_reason修正確認: 21件全`exact-answer-only違反` (旧`形式番号欠落`から) · 受理20/不受理21 不変
+- ②JA四promptへ`説明禁止`+`出力形式: N:<〇から十までの一値>`追加確認 (旧raw非再利用) · 禁リスト=既結論/期待方向/合格閾/錨名/`遠`/`5` — prompt注入なし盲検維持 · 正規化マップ=〇/○→0・十→10 (旧形式非数値矛盾を解消)
+- ③request metadata全41行確認: request_model=deepseek-chat · request_temperature=omitted:provider default · request_max_tokens=128 · response_model=deepseek-v4-flash · raw 41/41一対一維持
+- ④夢 en-plain散度: parser/接続原因除外・framing/sampling/単族=UNVERIFIED明記確認
+- evaluator=sidecarのみ・再照合PASS · **M0=FAIL/UNVERIFIED継続** (Q1基底一・Q2基底一・JA N0・単族) · 旧3594f63=cohort1固定
+
 ## RII受領gate (Kali受領準備令RII-①, 2026-08-05)
 - 新Rudra-II室: `terra-msfzdekkf93ewn`
 - **cohort固定**: 旧3594f63=cohort1 · 新run=cohort2 · **混算禁** (別cohortとして保持)
