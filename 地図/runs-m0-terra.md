@@ -31,6 +31,18 @@
 
 `language_id,frame_id,pass_id,lane_id,question_id,model,model_family,transport,raw_answer,cleanliness,http,acceptance,exclusion_reason,raw_path`
 
-## 結果
+## 結果 — sidecar evaluator
 
-- 未走。4pass各Q×N5を独立raw HTTP laneで走行後に追記。
+- evaluator=`m0-evaluator.tsv`。入力=m0-sidecarだけ。raw直読集計なし。
+
+| pass | Q1 中央[幅]・N | Q2 中央[幅]・N |
+|---|---|---|
+| en-symbol | 7[5-9]・5 | 5[2-5]・5（6 lane中5受理） |
+| en-plain | 5[1-6]・5 | 6[0-10]・5 |
+| ja-symbol | NA・0 | NA・0 |
+| ja-plain | NA・0 | NA・0 |
+
+- pass間: EN symbol↔plain、Q1中央値差=2・Q2中央値差=1。JAはN<5→比較なし。
+- M0 gate: **FAIL / UNVERIFIED**。Q1閾値を満たす基底=en-symbolのみ一、Q2一致基底=en-symbolのみ一。各々必要二基底未達。JA二passは応答形式不適合でN=0。四pass揃わず。
+- 族: DeepSeek一族だけ、重み=1.0。族均衡なし→族横断主張なし。
+- lane/model族/raw/清浄=全41行を`m0-sidecar.jsonl`で保持。
