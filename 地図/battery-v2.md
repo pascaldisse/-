@@ -82,6 +82,14 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - ④夢 en-plain散度: parser/接続原因除外・framing/sampling/単族=UNVERIFIED明記確認
 - evaluator=sidecarのみ・再照合PASS · **M0=FAIL/UNVERIFIED継続** (Q1基底一・Q2基底一・JA N0・単族) · 旧3594f63=cohort1固定
 
+## 審査記録6 (Rudra-II canary 2026-08-05, SHA 80ce86b3 独立照合)
+- **prompt SHA訂正**: 先報`96098d7d…`=誤記・無効 → 実値=`62bbe8ca211a5ad21cd3efc084886229ff05f95cd1e1d1e0ac6c141ffe266a2f` (sidecar全6行一致 + Yama sha256独立再計算一致)
+- 包構成: raw 6 = sidecar 6 = evaluator 3族 (DeepSeek 0/2·Moonshot 0/2·Novita 0/2 · 全gate FAIL)
+- runner監査 (run_rudra_ii_canary.py): neutral非錨prompt (距(机,椅子)) 盲検維持 ✓ · SAMPLING固定 (temperature:0/top_p:1/max_tokens:8/seed:424242有/stop:[\n]) ✓ · 同一OpenAI-compatible schema ✓ · request_body+prompt+SHA全行保存=完全request metadata ✓ · exact=^1:(?:[0-9]|10)$ ✓ · gate=2/2 exact必須 ✓ · 既存artifacts上書き拒否 ✓
+- 結果: DeepSeek=finish_reason:length・reasoning 8token消費→content空 · Moonshot=HTTP429 quota · Novita=HTTP403
+- **判=採用0族 → canary gate FAIL/UNVERIFIED** · non-DeepSeek≥2未達 · 錨未走 (gate先行正しい順序) · 本測raw+sidecar送達=該当なし (測定未実施)
+- 次: Moonshot課金/auth・Novita403解消 or 他non-DeepSeek族調達 → canary再走
+
 ## RII受領gate (Kali受領準備令RII-①, 2026-08-05)
 - 新Rudra-II室: `terra-msfzdekkf93ewn`
 - **cohort固定**: 旧3594f63=cohort1 · 新run=cohort2 · **混算禁** (別cohortとして保持)
