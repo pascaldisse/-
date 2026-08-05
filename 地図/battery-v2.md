@@ -90,6 +90,14 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - **判=採用0族 → canary gate FAIL/UNVERIFIED** · non-DeepSeek≥2未達 · 錨未走 (gate先行正しい順序) · 本測raw+sidecar送達=該当なし (測定未実施)
 - 次: Moonshot課金/auth・Novita403解消 or 他non-DeepSeek族調達 → canary再走
 
+## RII審持続規約 (Kali審持続令RII-②, 2026-08-05)
+- RII canary FAIL記録済: DeepSeek=reasoning枯渇(length) · Moonshot=429 · Novita=403
+- **現段階: 錨集計/DB確定禁止** (cohort1/2とも、DB書込含む確定禁止)
+- 再試受容条件: **neutral exact 2/2** · 完全request metadata · **retry間隔/回数記録**
+- **403同credential連打=屍** (死枝·因=credential無効の繰返し)
+- gaia clean-lane fallback発動時: **raw cohortと別表** · 列必須=room/model/provider/system-persona/transport · **rawと混算禁**
+- 各cohortの族均衡・各問×pass×族N5未達 = FAIL/UNVERIFIED
+
 ## RII受領gate (Kali受領準備令RII-①, 2026-08-05)
 - 新Rudra-II室: `terra-msfzdekkf93ewn`
 - **cohort固定**: 旧3594f63=cohort1 · 新run=cohort2 · **混算禁** (別cohortとして保持)
