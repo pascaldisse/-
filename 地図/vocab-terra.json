@@ -1440,6 +1440,546 @@
     "source": "lampas-seed"
   },
   {
+    "domain": "宇宙論",
+    "concept": "混沌",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "法則",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "必然",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "偶然",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "運命",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宿命",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "自由意志",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "可能性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "現実性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "潜在性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "不確定性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "確率",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "量子",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "重ね合わせ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "観測",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "測定",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "波動",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "粒子",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "波動関数",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "量子もつれ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "デコヒーレンス",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "多世界解釈",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "人間原理",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "微調整",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "初期条件",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ゆらぎ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "対称",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "離散",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "連続性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙生命",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙生態",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "進化",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "変異",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "適応",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "淘汰",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "増殖",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙誕生",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "死滅",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "絶滅",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙再生",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "代謝",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "呼吸",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "循環性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙成長",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "老い",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "遺伝",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "継承",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "系譜",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "種",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "属",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "個体",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "群れ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "共生",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "寄生",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "生態系",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "生物圏",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ノウアスフィア",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "意識",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "知性",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "神",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "聖なるもの",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "霊",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "魂",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天使",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "悪魔",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "創造主",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "造物",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "主宰",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "摂理",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "啓示",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "奇跡",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "祝福",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "呪い",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "祭祀",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "神話",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙卵",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "原人",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "始祖",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "楽園",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "終末",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "審判",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "救済",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙輪廻",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙転生",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "解脱",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "彼岸",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "此岸",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天命",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "神意",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "聖域",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
     "domain": "感情",
     "concept": "感情",
     "注": "核",
@@ -2880,6 +3420,546 @@
     "source": "terra"
   },
   {
+    "domain": "感情",
+    "concept": "静けさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "平静",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "平穏",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "安らぎ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "穏やかさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "落ち着き",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "沈着",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "冷静",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "無私心",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "解放感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自由感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "軽やかさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "透明感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "清々しさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "凪",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "静謐",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "寂静",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "安寧",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "休息",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "眠気",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "まどろみ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "夢心地",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "陶酔",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "没入",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "忘我",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "諦観",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "達観",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "受容",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "観照",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "気楽",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "嫉妬",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "嫉み",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "羨望",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "ねたみ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "うらやましさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "欲望",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "貪欲",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "渇望",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "切望",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "希求",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憧れ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "野心",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "向上心",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "競争心",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "所有欲",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "支配欲",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "承認欲",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "求める心",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "飢え",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "飽き",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "足りなさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "欠乏感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "焦がれ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恋焦がれ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "執心",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "未練",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "心残り",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "名残惜しさ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "渇き",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "熱望",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "共感",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "同情",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "憐れみ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "哀れみ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "連帯",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "親密さ",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "信頼",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "安心感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "依存",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "甘え",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "許し",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "容認",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "寛容",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "感謝",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "謝意",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恩義",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "敬意",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "尊敬",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "畏敬",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "崇敬",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "忠誠",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "帰属意識",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "仲間意識",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "一体感",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "融和",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "和み",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "気遣い",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "励まし",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "慰め",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "連れ添い",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
     "domain": "七つ",
     "concept": "愛",
     "注": "核",
@@ -4317,6 +5397,546 @@
     "domain": "七つ",
     "concept": "暗雲",
     "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "恩愛",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "情念",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛染明王",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛河",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛執地獄",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛離",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛着障り",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛離の苦",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無明長夜",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無始無終",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無限後退",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無量空処",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無所有処",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無色界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無想界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無間地獄",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無常迅速",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無我相",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空如来蔵",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "虚空蔵",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "虚無主義",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空観",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空門",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空劫",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空華",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "空蝉",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生生流転",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生者必滅",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生老病死",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "輪廻",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "転生",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "不死",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "永生",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "涅槃",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "往生",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "来世",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "冥界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "三途川",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "賽の河原",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "黄泉路",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死者の書",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "冥府",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死生観",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死の影",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死の静寂",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "終わりの夢",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の柱",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の海",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の舟",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の門",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の環",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "極光",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "天光",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "神光",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "仏光",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の彼方",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の岸",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "明暗",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "陰陽",
+    "注": "縁",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の帳",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の森",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の川",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の星",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の裂け目",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夜の底",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "暗夜行路",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "黎明前",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢幻界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の扉",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の舟",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の翼",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の鏡",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の庭",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の川",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の階",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の迷宮",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の残り香",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の彼方",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢渡り",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の岸",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の井戸",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無明界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光の矢",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死の門",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生の門",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛の門",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "虚空界",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "彼岸花",
+    "注": "縁",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夢の死者",
+    "注": "縁",
     "source": "terra"
   }
 ]
