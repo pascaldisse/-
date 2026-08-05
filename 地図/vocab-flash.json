@@ -1440,6 +1440,546 @@
   "source": "flash"
  },
  {
+  "domain": "技",
+  "concept": "皆伝",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "相伝",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "免状",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "段位",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "冴え",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "キレ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "手筋",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "間合い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "呼吸法",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "所作",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "身のこなし",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "立ち回り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "手さばき",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "足さばき",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "歩法",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "体術",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "心技体",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "節回し",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "囃子",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "拍子",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "余韻",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "趣",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "奥行き",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "機微",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "メリハリ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "錆びる",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "鈍る",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "狂い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "ズレ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "誤差",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "濁り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "乱れ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "崩れ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "歪み",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "疵",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "瑕疵",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "手抜き",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "粗雑",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "丁寧",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "念入り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "几帳面",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "細心",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "慎重",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "大胆",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "繊細",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "堅実",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "確実",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "安定",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "不安定",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "ばらつき",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "ムラ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "均一",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "整然",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "無心",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "瞑想",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "気",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "根性",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "粘り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "執念",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "怠慢",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "慢心",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "過信",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "謙虚",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "傲慢",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "ミス",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "過ち",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "誤り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "間違い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "手違い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "失策",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "失態",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "粗相",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "しくじり",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "教訓",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "戒め",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "気づき",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "ひらめき",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "閃き",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "悟り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "会得",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "体得",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "修得",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "駆使",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "使い分け",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "再帰",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "並列",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "同期",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "最適化",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "自動化",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "技",
+  "concept": "効率化",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
   "domain": "関係",
   "concept": "親",
   "注": "核",
@@ -2880,6 +3420,546 @@
   "source": "flash"
  },
  {
+  "domain": "関係",
+  "concept": "盃を交わす",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "水臭い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "よそよそしい",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "打ち解けない",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "意気投合",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "馬が合う",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "そりが合わない",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "犬猿の仲",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "腐れ縁",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "縁もゆかりもない",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "養子縁組",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "祝言",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "結納",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "二次会",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "内祝い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "供養",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "盆正月",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "年賀状",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "暑中見舞い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "寒中見舞い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "弔問",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "手土産",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "お土産",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "お歳暮",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "中元",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "義理チョコ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "本命チョコ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "友チョコ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "恩師",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "恩人",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "命の恩人",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "親分",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "子分",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "兄弟分",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "義兄弟",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "乳兄弟",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "乳母",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "子守",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "世話焼き",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "面倒見",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "後見",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "後ろ盾",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "後見人",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "連帯保証",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "片腕",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "右腕",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "腹心",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "側近",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "顧問",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "相談役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "世話役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "音頭取り",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "旗振り役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "まとめ役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "仕切り役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "顔役",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "一目置く",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "頭が上がらない",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "借りを作る",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "恩を仇で返す",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "恨み言",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "泣き言",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "甘え",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "張り合い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "張り合う",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "比べ合い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "競い合い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "真似",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "見よう見まね",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "追随",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "先駆け",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "後追い",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "横並び",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "出る杭",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "出る杭は打たれる",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "村社会",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "世間",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "世間体",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "体裁",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "面目",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "沽券",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "面目が立つ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "顔が立つ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "顔を潰す",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "体面",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "外聞",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "聞こえ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "噂",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "風評",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "関係",
+  "concept": "評判",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
   "domain": "日常",
   "concept": "朝",
   "注": "核",
@@ -4317,6 +5397,546 @@
   "domain": "日常",
   "concept": "パジャマ",
   "注": "周",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "暁",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "未明",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "正午",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "真昼",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "黄昏",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "たそがれ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "深夜",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "早朝",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "薄明",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "夜明け",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "宵",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "更け時",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "丑三つ時",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "夜半",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "午前",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "午後",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "刻限",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "時節",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "折節",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "折々",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "しばしば",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "度々",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "再三",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "頻繁",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "稀",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "刹那",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "一瞬",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "一息",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "一夜",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "暦",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "縁側",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "土間",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "囲炉裏",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "座敷",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "障子",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "襖",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "雨戸",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "網戸",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "鴨居",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "敷居",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "床の間",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "押入れ",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "納戸",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "物置",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "倉庫",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "土蔵",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "井戸",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "畦道",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "山道",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "峠",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "坂道",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "石段",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "参道",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "鳥居",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "境内",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "眉",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "まつ毛",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "唇",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "歯茎",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "奥歯",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "親知らず",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "喉",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "肺",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "心臓",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "肝臓",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "胃",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "腸",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "脳",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "神経",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "血管",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "まかない",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "お通し",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "香の物",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "沢庵",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "糠漬け",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "佃煮",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "梅干し",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "干物",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "一夜干し",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "燻製",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "干し柿",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "お新香",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "吸い物",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "出汁",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "旨味",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "煮干し",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "鰹節",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "昆布",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "味噌",
+  "注": "縁",
+  "source": "flash"
+ },
+ {
+  "domain": "日常",
+  "concept": "醤油",
+  "注": "縁",
   "source": "flash"
  }
 ]
