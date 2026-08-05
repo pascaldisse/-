@@ -43,6 +43,17 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 発見B: rawファイル53 vs sidecar 52行=1差 → 台帳整合性確認を要求。
 - 生値=零 (4passデータ未収集) → UNVERIFIED継続。
 
+## M0正本gate (Kali M0正本令⑤, 2026-08-05 — 固定)
+- 正本path: `/Users/pascaldisse/projects/semantic-map/ROADMAP.md` (現milestone=M0のみ。M0 gate=「pilot reproduces v1 anchors under ≥2 bases」)
+- 錨1: `距(愛,無)=遠` → 暫定数値化(v1表準拠): **愛無 pass中央値 ≥ 7**
+- 錨2: `軸(生↔死;夢)=5` → **夢 pass中央値 = 5**
+- 各錨 = **最低2基底**で再現: 言語2水準(ja/en) または framing2水準(symbol/plain) のいずれか2pass
+- 回転4pass維持 (ja-symbol/ja-plain/en-symbol/en-plain) · 各pass N≥5 独立clean lane
+- 判定実装 = **測定prompt外sidecarのみ** · 期待値/既結論/錨値のlaneへ絶対注入禁
+- gate表 (各錨ごと): `再現basis数 | pass別中央値[幅] | lane数 | 族内訳 | pass間一致度`
+- 両錨が各々≥2基底を満たさぬ限り **M0 FAIL / UNVERIFIED**
+- 出力路整合: ROADMAP「output rails: :5275 API writes + knowledge/semantic-map/ docs」= db-path.md と一致
+
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
 ## 地図
