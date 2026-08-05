@@ -90,6 +90,14 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - **判=採用0族 → canary gate FAIL/UNVERIFIED** · non-DeepSeek≥2未達 · 錨未走 (gate先行正しい順序) · 本測raw+sidecar送達=該当なし (測定未実施)
 - 次: Moonshot課金/auth・Novita403解消 or 他non-DeepSeek族調達 → canary再走
 
+## 審査記録7 (Rudra-II L1 canary 2026-08-05, SHA f07f9529 独立照合)
+- 包: raw 8 = sidecar 8 (attempt行) · prompt SHA全行一致+sha256再計算一致 (62bbe8ca…)
+- DeepSeek (deepseek-chat·max_tokens:512): **2/2 exact** (1:3, 1:4) · HTTP200/200 · finish_reason=stop/stop → **採用候補**
+- Moonshot: 2lane×3attempt全6 HTTP429 · retry間隔=タイムスタンプ実測+30.3s (att1 11:11:40.7 → att2 11:12:11.0 → att3 11:12:41.2) → **死枝** 0/2
+- Novita: L1再試raw無し=credential連打零 → **死枝** (cohort2 403×2保持)
+- availability: GLM=credential無 · Ollama=executable無 · fallback不要=raw全死でない (DeepSeek生存)
+- **判=採用1族 (DeepSeekのみ) → non-DeepSeek≥2/族均衡未達 → canary gate FAIL/UNVERIFIED継続** · M0判定禁 · 錨未走
+
 ## RII審持続規約 (Kali審持続令RII-②, 2026-08-05)
 - RII canary FAIL記録済: DeepSeek=reasoning枯渇(length) · Moonshot=429 · Novita=403
 - **現段階: 錨集計/DB確定禁止** (cohort1/2とも、DB書込含む確定禁止)
