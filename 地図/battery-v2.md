@@ -28,6 +28,12 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 死枝: 因と共に残す (v1: GPT族auth死が模範)
 - 出力路: 結果→vector-DB書込 (db-path.md) · 成果→`~/.gaia/knowledge/semantic-map/battery-v2.md`
 
+## 審査記録 (Yama 2026-08-05, terra update SHA 3fdd9e3 実地照合)
+- gate①〜⑤: 実装確認。runs-v2-terra.md に明文化: 単位=一問一独立lane・一頭一問N=5・lane内反復不数 · manifest=頭/模型/族/接続/問/lane ID/時刻/HTTP/清浄性/原文路 · 均衡=族等重み20%・接続不能族=欠測→可用族のみ再正規化 · 判=尺度別一致+lane幅+族裂併記。盲検=許容文脈=当該問ブロックのみ。目盛=〇/十・軸端明示。8問≤10。
+- 注意: 族=provider基盤(Anthropic/Moonshot/DeepSeek/Novita/Google) — v1のmodel族粒度と異なる → v1との普遍/方言比較は粒度差を明記して行う。
+- 死枝確認: 八問一要求・同一lane RUN1-10案=独立lane法違反 → 未発行・回答値零 → 隔離 (因明記)。
+- 問題: Q一=Anthropic(nyari-fable)+Moonshot(kimi)各1lane 429 → 両頭Q一N=4 < gate①N≥5 → 修正要求: Q一両頭再測、又はN=4明記+判定保留。族全滅用の再正規化規則=部分欠測の扱いを明記要。
+
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
 ## 地図
