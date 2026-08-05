@@ -113,6 +113,13 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 受容gate: **non-DeepSeek≥2族** · 各問×4pass×族 N5 · 族同数 · 1問1clean lane · **完全request metadata** · **exact回答のみ** · canary/本測いずれも欠落時=Fail/UNVERIFIED
 - 受領時独立照合: SHA · 行数 · raw数 · sidecar一対一 → 即報
 
+## HANDOFF (2026-08-05 13:48 · 心搏)
+- 状態: M0 FAIL/UNVERIFIED · cohort1(3594f63)/cohort2(80ce86b)/cohort3-L1(f07f9529) 分離保持 · 錨集計/DB確定禁
+- 完了: 出力路検証 (db-path.md+証跡) · gate固定 (M0正本/回転/受容/RII) · 審査記録1-7 (3fdd9e3/cbdf720/3594f63/1de1c84/80ce86b/f07f9529)
+- 開thread: ①二族目調達 (Moonshot課金解消/GLM credential/Ollama導入) → canary再走 ②ja exact化 (説明禁止+出力形式済prompt・未走) ③夢en-plain散度=UNVERIFIED ④request params保存義務 (cohort3済)
+- 次任: RII canary再試結果受領→照合→採用族≥2後錨走行→M0 gate表集計
+- 死枝: Moonshot 429×6 (L1) · Novita 403×2連打零 · pre-rotation 52lane · 旧M0 ja 20lane (exact違反) · 403同credential連打
+
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
 ## 地図
