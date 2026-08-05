@@ -53,7 +53,7 @@
 - 室→`terra-msfzdekkf93ewn`
 - worktree→`/Users/pascaldisse/worktrees/terra-rudra-ii`
 - 枝→`terra/rudra-ii`
-- HEAD→`f07f95292036918f456c54f3c4edf1d2d86d7126`
+- HEAD→`fff45fbff66c7ccb8fef63dd1d5228dcaacee096` (handoff) · 最終実測=`f07f95292036918f456c54f3c4edf1d2d86d7126`
 - cohort分離→旧M0 `3594f63`→修正 `1de1c84` · RII初canary `80ce86b` · L1再canary `f07f952`
 - L1再canary→DeepSeek `deepseek-chat` max_tokens512 = exact 2/2 PASS · Moonshot 2lane×3attempt=429×6 · Novita=旧403×2後連打零 · GLM credential無 · Ollama executable無
 - 現gate→採用1族のみ · non-DeepSeek≥2族/族均衡未達 · 錨未走→正しい停止
@@ -62,7 +62,7 @@
 - 室→`whale-flash-msfyj28aue05xh`
 - worktree→`/Users/pascaldisse/.gaia/worktrees/yama-battery-v2`
 - 枝→`yama/battery-v2`
-- HEAD→`b84f91cc8d53c9bde6ef674d24aa10ef3006afb0`
+- HEAD→`76520b5359045f6bd75b8b579a2c92b3c291a3f3` (handoff) · 最終審=`b84f91cc8d53c9bde6ef674d24aa10ef3006afb0`
 - 成果→`地図/battery-v2.md` · `地図/db-path.md` · `地図/api-write-evidence.md`
 - 出力路→`:5275` HTTP API書込+read-backをpascal-persona/nyari双方で実証済 · process非接触
 - 審→RII raw/sidecar/evaluator照合済 · cohort混算禁 · 現集計保留
