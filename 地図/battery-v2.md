@@ -43,6 +43,14 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 発見B: rawファイル53 vs sidecar 52行=1差 → 台帳整合性確認を要求。
 - 生値=零 (4passデータ未収集) → UNVERIFIED継続。
 
+## A9 軸採用前gate (Kali-II審令, 2026-08-05 — 測定前固定)
+- 対象Cごと: `軸(A↔B;C)` と反転`軸(B↔A;C)`を**別clean lane**へ発行; lane順序=AB/BA counterbalance; 同一lane/文脈共有禁。
+- 期待=`s_AB(C)+s_BA(C)=10`; 残差=`|s_AB(C)+s_BA(C)-10|`; 残差CIを報告。`τ_sym`・CI水準・合格規則=manifestへ**測定前固定**; 未固定=発射不可; 結果後変更禁。
+- 反転対照が不能/不合格=器欠陥札; 当該軸の意味結論/独立基底称号を禁ずる。
+- 非価値対照=`具↔抽`・`過去↔未来`(時間)・`小↔大`; 価値軸と同一pass・族・証跡律・counterbalance・反転対照を適用。
+- 一般因子検: 価値軸+非価値軸の射影相関、因子負荷、残差をA7相関と併記。相関/負荷の事前固定棄却規則で単一因子説を棄却不能=独立基底称号禁。
+- M0現状=DeepSeek一族のみ; non-DeepSeek≥2・族均衡未達ゆえ4pass錨発射禁、`FAIL/UNVERIFIED`保持。
+
 ## M0正本gate (Kali M0正本令⑤, 2026-08-05 — 固定)
 - 正本path: `/Users/pascaldisse/projects/semantic-map/ROADMAP.md` (現milestone=M0のみ。M0 gate=「pilot reproduces v1 anchors under ≥2 bases」)
 - 錨1: `距(愛,無)=遠` → 暫定数値化(v1表準拠): **愛無 pass中央値 ≥ 7**

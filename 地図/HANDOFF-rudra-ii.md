@@ -28,6 +28,10 @@
 4. gate後のみ4pass=`ja/en × symbol/plain`; `距(愛,無)`・`軸(生↔死;夢)`; 問×pass×族 N5·1問1clean lane
 5. M0=両錨各≥2基底・族均衡; 未達=FAIL/UNVERIFIED
 
+## A9追補
+- `地図/battery-v2.md` §A9=反対称対照·非価値対照·一般因子検·事前固定閾
+- 軸採用=§A9合格後のみ; 現M0=DeepSeek一族→4pass錨発射禁·FAIL/UNVERIFIED保持
+
 ## 成果
 - `地図/rudra-ii-canary/`=cohort2
 - `地図/rudra-ii-canary-l1/`=cohort3·Yama審査済
