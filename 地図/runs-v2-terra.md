@@ -5,6 +5,7 @@
 - 本測定単位: 一問・一独立clean lane。一頭×一問につきN=5独立lane。各lane=一HTTP要求・一原文応答。lane内反復は数えない。
 - 保存: `raw-v2-terra/<頭>/<問>/<lane-id>.json`。manifestは頭・模型・族・接続・問・lane ID・時刻・HTTP・清浄性・原文路を保持。
 - 均衡: 族=Anthropic / Moonshot / DeepSeek / Novita / Google。各族、一模型、一問五lane。集計は族等重み（各族20%）。接続不能族は欠測として残し、可用族だけを等重み再正規化する。
+- 判: 単純な頭間一致だけを普遍と呼ばない。尺度別一致・lane幅・族裂を併記してから判定する。
 - GPT族: 既知auth死→再試なし。
 
 ## 屍 — 先行案
@@ -86,6 +87,17 @@
 - 429: 当該laneを失敗原文として保存。非Claude可用頭へ別laneで心搏代替するが、族等重み表とは分離する。
 - 集計gate: 各問・各族N=5独立lane。未達は中央値を主張せず欠測として残す。
 
+## lane台帳・集計受容列
+
+| lane ID | 問 | 頭 | 族 | 清浄判定 | HTTP | 受容 | 除外理由 | 原文 |
+|---|---:|---|---|---|---:|---|---|---|
+| `nyari-fable-q一-db788fa2-7954-472f-8677-d4ba4f5dd6fd` | 一 | nyari同型 | Anthropic | 清: 当問のみ・独立HTTP・先行値なし | 429 | 不受理 | rate-limit | `raw-v2-terra/nyari-fable/q一/nyari-fable-q一-db788fa2-7954-472f-8677-d4ba4f5dd6fd.json` |
+| `kimi-q一-bfdd2e19-6d7f-4ca8-8718-618ac950d23d` | 一 | kimi | Moonshot | 清: 当問のみ・独立HTTP・先行値なし | 429 | 不受理 | quota | `raw-v2-terra/kimi/q一/kimi-q一-bfdd2e19-6d7f-4ca8-8718-618ac950d23d.json` |
+
+- 生値: 零。二laneは接続屍でありNへ数えない。
+- 後続受容行: lane ID・族・清浄判定・除外理由を必ず全行へ記す。
+
 ## 実行記録
 
-- 未開始: 接続・原文・値・集計はgate通過後に追記。
+- nyari同型・問一: raw Messages→429。非Claude心搏へ移行。
+- kimi・問一: raw OpenAI互換→429(quota)。N未達・集計禁止。
