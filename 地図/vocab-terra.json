@@ -360,6 +360,1086 @@
     "source": "terra"
   },
   {
+    "domain": "宇宙論",
+    "concept": "空間",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "場",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "所",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "位相",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "座標",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "座標系",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "方位",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "距離",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "近傍",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "境界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "中心",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "周縁",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "内部",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "外部",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "地平",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "面",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "次元",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "高次元",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "零次元",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "容積",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "広がり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "奥行き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "方角",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天頂",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天底",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "地軸",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "赤道",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "球面",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "曲率",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "位相空間",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "真空",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "世界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "万物",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "全天",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天地",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天空",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "地界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "現世",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "異界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "多世界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "並行世界",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "小宇宙",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "大宇宙",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙海",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星雲",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "銀河",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "銀河団",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "超銀河団",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星間",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "空隙",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙背景",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "地平線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "観測可能宇宙",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙網",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天球",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "世界軸",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "世界樹",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "世界島",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "恒星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "惑星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "衛星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "彗星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "流星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "隕石",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "小惑星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星屑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星座",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星団",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "原始星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "白色矮星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "中性子星",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "パルサー",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "クエーサー",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "超新星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "赤色巨星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "褐色矮星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "系外惑星",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "惑星系",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "降着円盤",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星風",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "日食",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "月食",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "合",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "衝",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "留",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "逆行",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星の輝き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "夜闇",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "影",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "明滅",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙閃光",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "残光",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "星明かり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "月明かり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "黎明",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "黄昏",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙薄明",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "白夜",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙暗黒",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "天文光年",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "光速",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "光子",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "電磁波",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "可視光",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "赤外線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "紫外線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "X線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "電波",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "放射線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "背景放射",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "重力波",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "時空波",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "輪光",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "後光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙天光",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "物質",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "反物質",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "素粒子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "原子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "分子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "原子核",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "電子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "陽子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "中性子",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "クォーク",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "グルーオン",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "レプトン",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ヒッグス場",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "暗黒物質",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "暗黒エネルギー",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "真空エネルギー",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "質量",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "慣性",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "密度",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "温度",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "圧力",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "熵",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "熱死",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "相転移",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "対称性",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "破れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "保存則",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "定数",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "力",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "基本相互作用",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "重力",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "引力",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "斥力",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "万有引力",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "重力井戸",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "事象の地平面",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "特異点",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ブラックホール",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ホワイトホール",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ワームホール",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "時空",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "時空連続体",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "曲がった時空",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "膨張",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "収縮",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "加速膨張",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ビッグバン",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ビッグクランチ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ビッグリップ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "ビッグバウンス",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "インフレーション",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "宇宙定数",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "赤方偏移",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "青方偏移",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "観測者",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "原理",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "因果律",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "光円錐",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "同時性",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "相対性",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "宇宙論",
+    "concept": "秩序",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
     "domain": "感情",
     "concept": "感情",
     "注": "核",
@@ -717,6 +1797,1086 @@
     "domain": "感情",
     "concept": "至福",
     "注": "核",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恍惚",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "慈しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "親しみ愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恋愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "敬愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "普遍愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "友愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "仁恵",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "過愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "清愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "片恋",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "思い合い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "両想い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "慕わしさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憧憬",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "思慕",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "愛着感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "執着",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "情け",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "思いやり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "いたわり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "優しさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "温もり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "親しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "信愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恋しさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "懐かしさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "愛おしさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "抱擁",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "絆",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "悲しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "哀しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "悲哀",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "哀愁",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憂い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憂鬱",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "寂しさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "孤独",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "孤立",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "喪失感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "悼み",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "嘆き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "痛み",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "心痛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "切なさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "やるせなさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "物悲しさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "哀切",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "悲痛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "絶望",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "落胆",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "失意",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "挫折",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "無念",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "後悔",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自責",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "慙愧",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "涙雨",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "望郷",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "愁傷",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "怒り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤怒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "激怒",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "苛立ち",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "不快",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憎しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "怨み",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恨み",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "敵意",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "殺意",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "嫌悪",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "軽蔑",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "侮蔑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "反感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤慨",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "義憤",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "不満",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憎悪",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "いらだち",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "しゃくに障る",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "腹立ち",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤懣",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤激",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "怒気",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "憤怒心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "反発",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "心外",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "痛憤",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "激憤",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恐れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "怖れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恐怖",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "不安",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "心配",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "懸念",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "危惧",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "戦慄",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "畏怖",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "畏れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "震え",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "緊張",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "警戒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "戸惑い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "当惑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "驚愕",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "パニック",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "焦り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "焦燥",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "おびえ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "ためらい",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "疑念",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "不信",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "猜疑",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "被害感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恐慌",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "心細さ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "危機感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "忌避",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "防衛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "驚き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "仰天",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "愕然",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "呆然",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "唖然",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "びっくり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "意外性",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "新鮮さ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "好奇心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "興味",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "関心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "驚嘆",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "感嘆",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "畏嘆",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "圧倒",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "魅惑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "魅了",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "不思議",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "神秘感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "発見",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "覚醒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "目覚め",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "刺激",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "期待外れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "衝撃",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "震撼",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "息をのむ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "目を見張る",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "心奪われる",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "魂消る",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "羞恥",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "恥じらい",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "照れ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "気恥ずかしさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "屈辱",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "罪悪感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "罪責感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自責心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "後ろめたさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "いたたまれなさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "気まずさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "困惑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "狼狽",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "赤面",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "面映ゆさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "きまり悪さ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自意識",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "劣等感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自尊心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "虚栄",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "見栄",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "矜持",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "誇り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自負",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自信",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "感情",
+    "concept": "自己嫌悪",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自己愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "自己受容",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "羞辱",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "感情",
+    "concept": "恥辱",
+    "注": "周",
     "source": "terra"
   },
   {
@@ -1078,5 +3238,1085 @@
     "concept": "生死",
     "注": "核",
     "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "片想い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "相思",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "相愛",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "求愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "熱愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "純愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "溺愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "偏愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "自愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "博愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "失愛",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛慕",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛撫",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛染",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛玩",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛護",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛郷",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛国",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛妻",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛子",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛弟子",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛人",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛書",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛猫",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛着心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛別離苦",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛執着",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛憐",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛玩物",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "愛の渇き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無境界",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無定形",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無重量",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無重力",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無限性",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無限遠",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無始",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無終",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無際",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無底",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無辺",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無窮",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無私",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無欲",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無感",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無害",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無罪",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無垢",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無臭",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無名",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無言",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無声",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無表情",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無関心",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無存在",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無内容",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無時間",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無空間",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無形",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無相",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無分別",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無所得",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "無知",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "誕育",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "養生",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生息",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生態",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生物",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生殖",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "成長",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "老生",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生長",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生滅",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生起",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生産",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生計",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生来",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生まれ変わり",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生彩",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生力",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生血",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生樹",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生土",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生水",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生身魂",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生者",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生類",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生国",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生き死に",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生の歓び",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "生の苦しみ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "臨終",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死別",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "逝去",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "絶命",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "絶息",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "屍",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "骸",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "墓",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "葬",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "喪",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "冥",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "黄泉",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "冥途",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "幽霊",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "亡霊",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死霊",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死相",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死線",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死後",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死者",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死骸",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死灰",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死地",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死海",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死神",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死刑",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死病",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死闘",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死語",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "死ぬること",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光明",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "日光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "陽光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "月光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "星光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "灯火",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "焔",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "炎",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "燐光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "閃光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "輝き",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "煌めき",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "眩しさ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "照り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "明朗",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光輪",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "曙光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "薄明",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "反光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光背",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "逆光",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光彩",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光芒",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光沢",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光輝",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光源",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光景",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光陰",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光年",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光線",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "光粒子",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "暗黒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "陰",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "陰影",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "翳り",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "夜陰",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "漆黒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "幽暗",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "薄暗さ",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "昏冥",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "黒",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "墨色",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "淵",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "深淵",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "洞穴",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "盲目",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇夜",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇雲",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇市",
+    "注": "周",
+    "source": "lampas-seed"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇討ち",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇路",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇行",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇医者",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇商い",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "闇の底",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "陰鬱",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "暗闇",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "暗転",
+    "注": "周",
+    "source": "terra"
+  },
+  {
+    "domain": "七つ",
+    "concept": "暗雲",
+    "注": "周",
+    "source": "terra"
   }
 ]
