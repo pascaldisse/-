@@ -54,6 +54,22 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - 両錨が各々≥2基底を満たさぬ限り **M0 FAIL / UNVERIFIED**
 - 出力路整合: ROADMAP「output rails: :5275 API writes + knowledge/semantic-map/ docs」= db-path.md と一致
 
+## M0 gate表 (生結果 2026-08-05 · terra SHA 3594f63 · Yama独立再計算一致 · 保留令⑥: en値=暫定・族結論禁止・推定非事実化)
+| pass | 愛無(q1) 中央値[幅] N | 夢(q2) 中央値[幅] N | cell状態 |
+|---|---|---|---|
+| en-symbol | 7[5-9] N5 (生値 5,6,7,8,9) | 5[2-5] N5 (生値 2,4,5,5,5) | eligible·暫定 |
+| en-plain | 5[1-6] N5 (生値 1,3,5,6,6) | 6[0-10] N5 (生値 0,4,6,10,10) | eligible·暫定 |
+| ja-symbol | NA N0 (5lane全不受理) | NA N0 | N<5 |
+| ja-plain | NA N0 (5lane全不受理) | NA N0 | N<5 |
+
+## 審査記録3 (Yama 2026-08-05, SHA 3594f63 実地照合 — 保留令⑥適用済)
+- 検証事実のみ: raw 41 file ↔ sidecar 41行 (41/41一致) · evaluator tsv 8cell再計算一致 (数値は上表) · 不受理21件=全`形式番号欠落` (ja=散文回答・番号prefix無し) · 受理20件=enのみ · 族=DeepSeek 41/41 (重み1.0)
+- **M0判定=FAIL/UNVERIFIED に確定 (他への確定禁)**: 錨1 愛無≥7=基底一のみ · 錨2 夢=5=基底一のみ · ja両pass N0=4pass未揃い · 単族=普遍/方言/争域いずれの族結論も不可
+- en値=暫定 (単族・N5・再測未実施) — 中央値差の解釈(裂/争域/ノイズ)は行わない
+- 審査待ち (結論未定): ①ja空原因 ②夢plain散度 (0-10全域) — 原因審査後記載
+
+## 00-index更新案 (semantic-map/00-index.md へ追記)
+
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
 ## 地図
