@@ -75,7 +75,12 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - **証拠欠落記録**: request params未保存。Yama追記: raw model=deepseek-v4-flash vs sidecar model=deepseek-chat 不一致 → 実際のrequest model確認不能。
 - 確定禁止継続: M0 FAIL/UNVERIFIED 以外へ確定しない。
 
-## 00-index更新案 (semantic-map/00-index.md へ追記)
+## RII受領gate (Kali受領準備令RII-①, 2026-08-05)
+- 新Rudra-II室: `terra-msfzdekkf93ewn`
+- **cohort固定**: 旧3594f63=cohort1 · 新run=cohort2 · **混算禁** (別cohortとして保持)
+- 受領順: ①canary表→採用族/固定sampling審査 ②raw+sidecar受領
+- 受容gate: **non-DeepSeek≥2族** · 各問×4pass×族 N5 · 族同数 · 1問1clean lane · **完全request metadata** · **exact回答のみ** · canary/本測いずれも欠落時=Fail/UNVERIFIED
+- 受領時独立照合: SHA · 行数 · raw数 · sidecar一対一 → 即報
 
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
