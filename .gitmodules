@@ -82,3 +82,6 @@
 	path = 文書/八連
 	url = https://github.com/pascaldisse/magic-crystal
 	branch = docs-mu-octet
+[submodule "地図/semantic-map"]
+	path = 地図/semantic-map
+	url = /Users/pascaldisse/projects/semantic-map
