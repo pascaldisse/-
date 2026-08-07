@@ -85,3 +85,7 @@
 [submodule "地図/semantic-map"]
 	path = 地図/semantic-map
 	url = /Users/pascaldisse/projects/semantic-map
+[submodule "機関/宇宙"]
+	path = 機関/宇宙
+	url = /Users/pascaldisse/projects/magic-crystal
+	branch = universe-alpha
