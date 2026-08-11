@@ -65,6 +65,7 @@ struct 引数 {
     家snap: bool,
     #[arg(long)]
     家数: Option<u32>,
+    /// r=1 の較正RMS。既定=full-scale sine RMS(1/√2); 実micは話者有声音P95を明示指定。
     #[arg(long)]
     満音rms: Option<f64>,
     #[arg(long)]

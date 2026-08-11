@@ -26,8 +26,9 @@ impl Default for 写像param {
             律: 律::八家,
             家snap: false,
             家数: 8,
-            // 話者較正前の−18dBFS相当。較正有声音RMS P95で置換するparam。
-            満音rms: 0.125_892_541_179_416_73,
+            // 既定=full-scale sine のRMS (1/√2)。合成C10の振幅はこの逆写像で
+            // r=amp を保つ。実micは話者較正有声音RMS P95を --満音rms に明示注入する。
+            満音rms: std::f64::consts::FRAC_1_SQRT_2,
             明瞭閾: 0.90,
             // −60dBFS相当。較正noise床+6dBへ上書き可能。
             無音閾rms: 0.001,
@@ -143,5 +144,20 @@ mod tests {
         };
         assert_eq!(声z(&検(Some(p.基音 * 16.0), 1.0, p.満音rms), &p).lap, 2);
         assert_eq!(声z(&検(Some(p.基音 / 16.0), 1.0, p.満音rms), &p).lap, -2);
+    }
+
+    #[test]
+    fn c10_既定較正は合成振幅を飽和せず線形に逆写像する() {
+        let p = 写像param::default();
+        let mut rs = Vec::new();
+        for amp in [0.25_f64, 0.5, 1.0] {
+            let rms = amp * std::f64::consts::FRAC_1_SQRT_2;
+            rs.push(声z(&検(Some(p.基音), 1.0, rms), &p).r);
+        }
+        for (got, want) in rs.iter().zip([0.25, 0.5, 1.0]) {
+            assert!((got - want).abs() <= 0.01, "r={got}, want={want}");
+        }
+        assert!(((rs[1] / rs[0]) - 2.0).abs() <= 0.01);
+        assert!(((rs[2] / rs[1]) - 2.0).abs() <= 0.01);
     }
 }
