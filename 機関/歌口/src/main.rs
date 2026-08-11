@@ -21,6 +21,7 @@ enum 源 {
     合成,
 }
 
+#[allow(non_snake_case)]
 #[derive(Parser, Debug)]
 #[command(name = "歌口", about = "梯5: 声→音高→Z。")]
 struct 引数 {
@@ -47,9 +48,13 @@ struct 引数 {
     #[arg(long)]
     上限hz: Option<f64>,
     #[arg(long)]
+    YIN谷閾: Option<f64>,
+    #[arg(long)]
     明瞭閾: Option<f64>,
     #[arg(long)]
     無音閾rms: Option<f64>,
+    #[arg(long)]
+    入力Nyquist比: Option<f64>,
     #[arg(long)]
     基音: Option<f64>,
     #[arg(long, value_enum)]
@@ -95,11 +100,14 @@ fn 時刻ms() -> u128 {
         .unwrap_or(0)
 }
 
-fn z行(ts: u128, z: &wa::z::Z) -> String {
+fn z行(ts: u128, z: &wa::z::Z, hz: Option<f64>) -> String {
     let (x, y) = z.直交();
+    let hz = hz
+        .map(|v| format!("{v:.6}"))
+        .unwrap_or_else(|| "none".into());
     format!(
-        "Z ts={} x={:.4} y={:.4} theta={:.6} r={:.6} lap={}",
-        ts, x, y, z.theta, z.r, z.lap
+        "Z ts={} x={:.4} y={:.4} theta={:.6} r={:.6} lap={} hz={}",
+        ts, x, y, z.theta, z.r, z.lap, hz
     )
 }
 
@@ -124,6 +132,9 @@ fn param(引: &引数) -> (検出param, 写像param) {
     if let Some(v) = 引.上限hz {
         検.上限hz = v;
     }
+    if let Some(v) = 引.YIN谷閾 {
+        検.YIN谷閾 = v;
+    }
     if let Some(v) = 引.明瞭閾 {
         検.明瞭閾 = v;
         写.明瞭閾 = v;
@@ -131,6 +142,9 @@ fn param(引: &引数) -> (検出param, 写像param) {
     if let Some(v) = 引.無音閾rms {
         検.無音閾rms = v;
         写.無音閾rms = v;
+    }
+    if let Some(v) = 引.入力Nyquist比 {
+        検.入力Nyquist比 = v;
     }
     if let Some(v) = 引.基音 {
         写.基音 = v;
@@ -260,8 +274,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let 検出 = 音高検出(&標本[始..始 + 検param.窓長], &検param);
             let z = 声z(&検出, &写param);
             let ts = 開始時刻 + (始 as u128 * 1_000 / 標本率 as u128);
-            writeln!(log, "{}", z行(ts, &z))?;
-            // 環音/src/源.rsは`L(`を含むTICKだけを読む。Z行を読まぬ故、追加量は#行へ隔離しZ本体を環zと同形に保つ。
+            // 環音/src/源.rsは`L(`を含むTICKだけを読む。Z行を読まぬ故、行末hzは現parserを変えない。
+            // 甲申告: 環音 音高.rsはθ<0を正域へ折上げ家率化する為、歌口の総角保存Zを流すと+1octaveずれる。
+            // 縫目規約は環音側の欠陥。環音は読専ゆえ歌口で補正しない。
+            writeln!(log, "{}", z行(ts, &z, 検出.hz))?;
             writeln!(
                 log,
                 "# 検出 hz={:?} 明瞭度={:.6} rms={:.6}",
