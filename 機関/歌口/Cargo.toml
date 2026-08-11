@@ -1,0 +1,19 @@
+[package]
+name = "歌口"
+version = "0.1.0"
+edition = "2021"
+description = "梯5: mic→音高→z"
+
+[dependencies]
+"環制御" = { path = "../環制御" }
+cpal = "0.15"
+clap = { version = "4", features = ["derive"] }
+hound = "3"
+
+[lib]
+name = "utagu"
+path = "src/lib.rs"
+
+[[bin]]
+name = "歌口"
+path = "src/main.rs"
