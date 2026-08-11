@@ -1,4 +1,5 @@
-//! 梯2 入力源 — {gilrs実機 | 入力log再生}. 実機不在でもMac単体で走る事 (再生=既定fallback).
+//! 梯2 入力源 — {gilrs実機 | 入力log再生}. 実機不在のMac単体でも
+//! 既定再生元が可読なら再生路へ落ちる (絶対断言ではない — file不可読なら失敗する).
 //! 生値 (x, y) 列を産む口を一つに揃え、下流 (z変換器) は源を知らない.
 
 use std::fs;
@@ -28,7 +29,8 @@ pub fn log解析(本文: &str) -> Vec<生標本> {
     本文.lines()
         .filter(|l| l.starts_with("TICK "))
         .filter_map(|l| {
-            let ts = 数取(l, "ts=").unwrap_or(0.0) as u128;
+            // ts欠損行は壊れ行として落とす (黙って0へ写像すると実時間再生が狂う).
+            let ts = 数取(l, "ts=")? as u128;
             let 左 = l.find("L(")? + 2;
             let 右 = l[左..].find(')')? + 左;
             let 部 = &l[左..右];

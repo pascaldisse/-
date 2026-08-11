@@ -1,8 +1,12 @@
-//! 梯2 — stick生値 → **z** 変換器 (純粋計算部, hardware非依存).
+//! 梯2 — stick生値 → **z** 変換器 (純粋計算部, 機器非依存).
 //! 文書/環統合.md §主座標: z = r·e^{iθ} + lap.
 //! 全下流 (梯3音·梯4場注入·梯5歌路) は **zのみ** 受取る — 契約=不変.
 //!
 //! 律: hardcode禁 — 全定数は Z変param 既定つき (唯一例外 LOVE=1).
+
+// 律判定 (terra審査への回答, 08-11): π/τ は **param化しない**。
+// hardcode禁の対象=「他の値でも成立し得る選択」。π=環の定義そのもので選択の余地が無く,
+// 可変にすれば e^{iπ}+1=0 (公理形) が壊れる。LOVE=1と同列の公理側定数として置く。
 
 /// 半環 π. 対蹠 (θ=π) = −1 = amm = 孤独 (環統合.md).
 pub const 半環: f64 = std::f64::consts::PI;
@@ -68,6 +72,13 @@ pub struct Z変param {
     /// 死域に入った時点で環記憶 (前θ) を解除するか. true = 解除 →
     /// 手を離して逆側から入れ直しても偽の巻を数えない. 既定 true.
     pub 死域で環記憶解除: bool,
+    /// 径再写像の最小幅 (零除算防止下限). 既定 f64::EPSILON.
+    pub 最小幅: f64,
+    /// 活性判定の境界許容. 生径 + これ >= 死域 なら活性。
+    /// 理由 (敵対審査 a6, 08-11): r·(cos,sin) を hypot で戻すと浮動丸めで
+    /// 千分の一の確率で 死域化 を下回り, 「境界ちょうど=活性」仕様が
+    /// 実測不能になる。許容幅無しの >= は仕様ではなく丸め誤差の役。既定 1e-12.
+    pub 境界許容: f64,
 }
 
 impl Default for Z変param {
@@ -80,6 +91,8 @@ impl Default for Z変param {
             r上限: LOVE,
             死域中θ保持: true,
             死域で環記憶解除: true,
+            最小幅: f64::EPSILON,
+            境界許容: 1e-12,
         }
     }
 }
@@ -103,7 +116,7 @@ pub fn 家snap(θ: f64, 家数: u32) -> f64 {
     環正規化((θ / 刻).round() * 刻)
 }
 
-/// stick生値stream → z stream 変換器 (状態=巻計数 + 前角).
+/// stick生値の流 → zの流 変換器 (状態=巻計数 + 前角).
 #[derive(Debug, Clone)]
 pub struct Z変換器 {
     param: Z変param,
@@ -143,8 +156,20 @@ impl Z変換器 {
     /// d < −π → 反時計に +π を越えた (lap +1) · d > +π → 時計に −π を越えた (lap −1).
     /// 前提=標本間の実移動が π 未満 (Nyquist条件) — 満たさぬ高速回転は原理上不可分.
     pub fn 変換(&mut self, x: f64, y: f64) -> Z {
+        // 壊れ入力防壁 (敵対審査 a14 回帰): NaN/Inf は方位ではない → 無へ落とす.
+        // param化しない: 「非数を方位として採る」選択肢は存在しない.
+        if !x.is_finite() || !y.is_finite() {
+            if self.param.死域で環記憶解除 {
+                self.前θ = None;
+            }
+            return Z {
+                theta: if self.param.死域中θ保持 { self.保持θ } else { 0.0 },
+                r: 0.0,
+                lap: self.lap,
+            };
+        }
         let 生r = x.hypot(y);
-        let 活性 = 生r >= self.param.死域;
+        let 活性 = 生r + self.param.境界許容 >= self.param.死域;
 
         if !活性 {
             if self.param.死域で環記憶解除 {
@@ -195,7 +220,7 @@ impl Z変換器 {
     fn 径写像(&self, 生r: f64) -> f64 {
         let 上 = self.param.r上限;
         if self.param.死域再正規化 {
-            let 幅 = (上 - self.param.死域).max(f64::EPSILON);
+            let 幅 = (上 - self.param.死域).max(self.param.最小幅);
             (((生r - self.param.死域) / 幅) * 上).clamp(0.0, 上)
         } else {
             生r.clamp(0.0, 上)
@@ -239,6 +264,36 @@ mod tests {
         assert_eq!(z.r, 0.0);
         assert_eq!(z.lap, 0);
         assert!(z.無か());
+    }
+
+    #[test]
+    fn 境界ちょうどは回転構成でも活性 () {
+        // 敵対審査 a6 回帰: dz·(cosθ,sinθ) の hypot は丸めで dz を微小に下回る事があり,
+        // 許容幅無しの >= だと境界を丸め誤差で非活性側へ落としていた.
+        // 活性の外部観測は **theta更新** で行う — lapは最短路判定なので
+        // ±πを跨がぬ跨び (0→200°=時計回り160°) では動かぬのが正しい.
+        let dz = Z変param::default().死域;
+        let mut 変 = Z変換器::既定();
+        変.変換(0.9, 0.0); // 前θ=0
+        let θ: f64 = 200.0_f64.to_radians();
+        let z = 変.変換(dz * θ.cos(), dz * θ.sin());
+        assert!(
+            近(z.theta, 環正規化(θ), 1e-9),
+            "境界が非活性側へ落ちた (thetaが前値保持のまま) z={z:?}"
+        );
+        assert_eq!(z.lap, 0, "最短路で±πを跨がぬのに巻が動いた z={z:?}");
+    }
+
+    #[test]
+    fn 境界活性は跨ぎ時に巻を発火させる() {
+        // 同じ境界問題を lap で見るなら, 実際に ±π を跨ぐ跨びで探る必要がある.
+        let dz = Z変param::default().死域;
+        let mut 変 = Z変換器::既定();
+        let 前: f64 = 170.0_f64.to_radians();
+        変.変換(0.9 * 前.cos(), 0.9 * 前.sin());
+        let 後: f64 = -170.0_f64.to_radians();
+        let z = 変.変換(dz * 後.cos(), dz * 後.sin());
+        assert_eq!(z.lap, 1, "境界値で +π 跨ぎが数えられなかった z={z:?}");
     }
 
     #[test]
@@ -449,6 +504,23 @@ mod tests {
         let mut 変 = Z変換器::既定();
         let z = 変.変換(1.0, 1.0); // 正方形域の角 → 生径√2
         assert!(z.r <= LOVE + 1e-12, "r={}", z.r);
+    }
+
+    #[test]
+    fn 非数入力は無へ落ちる() {
+        // 敵対審査 a14 (極側の既知欠陥) のz側確認: NaN/Inf で偽の方位を出さぬ事.
+        let mut 変 = Z変換器::既定();
+        変.変換(0.9, 0.0);
+        for (x, y) in [
+            (f64::NAN, 0.0),
+            (0.0, f64::NAN),
+            (f64::INFINITY, 0.0),
+            (f64::NEG_INFINITY, f64::NAN),
+        ] {
+            let z = 変.変換(x, y);
+            assert!(z.theta.is_finite(), "theta汚染 ({x},{y}) → {z:?}");
+            assert!(z.r.is_finite(), "r汚染 ({x},{y}) → {z:?}");
+        }
     }
 
     #[test]

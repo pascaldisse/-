@@ -1,6 +1,7 @@
 //! 梯2 実行体 — stick生値 → z stream. 文書/環統合.md §主座標.
 //! 入力源 = param {実機 | 再生 | 自動}. 自動 = 実機を試し、gamepad 0台なら再生へ落ちる
-//! (実機不在のMac単体でも必ず走る = 再生路が既定fallback).
+//! (実機不在のMac単体でも、既定再生元が可読·出力先が作成可なら再生路で走る = 既定fallback.
+//!  file不可読時は失敗する — 「必ず走る」ではない).
 
 
 use std::fs::{self, File};
@@ -26,7 +27,7 @@ enum 源 {
 
 #[derive(Parser, Debug)]
 #[command(name = "環z", about = "梯2: stick生値→z変換器. 文書/環統合.md 参照.")]
-struct Args {
+struct 引数 {
     /// 入力源.
     #[arg(long, value_enum, default_value_t = 源::自動)]
     源: 源,
@@ -78,6 +79,18 @@ struct Args {
     /// 再生の標本上限 (0 = 全部).
     #[arg(long, default_value_t = 0)]
     再生上限: usize,
+
+    /// 温機中のevent汲取り間隔 (ms).
+    #[arg(long, default_value_t = 10)]
+    温機poll_ms: u64,
+
+    /// poll周波数の下限 (Hz) — 零除算防止の床.
+    #[arg(long, default_value_t = 0.001)]
+    最小poll_hz: f64,
+
+    /// 実時間再生の一標本あたり待機上限 (ms) — logの時刻跳びで固まらぬ為.
+    #[arg(long, default_value_t = 1000)]
+    再生最大待機ms: u64,
 }
 
 fn 既定再生元() -> PathBuf {
@@ -87,7 +100,7 @@ fn 既定出力() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../proof/環制御/z再生log.txt")
 }
 
-fn ts_ms() -> u128 {
+fn 時刻ms() -> u128 {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
         .map(|d| d.as_millis())
@@ -107,7 +120,7 @@ fn z行(ts: u128, x: f64, y: f64, z: &Z) -> String {
 }
 
 fn main() -> io::Result<()> {
-    let args = Args::parse();
+    let args = 引数::parse();
     let 出力 = args.出力.clone().unwrap_or_else(既定出力);
     if let Some(親) = 出力.parent() {
         fs::create_dir_all(親)?;
@@ -124,7 +137,7 @@ fn main() -> io::Result<()> {
     };
     let mut 変 = Z変換器::新(param);
 
-    書(&mut log, &format!("# 環z 梯2 起動 ts={}", ts_ms()));
+    書(&mut log, &format!("# 環z 梯2 起動 ts={}", 時刻ms()));
     書(&mut log, &format!("# param {param:?}"));
 
     // 源決定 — 自動は実機を試して不在なら再生.
@@ -138,7 +151,7 @@ fn main() -> io::Result<()> {
         let 締 = Instant::now() + Duration::from_millis(args.温機ms);
         while Instant::now() < 締 {
             while g.next_event().is_some() {}
-            std::thread::sleep(Duration::from_millis(10));
+            std::thread::sleep(Duration::from_millis(args.温機poll_ms));
         }
         for (id, gp) in g.gamepads() {
             実機台数 += 1;
@@ -163,7 +176,7 @@ fn main() -> io::Result<()> {
     if 実機使用 {
         書(&mut log, &format!("# 源=実機 ({実機台数}台)"));
         let g = gilrs.as_mut().expect("実機使用時はGilrs有");
-        let 刻 = Duration::from_secs_f64(1.0 / args.poll_hz.max(0.001));
+        let 刻 = Duration::from_secs_f64(1.0 / args.poll_hz.max(args.最小poll_hz));
         let 無限 = args.実行秒 == 0;
         let 締 = Instant::now() + Duration::from_secs(args.実行秒);
         let mut 次 = Instant::now();
@@ -179,7 +192,7 @@ fn main() -> io::Result<()> {
                     let x = gp.value(Axis::LeftStickX) as f64;
                     let y = gp.value(Axis::LeftStickY) as f64;
                     let zz = 変.変換(x, y);
-                    書(&mut log, &z行(ts_ms(), x, y, &zz));
+                    書(&mut log, &z行(時刻ms(), x, y, &zz));
                     数 += 1;
                 }
             }
@@ -207,7 +220,7 @@ fn main() -> io::Result<()> {
             if args.実時間再生 {
                 if let Some(p) = 前ts {
                     let 差 = s.ts.saturating_sub(p);
-                    if 差 > 0 && 差 < 1000 {
+                    if 差 > 0 && 差 < args.再生最大待機ms as u128 {
                         std::thread::sleep(Duration::from_millis(差 as u64));
                     }
                 }
@@ -222,7 +235,7 @@ fn main() -> io::Result<()> {
         );
     }
 
-    書(&mut log, &format!("# 環z 梯2 終了 ts={}", ts_ms()));
+    書(&mut log, &format!("# 環z 梯2 終了 ts={}", 時刻ms()));
     log.flush()?;
     Ok(())
 }
