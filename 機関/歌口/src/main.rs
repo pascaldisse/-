@@ -274,9 +274,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let 検出 = 音高検出(&標本[始..始 + 検param.窓長], &検param);
             let z = 声z(&検出, &写param);
             let ts = 開始時刻 + (始 as u128 * 1_000 / 標本率 as u128);
-            // 環音/src/源.rsは`L(`を含むTICKだけを読む。Z行を読まぬ故、行末hzは現parserを変えない。
-            // 甲申告: 環音 音高.rsはθ<0を正域へ折上げ家率化する為、歌口の総角保存Zを流すと+1octaveずれる。
-            // 縫目規約は環音側の欠陥。環音は読専ゆえ歌口で補正しない。
+            // 環音/src/源.rsの唯一parserは`Z … theta=… r=… lap=…`を直読する。
+            // 行末hzは観測注釈のみ。下流音高はZの総角・巻を唯一の入力契約とする。
             writeln!(log, "{}", z行(ts, &z, 検出.hz))?;
             writeln!(
                 log,
