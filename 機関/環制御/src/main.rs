@@ -11,6 +11,7 @@ use clap::Parser;
 use gilrs::{Axis, Button, Event, EventType, Gilrs};
 
 use wa::polar::{clamp_trigger, stick_to_polar};
+use wa::正準表記::{表記, 正準param};
 
 /// 既知の Button 全種 (Unknown除く, gilrs::Button 定義順).
 const ALL_BUTTONS: &[Button] = &[
@@ -75,6 +76,12 @@ struct Args {
     /// 短時間 next_event() を汲み続けて確定させる (鉄則: hardcode禁 → param化).
     #[arg(long, default_value_t = 400)]
     warmup_ms: u64,
+
+    /// 正準表記桁数 (A11/A13是正, docs/adversary 甲.2.8 Pascal裁定 08-11). 既定4 = 現行
+    /// log書式 `{:.4}` と後方互換。TICK行 L(x=.. y=..)/R(x=.. y=..) の量子化桁 —
+    /// z主.rs (梯2) の量子化桁と同値に合わせる事 (A13契約: 同一関数・同一桁数).
+    #[arg(long, default_value_t = 4)]
+    量子化桁: usize,
 }
 
 fn default_log_path() -> PathBuf {
@@ -112,15 +119,18 @@ fn main() -> io::Result<()> {
         }
     };
 
+    let 正準 = 正準param { 桁: args.量子化桁 };
+
     emit(&mut log, &format!("# 環制御 梯1 (読取) 起動 ts={}", ts_ms()));
     emit(
         &mut log,
         &format!(
-            "# param deadzone={} poll_hz={} duration_secs={} log_path={}",
+            "# param deadzone={} poll_hz={} duration_secs={} log_path={} 量子化桁={}",
             args.deadzone,
             args.poll_hz,
             args.duration_secs,
-            log_path.display()
+            log_path.display(),
+            args.量子化桁,
         ),
     );
 
@@ -218,15 +228,18 @@ fn main() -> io::Result<()> {
                 let left = stick_to_polar(lx, ly, args.deadzone);
                 let right = stick_to_polar(rx, ry, args.deadzone);
 
+                // A11/A13是正 (docs/adversary 甲.2.8): L/Rの(x,y)は下流 (梯2 z主.rs 再生路) が
+                // 入力源.rs 経由で読み戻す契約対象の値 — 本module唱一の正準表記::表記() で書く事
+                // (直書き"{:.4}"を残さない — 実機路・再生路共通の量子化窓口契約).
                 emit(
                     &mut log,
                     &format!(
-                        "TICK ts={} id={:?} L(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) R(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) L2={:.4} R2={:.4}",
+                        "TICK ts={} id={:?} L(x={} y={} angle={:.2} mag={:.4} house={}) R(x={} y={} angle={:.2} mag={:.4} house={}) L2={:.4} R2={:.4}",
                         ts_ms(),
                         id,
-                        lx, ly, left.angle_deg, left.magnitude,
+                        表記(lx as f64, 正準), 表記(ly as f64, 正準), left.angle_deg, left.magnitude,
                         left.house.map(|h| h.to_string()).unwrap_or_else(|| "無".into()),
-                        rx, ry, right.angle_deg, right.magnitude,
+                        表記(rx as f64, 正準), 表記(ry as f64, 正準), right.angle_deg, right.magnitude,
                         right.house.map(|h| h.to_string()).unwrap_or_else(|| "無".into()),
                         l2, r2,
                     ),

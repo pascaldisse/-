@@ -14,6 +14,7 @@ use gilrs::Axis;
 
 use wa::z::{Z, Z変param, Z変換器};
 use wa::入力源::log読込;
+use wa::正準表記::{表記, 量子化, 正準param};
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, ValueEnum)]
 enum 源 {
@@ -91,6 +92,12 @@ struct 引数 {
     /// 実時間再生の一標本あたり待機上限 (ms) — logの時刻跳びで固まらぬ為.
     #[arg(long, default_value_t = 1000)]
     再生最大待機ms: u64,
+
+    /// 正準表記桁数 (A11/A13是正, docs/adversary 甲.2.8 Pascal裁定 08-11). 既定4 = 現行log書式
+    /// `{:.4}` と後方互換。実機路の生値はここで一度量子化してからZ変換器へ渡す — 「記録済log =
+    /// 真値源」契約 (A11) を実機路自身にも適用し, 実機路と再生路のz列をbit一致させる (A13).
+    #[arg(long, default_value_t = 4)]
+    量子化桁: usize,
 }
 
 fn 既定再生元() -> PathBuf {
@@ -112,10 +119,15 @@ fn 書(log: &mut File, 行: &str) {
     let _ = writeln!(log, "{行}");
 }
 
-fn z行(ts: u128, x: f64, y: f64, z: &Z) -> String {
+fn z行(ts: u128, x: f64, y: f64, z: &Z, 正準: 正準param) -> String {
     format!(
-        "Z ts={} x={:.4} y={:.4} theta={:.6} r={:.6} lap={}",
-        ts, x, y, z.theta, z.r, z.lap
+        "Z ts={} x={} y={} theta={:.6} r={:.6} lap={}",
+        ts,
+        表記(x, 正準),
+        表記(y, 正準),
+        z.theta,
+        z.r,
+        z.lap
     )
 }
 
@@ -136,9 +148,10 @@ fn main() -> io::Result<()> {
         ..Default::default()
     };
     let mut 変 = Z変換器::新(param);
+    let 正準 = 正準param { 桁: args.量子化桁 };
 
     書(&mut log, &format!("# 環z 梯2 起動 ts={}", 時刻ms()));
-    書(&mut log, &format!("# param {param:?}"));
+    書(&mut log, &format!("# param {param:?} 正準={正準:?}"));
 
     // 源決定 — 自動は実機を試して不在なら再生. 起動+温機+device列挙は wa::実機 (契約層共通law) へ委譲
     // (梯4前梯 実機歌鐘 08-11: 環音のlive源と同一実装を再用 — 私有二重実装を解消).
@@ -182,10 +195,17 @@ fn main() -> io::Result<()> {
             let ids: Vec<_> = g.gamepads().map(|(id, _)| id).collect();
             for id in ids {
                 if let Some(gp) = g.connected_gamepad(id) {
-                    let x = gp.value(Axis::LeftStickX) as f64;
-                    let y = gp.value(Axis::LeftStickY) as f64;
+                    // A11/A13是正: 実機生値 (f32→f64) を Z変換器へ渡す**前**に量子化する ——
+                    // 「記録済log = 真値源」契約 (A11) を実機路自身にも課す事で、この場で書く
+                    // logをそのまま再生した時のz列と、この実行中に計算したz列がbit一致する
+                    // (量子化前の生f64のまま変換すると、実機路のみが余分な精度を持ち
+                    // 再生と食い違う — A13「型経路非対称」の実体).
+                    let 生x = gp.value(Axis::LeftStickX) as f64;
+                    let 生y = gp.value(Axis::LeftStickY) as f64;
+                    let x = 量子化(生x, 正準);
+                    let y = 量子化(生y, 正準);
                     let zz = 変.変換(x, y);
-                    書(&mut log, &z行(時刻ms(), x, y, &zz));
+                    書(&mut log, &z行(時刻ms(), x, y, &zz, 正準));
                     数 += 1;
                 }
             }
@@ -220,7 +240,7 @@ fn main() -> io::Result<()> {
                 前ts = Some(s.ts);
             }
             let zz = 変.変換(s.x, s.y);
-            書(&mut log, &z行(s.ts, s.x, s.y, &zz));
+            書(&mut log, &z行(s.ts, s.x, s.y, &zz, 正準));
         }
         書(
             &mut log,

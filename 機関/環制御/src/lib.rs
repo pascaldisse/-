@@ -10,6 +10,13 @@ pub mod polar;
 pub mod z;
 #[path = "入力源.rs"]
 pub mod 入力源;
+/// A11/A13是正 (docs/adversary 甲.2.8, Pascal裁定 08-11) — 実機路・再生路が共有すべき
+/// 唯一の量子化窓口. z主.rs/main.rs の書出しは本moduleを通す事 (契約).
+#[path = "正準表記.rs"]
+pub mod 正準表記;
+/// haptic帰路 (任A支援, 08-11) — 場応答r→DualSense rumble 2Hz搬送 (既定). 文書/環制御.md §帰路.
+#[path = "帰路.rs"]
+pub mod 帰路;
 /// 実機live読取の共通law (Gilrs起動+温機+device列挙+左stick読取) — 梯3 環音のlive源が
 /// 再用する契約点 (私有再実装禁, 梯4前梯 実機歌鐘 08-11).
 #[path = "実機.rs"]
