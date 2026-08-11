@@ -10,6 +10,8 @@ mod 源;
 mod 波形;
 #[path = "音高.rs"]
 mod 音高;
+#[path = "実機live.rs"]
+mod 実機live;
 
 use std::path::PathBuf;
 use std::sync::{Arc, atomic::{AtomicUsize, Ordering}};
@@ -24,12 +26,16 @@ use 源::log再生;
 use 波形::{wav書出, wav仕様};
 use 音高::{律, 周波数上限param, 音高律};
 
-#[derive(Debug, Clone, Copy, ValueEnum)]
+#[derive(Debug, Clone, Copy, ValueEnum, PartialEq, Eq)]
 enum 源選択 {
     #[value(name = "log")]
     Log,
     #[value(name = "stick")]
     Stick,
+    /// gilrs実機live event — 梯4前梯 (場注入/haptic対象外). 文書/環統合.md 補間法註 (丙-C3) 通り
+    /// frame境界で総角補間, cpal連続出力. 「stickを回すと今歌う」.
+    #[value(name = "実機live")]
+    実機live,
 }
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -65,8 +71,10 @@ struct Args {
     律動_hz: f64,
     #[arg(long, default_value_t = 48_000)]
     sample率: u32,
-    #[arg(long, default_value_t = 8.0)]
-    秒: f64,
+    /// 収録秒数. 未指定時の既定は源により違う (--源 実機live のみ既定30, 他は既定8) —
+    /// param解決は main() 冒頭で行う (hardcode禁: 固定既定値を単一定数化せず源別に明示).
+    #[arg(long)]
+    秒: Option<f64>,
     #[arg(long, default_value_os_t = 既定wav())]
     wav: PathBuf,
     #[arg(long, value_enum, default_value_t = 切替::On)]
@@ -88,6 +96,15 @@ struct Args {
     /// (振幅線形性のRMS実測用, 監査 乙.4-d B5 UNVERIFIED是正).
     #[arg(long)]
     径: Option<f64>,
+    /// wav同時書出 (live proof用 — 既定on. offなら再生のみで書出さない).
+    #[arg(long, value_enum, default_value_t = 切替::On)]
+    wav書出: 切替,
+    /// 実機live 起動前の温機時間 (ms) — 環制御既存law (wa::実機::温機param) と同一既定.
+    #[arg(long, default_value_t = 400)]
+    温機ms: u64,
+    /// 実機live 温機中のevent汲取り間隔 (ms).
+    #[arg(long, default_value_t = 10)]
+    温機poll_ms: u64,
 }
 
 fn 既定log() -> PathBuf {
@@ -190,16 +207,52 @@ fn 実音再生(samples: Vec<f32>, sample率: u32) -> Result<(), String> {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
-    if !args.秒.is_finite() || args.秒 <= 0.0 || args.sample率 == 0 || !args.入力hz.is_finite() || args.入力hz <= 0.0 {
+    let 秒 = args.秒.unwrap_or(if args.源 == 源選択::実機live { 30.0 } else { 8.0 });
+    if !秒.is_finite() || 秒 <= 0.0 || args.sample率 == 0 || !args.入力hz.is_finite() || args.入力hz <= 0.0 {
         return Err("秒>0・sample率>0・入力hz>0 必須".into());
     }
-    let 必要z = (args.秒 * args.入力hz).ceil() as usize;
+
+    if args.源 == 源選択::実機live {
+        // 梯4前梯 live音線: gilrs実機event → Z変換器 → 合成器 → cpal連続出力. 自動fallback禁
+        // (device不在はpanic/黙ってlog再生へ倒れず, 明確1行errorで早期終了).
+        let p = 実機live::Liveparam {
+            sample率: args.sample率,
+            秒,
+            音高: 音高律 { 基音: args.基音, 律: 律へ(args.律) },
+            律動: 律動param { 有効: args.律動 == 切替::On, 律動Hz: args.律動_hz, ..Default::default() },
+            入力hz: args.入力hz,
+            deadzone: args.deadzone,
+            周波数上限比: args.周波数上限比,
+            補間標本: args.補間標本,
+            温機ms: args.温機ms,
+            温機poll_ms: args.温機poll_ms,
+        };
+        let 結果 = 実機live::実行(&p).map_err(|e| -> Box<dyn std::error::Error> { e.into() })?;
+        for 行 in &結果.device行 {
+            println!("{行}");
+        }
+        println!("# live z流入 {} 件", 結果.z流入数);
+        if args.wav書出 == 切替::On {
+            wav書出(&args.wav, &wav仕様 { sample率: args.sample率, ..Default::default() }, &結果.samples)?;
+            println!(
+                "# wav {} samples={} 秒={:.3}",
+                args.wav.display(),
+                結果.samples.len(),
+                結果.samples.len() as f64 / args.sample率 as f64
+            );
+        }
+        println!("# 実音再生: live再生完了 ({:.1}秒連続)", 秒);
+        return Ok(());
+    }
+
+    let 必要z = (秒 * args.入力hz).ceil() as usize;
     let zs = match args.源 {
         源選択::Log => log再生(&args.log_path, args.deadzone)?,
         源選択::Stick => {
             eprintln!("# 警告: 実機stream公開口未提供 — 梯2入力logをstick再生へ使用");
             stick再生(&args.log_path, args.deadzone)?
         }
+        源選択::実機live => unreachable!("上部で早期リターン済"),
     };
     let zs = 長さを揃える(zs, 必要z, args.掃引 == 切替::On);
     // B5可測化: 径直接指定時は全zのrを上書き (θ/lapは源のまま — 音高は不変で振幅のみ実測する場合は別途θ固定で呼ぶ).
@@ -209,7 +262,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         zs
     };
     let z毎sample数 = (args.sample率 as f64 / args.入力hz).round().max(1.0) as usize;
-    let 必要sample = (args.秒 * args.sample率 as f64).round() as usize;
+    let 必要sample = (秒 * args.sample率 as f64).round() as usize;
     let mut 合成 = 合成器::新(
         args.sample率,
         音高律 { 基音: args.基音, 律: 律へ(args.律) },
@@ -222,8 +275,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     while samples.len() < 必要sample {
         samples.push(0.0);
     }
-    wav書出(&args.wav, &wav仕様 { sample率: args.sample率, ..Default::default() }, &samples)?;
-    println!("# wav {} samples={} 秒={:.3}", args.wav.display(), samples.len(), samples.len() as f64 / args.sample率 as f64);
+    if args.wav書出 == 切替::On {
+        wav書出(&args.wav, &wav仕様 { sample率: args.sample率, ..Default::default() }, &samples)?;
+        println!("# wav {} samples={} 秒={:.3}", args.wav.display(), samples.len(), samples.len() as f64 / args.sample率 as f64);
+    }
 
     if args.実音 == 切替::On {
         match 実音再生(samples, args.sample率) {
@@ -250,5 +305,47 @@ mod tests {
         let last = 掃引z(7, 8).theta;
         assert_eq!(first, 0.0);
         assert!(last > 5.0);
+    }
+
+    // — 梯4前梯 実機歌鐘 (--源 実機live) 構成検査 —
+
+    #[test]
+    fn 実機liveはCLI値として受理される() {
+        let args = Args::parse_from(["環音", "--源", "実機live"]);
+        assert_eq!(args.源, 源選択::実機live);
+    }
+
+    #[test]
+    fn 実機live未指定秒は三十へ解決される() {
+        let args = Args::parse_from(["環音", "--源", "実機live"]);
+        let 秒 = args.秒.unwrap_or(if args.源 == 源選択::実機live { 30.0 } else { 8.0 });
+        assert_eq!(秒, 30.0);
+    }
+
+    #[test]
+    fn log源未指定秒は八へ解決される() {
+        let args = Args::parse_from(["環音"]);
+        let 秒 = args.秒.unwrap_or(if args.源 == 源選択::実機live { 30.0 } else { 8.0 });
+        assert_eq!(秒, 8.0);
+    }
+
+    #[test]
+    fn 実機liveでも秒の明示指定は優先される() {
+        let args = Args::parse_from(["環音", "--源", "実機live", "--秒", "5"]);
+        let 秒 = args.秒.unwrap_or(if args.源 == 源選択::実機live { 30.0 } else { 8.0 });
+        assert_eq!(秒, 5.0);
+    }
+
+    #[test]
+    fn wav書出は既定on() {
+        let args = Args::parse_from(["環音"]);
+        assert_eq!(args.wav書出, 切替::On);
+    }
+
+    #[test]
+    fn 温機paramは環制御既存lawと同一既定値() {
+        let args = Args::parse_from(["環音"]);
+        assert_eq!(args.温機ms, 400);
+        assert_eq!(args.温機poll_ms, 10);
     }
 }

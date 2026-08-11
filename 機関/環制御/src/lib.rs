@@ -10,3 +10,7 @@ pub mod polar;
 pub mod z;
 #[path = "入力源.rs"]
 pub mod 入力源;
+/// 実機live読取の共通law (Gilrs起動+温機+device列挙+左stick読取) — 梯3 環音のlive源が
+/// 再用する契約点 (私有再実装禁, 梯4前梯 実機歌鐘 08-11).
+#[path = "実機.rs"]
+pub mod 実機;

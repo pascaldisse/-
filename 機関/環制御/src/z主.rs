@@ -10,7 +10,7 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 use clap::{Parser, ValueEnum};
-use gilrs::{Axis, Gilrs};
+use gilrs::Axis;
 
 use wa::z::{Z, Z変param, Z変換器};
 use wa::入力源::log読込;
@@ -140,25 +140,18 @@ fn main() -> io::Result<()> {
     書(&mut log, &format!("# 環z 梯2 起動 ts={}", 時刻ms()));
     書(&mut log, &format!("# param {param:?}"));
 
-    // 源決定 — 自動は実機を試して不在なら再生.
+    // 源決定 — 自動は実機を試して不在なら再生. 起動+温機+device列挙は wa::実機 (契約層共通law) へ委譲
+    // (梯4前梯 実機歌鐘 08-11: 環音のlive源と同一実装を再用 — 私有二重実装を解消).
     let mut gilrs = if matches!(args.源, 源::実機 | 源::自動) {
-        Gilrs::new().ok()
+        wa::実機::起動温機(wa::実機::温機param { 温機ms: args.温機ms, 温機poll_ms: args.温機poll_ms }).ok()
     } else {
         None
     };
     let mut 実機台数 = 0usize;
-    if let Some(g) = gilrs.as_mut() {
-        let 締 = Instant::now() + Duration::from_millis(args.温機ms);
-        while Instant::now() < 締 {
-            while g.next_event().is_some() {}
-            std::thread::sleep(Duration::from_millis(args.温機poll_ms));
-        }
-        for (id, gp) in g.gamepads() {
-            実機台数 += 1;
-            書(
-                &mut log,
-                &format!("DEVICE id={id:?} name=\"{}\" connected={}", gp.name(), gp.is_connected()),
-            );
+    if let Some(g) = gilrs.as_ref() {
+        実機台数 = wa::実機::接続数(g);
+        for 行 in wa::実機::device行群(g) {
+            書(&mut log, &行);
         }
     }
 
