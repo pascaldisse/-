@@ -9,7 +9,7 @@ use clap::{Parser, ValueEnum};
 use hound::{SampleFormat, WavReader, WavSpec, WavWriter};
 use utagu::入力::mic収録;
 use utagu::写像::{写像param, 声z};
-use utagu::検出::{検出param, 検出法, 音高検出};
+use utagu::検出::{検出param, 検出法, 追跡param, 音高検出, 音高追跡};
 use utagu::音高律::律;
 
 #[derive(Clone, Copy, Debug, ValueEnum)]
@@ -73,6 +73,9 @@ struct 引数 {
     lap上限: Option<i64>,
     #[arg(long)]
     合成振幅: Option<f64>,
+    /// 追跡器が許す隣接frameのraw半音差。octave同値補正は行わない。
+    #[arg(long)]
+    最大跳幅半音: Option<f64>,
 }
 
 #[derive(Clone, Copy, Debug, ValueEnum)]
@@ -157,7 +160,10 @@ fn param(引: &引数) -> (検出param, 写像param) {
     if let Some(v) = 引.律 {
         写.律 = v;
         // 律選択はL域の実家数へ直結。--家数 はこの後の明示override。
-        写.家数 = match v { 律::八家 => 8, 律::十二平均律 => 12 };
+        写.家数 = match v {
+            律::八家 => 8,
+            律::十二平均律 => 12,
+        };
     }
     写.家snap = 引.家snap;
     if let Some(v) = 引.家数 {
@@ -232,6 +238,11 @@ fn 合成(道: &Path, hz: f64, 秒: f64, 標本率: u32, 振幅: f64) -> Result<
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let 引 = 引数::parse();
     let (mut 検param, 写param) = param(&引);
+    let 追跡param = 追跡param {
+        最大跳幅半音: 引
+            .最大跳幅半音
+            .unwrap_or_else(|| 追跡param::default().最大跳幅半音),
+    };
     let 出力 = 引.出力.clone().unwrap_or_else(既定出力);
     if let Some(親) = 出力.parent() {
         fs::create_dir_all(親)?;
@@ -269,7 +280,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     )?;
     writeln!(log, "# 検出param {:?}", 検param)?;
     writeln!(log, "# 写像param {:?}", 写param)?;
+    writeln!(log, "# 追跡param {:?}", 追跡param)?;
     let 開始時刻 = 時刻ms();
+    let mut 追跡 = 音高追跡::新();
     let mut 数 = 0usize;
     if 検param.窓長 == 0 || 検param.跳幅 == 0 {
         writeln!(log, "# UNVERIFIED: 窓長又は跳幅が零")?;
@@ -278,7 +291,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .step_by(検param.跳幅)
             .take_while(|始| 始.saturating_add(検param.窓長) <= 標本.len())
         {
-            let 検出 = 音高検出(&標本[始..始 + 検param.窓長], &検param);
+            let 検出 = 追跡.通す(音高検出(&標本[始..始 + 検param.窓長], &検param), &追跡param);
             let z = 声z(&検出, &写param);
             let ts = 開始時刻 + (始 as u128 * 1_000 / 標本率 as u128);
             // 環音/src/源.rsの唯一parserは`Z … theta=… r=… lap=…`を直読する。
