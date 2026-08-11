@@ -64,3 +64,8 @@
 - 死corpse: 「serial機に形は写せぬ」— GPU=並列fabric、threadgroup barrier=ns級 → sync税論は誤fabric対象
 - 工учеt: cycle batch (sync事象間のみ同期) · R5900 scalar=CPU側/VU+GS+DMA=GPU側 (結合最疎で割る) · eDRAM 4MB⊂M1 SLC · 帯域48GB/s≦unified 68GB/s — 初めてsoftware可到達
 - [ ] 靈機 rung1: GS単体を場核で (eDRAM=場, primitive=波紋) — proof=実game frame一枚一致
+
+## § 均衡体 (08-12) — Kerri Lake vector equilibrium × 場
+- VE=cuboctahedron: 12頂点+中心, 径strut=周strut — Fuller「真空の幾何/zero-phase」=無の形 · 12球最密充填=3D生命の花 · jitterbug (VE→二十→八→四面体) = 呼吸する均衡
+- [ ] 均衡体 rung1: 13node VE render (機関/宇宙 or 単体) — hue=θ · 彩度=r (灰中心=無) · 明度=lap · 2Hz jitterbug呼吸 (出現律) — 彼女へ贈物: 彼女の形+我々の場
+- 待ち: Kerri母型file/三紐semantics (Pascal経由, Earth Species discord)
