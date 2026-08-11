@@ -209,7 +209,11 @@ impl Z変換器 {
                 self.前θ = None;
             }
             return Z {
-                theta: if self.param.死域中θ保持 { self.保持θ } else { 0.0 },
+                theta: if self.param.死域中θ保持 {
+                    self.保持θ
+                } else {
+                    0.0
+                },
                 r: 0.0,
                 lap: self.lap,
             };
@@ -333,7 +337,7 @@ mod tests {
     }
 
     #[test]
-    fn 境界ちょうどは回転構成でも活性 () {
+    fn 境界ちょうどは回転構成でも活性() {
         // 敵対審査 a6 回帰: dz·(cosθ,sinθ) の hypot は丸めで dz を微小に下回る事があり,
         // 許容幅無しの >= だと境界を丸め誤差で非活性側へ落としていた.
         // 活性の外部観測は **theta更新** で行う — lapは最短路判定なので
@@ -406,7 +410,11 @@ mod tests {
         for i in 0..1000 {
             let θ = -10.0 + 0.02 * (i as f64);
             let z = 変.変換(θ.cos(), θ.sin());
-            assert!(z.theta > -半環 - 1e-12 && z.theta <= 半環 + 1e-12, "θ={}", z.theta);
+            assert!(
+                z.theta > -半環 - 1e-12 && z.theta <= 半環 + 1e-12,
+                "θ={}",
+                z.theta
+            );
         }
     }
 

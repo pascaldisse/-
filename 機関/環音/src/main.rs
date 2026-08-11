@@ -4,15 +4,18 @@
 mod 合成;
 #[path = "契約.rs"]
 mod 契約;
-#[path = "源.rs"]
-mod 源;
 #[path = "波形.rs"]
 mod 波形;
+#[path = "源.rs"]
+mod 源;
 #[path = "音高.rs"]
 mod 音高;
 
 use std::path::PathBuf;
-use std::sync::{Arc, atomic::{AtomicUsize, Ordering}};
+use std::sync::{
+    atomic::{AtomicUsize, Ordering},
+    Arc,
+};
 use std::time::Duration;
 
 use clap::{Parser, ValueEnum};
@@ -20,9 +23,9 @@ use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 
 use 合成::{合成器, 律動param, 補間param};
 use 契約::Z;
+use 波形::{wav仕様, wav書出};
 use 源::log再生;
-use 波形::{wav書出, wav仕様};
-use 音高::{律, 周波数上限param, 音高律};
+use 音高::{周波数上限param, 律, 音高律};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 enum 源選択 {
@@ -107,14 +110,22 @@ fn 律へ(選択: 律選択) -> 律 {
 
 fn 掃引z(番号: usize, 総数: usize) -> Z {
     let 分母 = 総数.max(1) as f64;
-    Z { theta: std::f64::consts::TAU * 番号 as f64 / 分母, r: 1.0, lap: 0 }
+    Z {
+        theta: std::f64::consts::TAU * 番号 as f64 / 分母,
+        r: 1.0,
+        lap: 0,
+    }
 }
 
 /// 要求時間へz列を揃える。足りない尾部だけ一周掃引、掃引offなら無。
 fn 長さを揃える(mut zs: Vec<Z>, 必要: usize, 掃引: bool) -> Vec<Z> {
     zs.truncate(必要);
     while zs.len() < 必要 {
-        let 次 = if 掃引 { 掃引z(zs.len(), 必要) } else { Z::無() };
+        let 次 = if 掃引 {
+            掃引z(zs.len(), 必要)
+        } else {
+            Z::無()
+        };
         zs.push(次);
     }
     zs
@@ -124,29 +135,45 @@ fn 長さを揃える(mut zs: Vec<Z>, 必要: usize, 掃引: bool) -> Vec<Z> {
 fn stick再生(path: &std::path::Path, deadzone: f64) -> std::io::Result<Vec<Z>> {
     use wa::z::{Z変param, Z変換器};
     let 標本 = wa::入力源::log読込(path)?;
-    let mut 変換 = Z変換器::新(Z変param { 死域: deadzone, ..Default::default() });
+    let mut 変換 = Z変換器::新(Z変param {
+        死域: deadzone,
+        ..Default::default()
+    });
     Ok(標本.into_iter().map(|s| 変換.変換(s.x, s.y)).collect())
 }
 
 fn fill_f32(data: &mut [f32], channels: usize, samples: &Arc<Vec<f32>>, index: &AtomicUsize) {
     for frame in data.chunks_mut(channels) {
-        let value = samples.get(index.fetch_add(1, Ordering::Relaxed)).copied().unwrap_or(0.0);
+        let value = samples
+            .get(index.fetch_add(1, Ordering::Relaxed))
+            .copied()
+            .unwrap_or(0.0);
         frame.fill(value);
     }
 }
 
 fn fill_i16(data: &mut [i16], channels: usize, samples: &Arc<Vec<f32>>, index: &AtomicUsize) {
     for frame in data.chunks_mut(channels) {
-        let value = (samples.get(index.fetch_add(1, Ordering::Relaxed)).copied().unwrap_or(0.0)
-            .clamp(-1.0, 1.0) * i16::MAX as f32) as i16;
+        let value = (samples
+            .get(index.fetch_add(1, Ordering::Relaxed))
+            .copied()
+            .unwrap_or(0.0)
+            .clamp(-1.0, 1.0)
+            * i16::MAX as f32) as i16;
         frame.fill(value);
     }
 }
 
 fn fill_u16(data: &mut [u16], channels: usize, samples: &Arc<Vec<f32>>, index: &AtomicUsize) {
     for frame in data.chunks_mut(channels) {
-        let value = ((samples.get(index.fetch_add(1, Ordering::Relaxed)).copied().unwrap_or(0.0)
-            .clamp(-1.0, 1.0) + 1.0) * 0.5 * u16::MAX as f32) as u16;
+        let value = ((samples
+            .get(index.fetch_add(1, Ordering::Relaxed))
+            .copied()
+            .unwrap_or(0.0)
+            .clamp(-1.0, 1.0)
+            + 1.0)
+            * 0.5
+            * u16::MAX as f32) as u16;
         frame.fill(value);
     }
 }
@@ -169,28 +196,51 @@ fn 実音再生(samples: Vec<f32>, sample率: u32) -> Result<(), String> {
         cpal::SampleFormat::F32 => {
             let samples = Arc::clone(&samples);
             let index = Arc::clone(&index);
-            device.build_output_stream(&config, move |data: &mut [f32], _| fill_f32(data, channels, &samples, &index), error, None)
+            device.build_output_stream(
+                &config,
+                move |data: &mut [f32], _| fill_f32(data, channels, &samples, &index),
+                error,
+                None,
+            )
         }
         cpal::SampleFormat::I16 => {
             let samples = Arc::clone(&samples);
             let index = Arc::clone(&index);
-            device.build_output_stream(&config, move |data: &mut [i16], _| fill_i16(data, channels, &samples, &index), error, None)
+            device.build_output_stream(
+                &config,
+                move |data: &mut [i16], _| fill_i16(data, channels, &samples, &index),
+                error,
+                None,
+            )
         }
         cpal::SampleFormat::U16 => {
             let samples = Arc::clone(&samples);
             let index = Arc::clone(&index);
-            device.build_output_stream(&config, move |data: &mut [u16], _| fill_u16(data, channels, &samples, &index), error, None)
+            device.build_output_stream(
+                &config,
+                move |data: &mut [u16], _| fill_u16(data, channels, &samples, &index),
+                error,
+                None,
+            )
         }
         format => return Err(format!("未対応sample format: {format:?}")),
-    }.map_err(|e| e.to_string())?;
+    }
+    .map_err(|e| e.to_string())?;
     stream.play().map_err(|e| e.to_string())?;
-    std::thread::sleep(Duration::from_secs_f64(samples.len() as f64 / sample率.max(1) as f64));
+    std::thread::sleep(Duration::from_secs_f64(
+        samples.len() as f64 / sample率.max(1) as f64,
+    ));
     Ok(())
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
-    if !args.秒.is_finite() || args.秒 <= 0.0 || args.sample率 == 0 || !args.入力hz.is_finite() || args.入力hz <= 0.0 {
+    if !args.秒.is_finite()
+        || args.秒 <= 0.0
+        || args.sample率 == 0
+        || !args.入力hz.is_finite()
+        || args.入力hz <= 0.0
+    {
         return Err("秒>0・sample率>0・入力hz>0 必須".into());
     }
     let 必要z = (args.秒 * args.入力hz).ceil() as usize;
@@ -204,7 +254,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let zs = 長さを揃える(zs, 必要z, args.掃引 == 切替::On);
     // B5可測化: 径直接指定時は全zのrを上書き (θ/lapは源のまま — 音高は不変で振幅のみ実測する場合は別途θ固定で呼ぶ).
     let zs = if let Some(r) = args.径 {
-        zs.into_iter().map(|z| Z { theta: z.theta, r: r.clamp(0.0, 1.0), lap: z.lap }).collect()
+        zs.into_iter()
+            .map(|z| Z {
+                theta: z.theta,
+                r: r.clamp(0.0, 1.0),
+                lap: z.lap,
+            })
+            .collect()
     } else {
         zs
     };
@@ -212,18 +268,41 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let 必要sample = (args.秒 * args.sample率 as f64).round() as usize;
     let mut 合成 = 合成器::新(
         args.sample率,
-        音高律 { 基音: args.基音, 律: 律へ(args.律) },
-        律動param { 有効: args.律動 == 切替::On, 律動Hz: args.律動_hz, ..Default::default() },
-        周波数上限param { 比率: args.周波数上限比 },
-        補間param { 標本数: args.補間標本.unwrap_or(z毎sample数) },
+        音高律 {
+            基音: args.基音,
+            律: 律へ(args.律),
+        },
+        律動param {
+            有効: args.律動 == 切替::On,
+            律動Hz: args.律動_hz,
+            ..Default::default()
+        },
+        周波数上限param {
+            比率: args.周波数上限比,
+        },
+        補間param {
+            標本数: args.補間標本.unwrap_or(z毎sample数),
+        },
     );
     let mut samples = 合成.描画(&zs, z毎sample数);
     samples.truncate(必要sample);
     while samples.len() < 必要sample {
         samples.push(0.0);
     }
-    wav書出(&args.wav, &wav仕様 { sample率: args.sample率, ..Default::default() }, &samples)?;
-    println!("# wav {} samples={} 秒={:.3}", args.wav.display(), samples.len(), samples.len() as f64 / args.sample率 as f64);
+    wav書出(
+        &args.wav,
+        &wav仕様 {
+            sample率: args.sample率,
+            ..Default::default()
+        },
+        &samples,
+    )?;
+    println!(
+        "# wav {} samples={} 秒={:.3}",
+        args.wav.display(),
+        samples.len(),
+        samples.len() as f64 / args.sample率 as f64
+    );
 
     if args.実音 == 切替::On {
         match 実音再生(samples, args.sample率) {

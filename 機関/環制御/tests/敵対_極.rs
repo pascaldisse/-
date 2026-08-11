@@ -134,7 +134,11 @@ fn a9丙_証跡_中心のangle_degはNaNで無効印() {
     // 是正済 (08-11): 旧値pinは"angle_deg==0.0"(=偽の愛方位)だったが, 今はNaN(無効印)を返す.
     let z = stick_to_polar(0.0, 0.0, 0.15);
     assert_eq!(z.house, None);
-    assert!(z.angle_deg.is_nan(), "欠陥-2が復活している (angle_deg={}) → a9 の #[ignore] を見直せ", z.angle_deg);
+    assert!(
+        z.angle_deg.is_nan(),
+        "欠陥-2が復活している (angle_deg={}) → a9 の #[ignore] を見直せ",
+        z.angle_deg
+    );
 }
 
 #[test]
@@ -154,7 +158,11 @@ fn a14丙_証跡_NaNはhouse無へ落ちる() {
     // magnitude自体はNaN伝播のまま (呼出側が非有限入力を実測できるように).
     let z = stick_to_polar(f32::NAN, 0.0, 0.15);
     assert!(z.magnitude.is_nan());
-    assert_eq!(z.house, None, "欠陥が復活している (house={:?}) → a14 の #[ignore] を見直せ", z.house);
+    assert_eq!(
+        z.house, None,
+        "欠陥が復活している (house={:?}) → a14 の #[ignore] を見直せ",
+        z.house
+    );
 }
 
 // ---------- A15 八家整合 (独立path一致 — polar.rs単体では自明だが再確認) ----------
@@ -164,6 +172,11 @@ fn a15_house番号は45度刻みの中心角と対応する() {
         let center_deg = (i as f64) * 45.0;
         let rad = center_deg.to_radians();
         let r = stick_to_polar(rad.cos() as f32, rad.sin() as f32, 0.15);
-        assert_eq!(r.house, Some(i), "家{i}中心角{center_deg}度で不一致 house={:?}", r.house);
+        assert_eq!(
+            r.house,
+            Some(i),
+            "家{i}中心角{center_deg}度で不一致 house={:?}",
+            r.house
+        );
     }
 }

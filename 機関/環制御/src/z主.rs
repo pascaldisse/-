@@ -3,7 +3,6 @@
 //! (実機不在のMac単体でも、既定再生元が可読·出力先が作成可なら再生路で走る = 既定fallback.
 //!  file不可読時は失敗する — 「必ず走る」ではない).
 
-
 use std::fs::{self, File};
 use std::io::{self, Write};
 use std::path::PathBuf;
@@ -12,7 +11,7 @@ use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 use clap::{Parser, ValueEnum};
 use gilrs::{Axis, Gilrs};
 
-use wa::z::{Z, Z変param, Z変換器};
+use wa::z::{Z変param, Z変換器, Z};
 use wa::入力源::log読込;
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, ValueEnum)]
@@ -157,7 +156,11 @@ fn main() -> io::Result<()> {
             実機台数 += 1;
             書(
                 &mut log,
-                &format!("DEVICE id={id:?} name=\"{}\" connected={}", gp.name(), gp.is_connected()),
+                &format!(
+                    "DEVICE id={id:?} name=\"{}\" connected={}",
+                    gp.name(),
+                    gp.is_connected()
+                ),
             );
         }
     }
@@ -169,7 +172,10 @@ fn main() -> io::Result<()> {
     };
 
     if args.源 == 源::実機 && !実機使用 {
-        書(&mut log, "# UNVERIFIED: --源 実機 指定だが gamepad 0台 — 走行中止");
+        書(
+            &mut log,
+            "# UNVERIFIED: --源 実機 指定だが gamepad 0台 — 走行中止",
+        );
         return Ok(());
     }
 

@@ -112,7 +112,10 @@ fn main() -> io::Result<()> {
         }
     };
 
-    emit(&mut log, &format!("# 環制御 梯1 (読取) 起動 ts={}", ts_ms()));
+    emit(
+        &mut log,
+        &format!("# 環制御 梯1 (読取) 起動 ts={}", ts_ms()),
+    );
     emit(
         &mut log,
         &format!(
@@ -185,7 +188,12 @@ fn main() -> io::Result<()> {
                 EventType::ButtonPressed(btn, _) => {
                     emit(
                         &mut log,
-                        &format!("EDGE ts={} id={:?} button={:?} state=down", ts_ms(), id, btn),
+                        &format!(
+                            "EDGE ts={} id={:?} button={:?} state=down",
+                            ts_ms(),
+                            id,
+                            btn
+                        ),
                     );
                 }
                 EventType::ButtonReleased(btn, _) => {
@@ -195,10 +203,16 @@ fn main() -> io::Result<()> {
                     );
                 }
                 EventType::Connected => {
-                    emit(&mut log, &format!("EDGE ts={} id={:?} event=connected", ts_ms(), id));
+                    emit(
+                        &mut log,
+                        &format!("EDGE ts={} id={:?} event=connected", ts_ms(), id),
+                    );
                 }
                 EventType::Disconnected => {
-                    emit(&mut log, &format!("EDGE ts={} id={:?} event=disconnected", ts_ms(), id));
+                    emit(
+                        &mut log,
+                        &format!("EDGE ts={} id={:?} event=disconnected", ts_ms(), id),
+                    );
                 }
                 _ => {}
             }

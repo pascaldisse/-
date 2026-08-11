@@ -1,6 +1,6 @@
 //! 位相連続sine合成 — zの角=音高, 径=振幅, 巻=octave。
 
-use crate::契約::{Z, Z構};
+use crate::契約::{Z構, Z};
 use crate::音高::{周波数_上限付, 周波数上限param, 音高律};
 
 const TAU: f64 = std::f64::consts::TAU;
@@ -209,7 +209,10 @@ mod tests {
         // 既定補間標本数=1 — 旧来試験の「喳間への即時切替」与矛n (frame長の概念が無い単一z連続試験群) を壊さない.
         合成器::新(
             1_000,
-            音高律 { 基音: 10.0, 律: 律::八家 },
+            音高律 {
+                基音: 10.0,
+                律: 律::八家,
+            },
             律動,
             周波数上限param::default(),
             補間param { 標本数: 1 },
@@ -225,7 +228,10 @@ mod tests {
 
     #[test]
     fn 位相は音高切替でも連続() {
-        let mut a = 合成(律動param { 有効: false, ..Default::default() });
+        let mut a = 合成(律動param {
+            有効: false,
+            ..Default::default()
+        });
         let low = z(0.0, 1.0);
         for _ in 0..20 {
             a.次sample(&low);
@@ -244,7 +250,10 @@ mod tests {
 
     #[test]
     fn gateoffは連続鳴() {
-        let mut a = 合成(律動param { 有効: false, ..Default::default() });
+        let mut a = 合成(律動param {
+            有効: false,
+            ..Default::default()
+        });
         let samples = a.描画(&[z(0.0, 1.0)], 100);
         assert!(samples.iter().skip(1).any(|&s| s.abs() > 0.1));
         assert!(samples.windows(2).all(|w| (w[1] - w[0]).abs() < 0.1));
@@ -267,7 +276,10 @@ mod tests {
         // fade標本数を十分取れば端の跳は fade傾き (振幅/fade標本) に抑えられる.
         // 既定2msはsample率48kHz (=96標本) 前提 — 試験の1kHz玩具率では2標本しか無く
         // 原理的に平滑化できぬ故、fade秒を param で伸ばして性質を測る (hardcode禁の実利).
-        let mut a = 合成(律動param { 端fade秒: 0.05, ..Default::default() });
+        let mut a = 合成(律動param {
+            端fade秒: 0.05,
+            ..Default::default()
+        });
         let samples = a.描画(&[z(0.0, 1.0)], 600);
         assert!(samples.windows(2).all(|w| (w[1] - w[0]).abs() < 0.1));
     }
@@ -275,18 +287,33 @@ mod tests {
     #[test]
     fn 端fade秒は既定二ms且つparam() {
         assert!((律動param::default().端fade秒 - 0.002).abs() < f64::EPSILON);
-        let mut 急 = 合成(律動param { 端fade秒: 0.0, ..Default::default() });
+        let mut 急 = 合成(律動param {
+            端fade秒: 0.0,
+            ..Default::default()
+        });
         let s = 急.描画(&[z(0.0, 1.0)], 600);
-        let 跳 = s.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0_f32, f32::max);
-        let mut 緩 = 合成(律動param { 端fade秒: 0.05, ..Default::default() });
+        let 跳 = s
+            .windows(2)
+            .map(|w| (w[1] - w[0]).abs())
+            .fold(0.0_f32, f32::max);
+        let mut 緩 = 合成(律動param {
+            端fade秒: 0.05,
+            ..Default::default()
+        });
         let s2 = 緩.描画(&[z(0.0, 1.0)], 600);
-        let 跳2 = s2.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0_f32, f32::max);
+        let 跳2 = s2
+            .windows(2)
+            .map(|w| (w[1] - w[0]).abs())
+            .fold(0.0_f32, f32::max);
         assert!(跳 > 跳2, "fade無={跳} fade有={跳2}");
     }
 
     #[test]
     fn 振幅は一を越えない() {
-        let mut a = 合成(律動param { 有効: false, ..Default::default() });
+        let mut a = 合成(律動param {
+            有効: false,
+            ..Default::default()
+        });
         let samples = a.描画(&[z(0.0, 5.0), z(1.0, -2.0)], 1_000);
         assert!(samples.iter().all(|s| s.abs() <= 1.0));
     }
@@ -304,41 +331,71 @@ mod tests {
         let frame長 = 200usize;
         let z_low = z(0.0, 0.1);
         let z_high = z(0.0, 0.9);
-        let 律動 = 律動param { 有効: false, ..Default::default() }; // 律動gateはfade済み別件 (欠5) — 本件はframe境界単体を見る
+        let 律動 = 律動param {
+            有効: false,
+            ..Default::default()
+        }; // 律動gateはfade済み別件 (欠5) — 本件はframe境界単体を見る
 
         let mut 即時 = 合成器::新(
             48_000,
-            音高律 { 基音: 220.0, 律: 律::八家 },
+            音高律 {
+                基音: 220.0,
+                律: 律::八家,
+            },
             律動,
             周波数上限param::default(),
             補間param { 標本数: 1 }, // 補間無 (旧来相当) — 対照区
         );
         let s即時 = 即時.描画(&[z_low, z_high], frame長);
-        let 足即時 = s即時.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0f32, f32::max);
+        let 足即時 = s即時
+            .windows(2)
+            .map(|w| (w[1] - w[0]).abs())
+            .fold(0.0f32, f32::max);
 
         let mut 均し = 合成器::新(
             48_000,
-            音高律 { 基音: 220.0, 律: 律::八家 },
+            音高律 {
+                基音: 220.0,
+                律: 律::八家,
+            },
             律動,
             周波数上限param::default(),
-            補間param { 標本数: frame長 }, // 既定=frame長
+            補間param {
+                標本数: frame長
+            }, // 既定=frame長
         );
         let s均し = 均し.描画(&[z_low, z_high], frame長);
-        let 足均し = s均し.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0f32, f32::max);
+        let 足均し = s均し
+            .windows(2)
+            .map(|w| (w[1] - w[0]).abs())
+            .fold(0.0f32, f32::max);
 
-        assert!(足均し < 足即時 * 0.2, "補間有={足均し} 補間無(即時)={足即時}");
+        assert!(
+            足均し < 足即時 * 0.2,
+            "補間有={足均し} 補間無(即時)={足即時}"
+        );
     }
 
     #[test]
     fn 高lapは上限飽和しても発音は有限・panic無し() {
         let mut a = 合成器::新(
             8_000,
-            音高律 { 基音: 220.0, 律: 律::八家 },
-            律動param { 有効: false, ..Default::default() },
+            音高律 {
+                基音: 220.0,
+                律: 律::八家,
+            },
+            律動param {
+                有効: false,
+                ..Default::default()
+            },
             周波数上限param::default(), // 上限=8000*0.45=3600Hz
             補間param { 標本数: 1 },
         );
-        let 高lap = Z { theta: 0.0, r: 1.0, lap: 6 }; // 220*2^6=14080Hz → 上限超え
+        let 高lap = Z {
+            theta: 0.0,
+            r: 1.0,
+            lap: 6,
+        }; // 220*2^6=14080Hz → 上限超え
         let samples = a.描画(&[高lap], 200);
         assert!(samples.iter().all(|s| s.abs() <= 1.0 && s.is_finite()));
     }
@@ -346,12 +403,18 @@ mod tests {
     #[test]
     fn 振幅線形性_rms比一対二対四() {
         use crate::波形::実効値;
-        let 律動 = 律動param { 有効: false, ..Default::default() };
+        let 律動 = 律動param {
+            有効: false,
+            ..Default::default()
+        };
         let frame長 = 4_000usize; // 補間立上りを避ける為後半のみ使用
         let rms_of = |r: f64| -> f64 {
             let mut a = 合成器::新(
                 48_000,
-                音高律 { 基音: 220.0, 律: 律::八家 },
+                音高律 {
+                    基音: 220.0,
+                    律: 律::八家,
+                },
                 律動,
                 周波数上限param::default(),
                 補間param { 標本数: 1 },
