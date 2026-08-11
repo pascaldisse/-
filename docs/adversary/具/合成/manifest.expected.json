@@ -1,0 +1,102 @@
+{
+  "sine_440": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/sine_440.wav",
+    "expected_freq_hz": 440.0,
+    "expected_rms_normalized": 0.35355339059327373,
+    "expected_peak_normalized_approx": 0.5,
+    "sample_rate": 44100,
+    "duration_sec": 2.0,
+    "kind": "純音・非gate"
+  },
+  "sine_880": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/sine_880.wav",
+    "expected_freq_hz": 880.0,
+    "expected_rms_normalized": 0.7071067811865475,
+    "expected_peak_normalized_approx": 1.0,
+    "sample_rate": 44100,
+    "duration_sec": 2.0,
+    "kind": "純音・フル振幅"
+  },
+  "gate_2hz_440": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/gate_2hz_440.wav",
+    "expected_freq_hz": 440.0,
+    "expected_rms_normalized_active_region_only": 0.35355339059327373,
+    "expected_rms_normalized": 0.25,
+    "expected_gate_period_sec": 0.5,
+    "expected_duty": 0.5,
+    "expected_n_segments": 8,
+    "expected_peak_normalized_approx": 0.5,
+    "sample_rate": 44100,
+    "duration_sec": 4.0,
+    "note": "440*0.25=110 (整数) · 440*0.5=220 (整数) → gate境界は搬送波zero crossingと一致 → 理論上click無 (滑らかgate)",
+    "kind": "2Hz gate"
+  },
+  "silence": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/silence.wav",
+    "expected_peak_raw": 0,
+    "expected_rms_normalized": 0.0,
+    "expected_strict_silence": true,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "無音"
+  },
+  "amp_0_25": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/amp_0_25.wav",
+    "expected_freq_hz": 1000.0,
+    "expected_rms_normalized": 0.17677669529663687,
+    "expected_peak_normalized_approx": 0.25,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "振幅較正 amp=0.25"
+  },
+  "amp_0_5": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/amp_0_5.wav",
+    "expected_freq_hz": 1000.0,
+    "expected_rms_normalized": 0.35355339059327373,
+    "expected_peak_normalized_approx": 0.5,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "振幅較正 amp=0.5"
+  },
+  "amp_1_0": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/amp_1_0.wav",
+    "expected_freq_hz": 1000.0,
+    "expected_rms_normalized": 0.7071067811865475,
+    "expected_peak_normalized_approx": 1.0,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "振幅較正 amp=1.0"
+  },
+  "click_injected": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/click_injected.wav",
+    "expected_freq_hz": 300.0,
+    "injected_click_sample_index": 22050,
+    "expected_click_present": true,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "人工段差 (陽性対照)"
+  },
+  "no_click_smooth": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/no_click_smooth.wav",
+    "expected_freq_hz": 440.0,
+    "expected_click_present": false,
+    "sample_rate": 44100,
+    "duration_sec": 1.0,
+    "kind": "陰性対照 (click無であるべき)"
+  },
+  "corrupt_data_size": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/corrupt_data_size.wav",
+    "expected_data_declared_vs_actual_match": false,
+    "expected_data_size_delta_bytes": 1000,
+    "sample_rate": 44100,
+    "duration_sec": 0.5,
+    "kind": "破損header (data size水増し)"
+  },
+  "corrupt_byte_rate": {
+    "path": "/Users/pascaldisse/projects/愛無/docs/adversary/具/合成/corrupt_byte_rate.wav",
+    "expected_byte_rate_matches": false,
+    "sample_rate": 44100,
+    "duration_sec": 0.5,
+    "kind": "破損header (byte_rate不整合)"
+  }
+}
