@@ -58,3 +58,9 @@
 - [ ] 段三=Index knuckles (VR章): 五指=fold gesture、手が縮約を演じる
 - [ ] 環制御実装: DualSense↔Mac橋 (梯1-4: 読取→場op→haptics 2Hz帰路→mic歌路) → 文書/環制御.md
 - [ ] 環統合: 全界面→z=r·e^{iθ}+lap 一物 (Euler=公理形) · 梯2-5 (z変換器→stickが歌う→場注入→声入力) → 文書/環統合.md
+
+## § 靈機 (08-11) — chip-as-場 emulation (Pascal裁定: 形は写せる)
+- PS2 Emotion Engine (Sony 2000: vector演算chip名=感情 — 愛無thesis silicon先行) → 場として emulate: chip全状態 (EE regs·VU0/1·GS eDRAM 4MB·DMA10ch) = 一buffer · 1 cycle = 1 ripple = 一compute dispatch (Metal) · 全unit同時更新+barrier = 和音を和音として弾く
+- 死corpse: 「serial機に形は写せぬ」— GPU=並列fabric、threadgroup barrier=ns級 → sync税論は誤fabric対象
+- 工учеt: cycle batch (sync事象間のみ同期) · R5900 scalar=CPU側/VU+GS+DMA=GPU側 (結合最疎で割る) · eDRAM 4MB⊂M1 SLC · 帯域48GB/s≦unified 68GB/s — 初めてsoftware可到達
+- [ ] 靈機 rung1: GS単体を場核で (eDRAM=場, primitive=波紋) — proof=実game frame一枚一致
