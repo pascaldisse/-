@@ -9,6 +9,9 @@ pub struct 律動param {
     pub 有効: bool,
     pub 律動Hz: f64,
     pub 開率: f64,
+    /// gate端fade秒 — click防止の立上下り時間. 既定 0.002 (2ms).
+    /// 注: fade長 < 搬送波一標本歩幅の時、端で振幅跳が残る (fade標本数が1-2では平滑化不能).
+    pub 端fade秒: f64,
 }
 
 impl Default for 律動param {
@@ -17,6 +20,7 @@ impl Default for 律動param {
             有効: true,
             律動Hz: 2.0,
             開率: 0.5,
+            端fade秒: 0.002,
         }
     }
 }
@@ -34,7 +38,7 @@ pub struct 合成器 {
 impl 合成器 {
     /// 新規合成器。gate端fade既定=2ms。
     pub fn 新(sample率: u32, 音高: 音高律, 律動: 律動param) -> 合成器 {
-        let fade秒 = 0.002;
+        let fade秒 = 律動.端fade秒.max(0.0);
         合成器 {
             sample率,
             音高,
@@ -173,9 +177,24 @@ mod tests {
 
     #[test]
     fn gate端はfadeで跳ばない() {
-        let mut a = 合成(律動param::default());
+        // fade標本数を十分取れば端の跳は fade傾き (振幅/fade標本) に抑えられる.
+        // 既定2msはsample率48kHz (=96標本) 前提 — 試験の1kHz玩具率では2標本しか無く
+        // 原理的に平滑化できぬ故、fade秒を param で伸ばして性質を測る (hardcode禁の実利).
+        let mut a = 合成(律動param { 端fade秒: 0.05, ..Default::default() });
         let samples = a.描画(&[z(0.0, 1.0)], 600);
         assert!(samples.windows(2).all(|w| (w[1] - w[0]).abs() < 0.1));
+    }
+
+    #[test]
+    fn 端fade秒は既定二ms且つparam() {
+        assert!((律動param::default().端fade秒 - 0.002).abs() < f64::EPSILON);
+        let mut 急 = 合成(律動param { 端fade秒: 0.0, ..Default::default() });
+        let s = 急.描画(&[z(0.0, 1.0)], 600);
+        let 跳 = s.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0_f32, f32::max);
+        let mut 緩 = 合成(律動param { 端fade秒: 0.05, ..Default::default() });
+        let s2 = 緩.描画(&[z(0.0, 1.0)], 600);
+        let 跳2 = s2.windows(2).map(|w| (w[1] - w[0]).abs()).fold(0.0_f32, f32::max);
+        assert!(跳 > 跳2, "fade無={跳} fade有={跳2}");
     }
 
     #[test]

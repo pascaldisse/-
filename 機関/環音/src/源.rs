@@ -102,14 +102,21 @@ mod tests {
 
     #[test]
     fn 反時計回りwrapはlap増() {
-        let zs = 文字列再生(&format!("{}\n{}", tick(350.0, 1.0), tick(10.0, 1.0)), 0.15);
+        // 甲契約 (機関/環制御 z.rs): 巻は **±π横断** で増減 — 0°交差では数えぬ.
+        let zs = 文字列再生(&format!("{}\n{}", tick(170.0, 1.0), tick(190.0, 1.0)), 0.15);
         assert_eq!(zs[1].lap, 1);
     }
 
     #[test]
     fn 時計回りwrapはlap減() {
-        let zs = 文字列再生(&format!("{}\n{}", tick(10.0, 1.0), tick(350.0, 1.0)), 0.15);
+        let zs = 文字列再生(&format!("{}\n{}", tick(190.0, 1.0), tick(170.0, 1.0)), 0.15);
         assert_eq!(zs[1].lap, -1);
+    }
+
+    #[test]
+    fn 零度交差は巻に数えぬ() {
+        let zs = 文字列再生(&format!("{}\n{}", tick(350.0, 1.0), tick(10.0, 1.0)), 0.15);
+        assert_eq!(zs[1].lap, 0);
     }
 
     #[test]
