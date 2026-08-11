@@ -18,11 +18,11 @@ use std::time::Duration;
 use clap::{Parser, ValueEnum};
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 
-use 合成::{合成器, 律動param};
+use 合成::{合成器, 律動param, 補間param};
 use 契約::Z;
 use 源::log再生;
 use 波形::{wav書出, wav仕様};
-use 音高::{律, 音高律};
+use 音高::{律, 周波数上限param, 音高律};
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
 enum 源選択 {
@@ -77,6 +77,17 @@ struct Args {
     入力hz: f64,
     #[arg(long, default_value_t = 0.08)]
     deadzone: f64,
+    /// 周波数上限比 (欠3是正) — 上限Hz = sample率 · この比率. 既定0.45 (Nyquist境界0.5に余裕込み).
+    /// 監査 docs/adversary/2026-08-11-環統合審.md 乙.4 欠3 参照.
+    #[arg(long, default_value_t = 0.45)]
+    周波数上限比: f64,
+    /// frame間補間標本数 (欠4是正) — 既定=frame長そのもの (未指定時 z毎sample数 を使用).
+    #[arg(long)]
+    補間標本: Option<usize>,
+    /// r直接指定 (B5可測化) — 指定時は源選択を無視し θ=0・lap=0・r=この値 を全z区間へ充てる
+    /// (振幅線形性のRMS実測用, 監査 乙.4-d B5 UNVERIFIED是正).
+    #[arg(long)]
+    径: Option<f64>,
 }
 
 fn 既定log() -> PathBuf {
@@ -191,12 +202,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     };
     let zs = 長さを揃える(zs, 必要z, args.掃引 == 切替::On);
+    // B5可測化: 径直接指定時は全zのrを上書き (θ/lapは源のまま — 音高は不変で振幅のみ実測する場合は別途θ固定で呼ぶ).
+    let zs = if let Some(r) = args.径 {
+        zs.into_iter().map(|z| Z { theta: z.theta, r: r.clamp(0.0, 1.0), lap: z.lap }).collect()
+    } else {
+        zs
+    };
     let z毎sample数 = (args.sample率 as f64 / args.入力hz).round().max(1.0) as usize;
     let 必要sample = (args.秒 * args.sample率 as f64).round() as usize;
     let mut 合成 = 合成器::新(
         args.sample率,
         音高律 { 基音: args.基音, 律: 律へ(args.律) },
         律動param { 有効: args.律動 == 切替::On, 律動Hz: args.律動_hz, ..Default::default() },
+        周波数上限param { 比率: args.周波数上限比 },
+        補間param { 標本数: args.補間標本.unwrap_or(z毎sample数) },
     );
     let mut samples = 合成.描画(&zs, z毎sample数);
     samples.truncate(必要sample);

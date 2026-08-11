@@ -62,6 +62,44 @@ pub fn 周波数(z: &Z, 設定: &音高律) -> f64 {
     設定.基音 * 2f64.powi(z.lap as i32) * 家率(z, 設定.律)
 }
 
+/// 周波数上限param — 出力側Nyquist防壁 (梯3 音声合成). 既定=sample_rate·0.45.
+/// 監査 docs/adversary/2026-08-11-環統合審.md 乙.4 欠3: lap高でfreq=基音·2^lap·家率が
+/// sample_rate/2を超えると折返し (=音高が上がらず下がる) → 契約「lap=octave=単調増巻」破れ。
+/// 注: 文書/環統合.md 丙-D3 (入力側stick角速度Nyquist, 実測閾例30rev/s@60Hz) とは別層 —
+/// あちらは入力標本化の折返し、これは出力音声標本化の折返し。両者数値単位が異なる為
+/// 直接比較不可、両文書に閾値を明記する事で「code/文書不一致」再発を防ぐ (D3と同種の欠陥回避)。
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct 周波数上限param {
+    /// sample_rateに対する比率. 既定0.45 (Nyquist境界0.5に安全余裕を持たせる).
+    pub 比率: f64,
+}
+
+impl Default for 周波数上限param {
+    fn default() -> Self {
+        Self { 比率: 0.45 }
+    }
+}
+
+impl 周波数上限param {
+    /// 上限Hz = 比率 · sample率. 比率が非正なら0.0 (=全域飽和, 事実上無音相当の防壁).
+    pub fn 上限hz(&self, sample率: u32) -> f64 {
+        self.比率.max(0.0) * sample率 as f64
+    }
+}
+
+/// z→周波数, Nyquist上限param付. 上限超過時は折返さず上限へ**飽和**する — 音高降下 (契約破れ) を防ぎ,
+/// 生値が単調増加である限り出力も単調増加 (飽和後は横這い) を保つ。
+/// 返り値 = (飽和後周波数, 上限に到達したか).
+pub fn 周波数_上限付(z: &Z, 設定: &音高律, sample率: u32, 上限: 周波数上限param) -> (f64, bool) {
+    let 生値 = 周波数(z, 設定);
+    let 上限hz = 上限.上限hz(sample率);
+    if 生値.is_finite() && 生値 > 上限hz {
+        (上限hz, true)
+    } else {
+        (生値, false)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -192,5 +230,67 @@ mod tests {
             let r = 家率(&z, 律::十二平均律);
             assert!(r >= 1.0 && r < 2.0, "n={n} r={r}");
         }
+    }
+
+    // — 欣乙.4-c 欠3 (Nyquist防壁) 実走検審—
+
+    #[test]
+    fn 上限param既定はサンプル率0_45倍() {
+        let 上限 = 周波数上限param::default();
+        assert!((上限.比率 - 0.45).abs() < 1e-15);
+        assert!((上限.上限hz(48_000) - 21_600.0).abs() < 1e-9);
+    }
+
+    #[test]
+    fn lap7_8は上限超え_飽和して単調性保持_48khz() {
+        // 監査実測 (乙.4-c): 基音220Hz·八家, 48kHz実測 lap7=19839.96Hz(折返し) lap8=8320.07Hz(逆行).
+        // 是正後: 上限(21600Hz)で飽和し, 折返し無し・非減少を保つ.
+        let 設定 = 音高律::default(); // 基音220, 八家
+        let 上限 = 周波数上限param::default();
+        let sample率 = 48_000u32;
+        let z6 = Z::new(0.0, 1.0, 6);
+        let z7 = Z::new(0.0, 1.0, 7);
+        let z8 = Z::new(0.0, 1.0, 8);
+        let z9 = Z::new(0.0, 1.0, 9);
+
+        let (f6, c6) = 周波数_上限付(&z6, &設定, sample率, 上限);
+        let (f7, c7) = 周波数_上限付(&z7, &設定, sample率, 上限);
+        let (f8, c8) = 周波数_上限付(&z8, &設定, sample率, 上限);
+        let (f9, c9) = 周波数_上限付(&z9, &設定, sample率, 上限);
+
+        let 上限hz = 上限.上限hz(sample率);
+        assert!(!c6, "lap6は上限未満のはず f6={f6}");
+        assert!(f6 <= 上限hz + 1e-9);
+        assert!(f7 <= 上限hz + 1e-9, "f7={f7} 上限={上限hz}");
+        assert!(f8 <= 上限hz + 1e-9, "f8={f8} 上限={上限hz}");
+        assert!(f9 <= 上限hz + 1e-9, "f9={f9} 上限={上限hz}");
+        assert!(c7 && c8 && c9, "lap7/8/9は上限到達フラグが立つはず c7={c7} c8={c8} c9={c9}");
+        // 単調性保持: 飽和後も非減少 (旧欠陥=lap8で8320Hzへ逆行=単調性崩壊).
+        assert!(f6 <= f7 + 1e-9, "f6={f6} f7={f7}");
+        assert!(f7 <= f8 + 1e-9, "f7={f7} f8={f8}");
+        assert!(f8 <= f9 + 1e-9, "f8={f8} f9={f9}");
+        assert!((f7 - 上限hz).abs() < 1e-9, "飽和値がぴったり上限であるはず f7={f7}");
+        assert!((f8 - 上限hz).abs() < 1e-9, "飽和値がぴったり上限であるはず f8={f8}");
+    }
+
+    #[test]
+    fn 上限未到達は生値のまま透過() {
+        let 設定 = 音高律::default();
+        let 上限 = 周波数上限param::default();
+        let z = Z::new(0.0, 1.0, 0);
+        let (f, 到達) = 周波数_上限付(&z, &設定, 48_000, 上限);
+        assert!(!到達);
+        assert!((f - 220.0).abs() < 1e-9);
+    }
+
+    #[test]
+    fn 上限param_他sample率でも比率通り() {
+        let 設定 = 音高律 { 基音: 440.0, 律: 律::十二平均律 };
+        let 上限 = 周波数上限param { 比率: 0.3 };
+        let z = Z::new(0.0, 1.0, 3); // 440*8=3520Hz
+        let sample率 = 8_000u32; // 上限=2400Hz
+        let (f, 到達) = 周波数_上限付(&z, &設定, sample率, 上限);
+        assert!(到達);
+        assert!((f - 2400.0).abs() < 1e-9, "f={f}");
     }
 }
