@@ -56,6 +56,8 @@ struct 引数 {
     #[arg(long)]
     入力Nyquist比: Option<f64>,
     #[arg(long)]
+    入力帯域上限hz: Option<f64>,
+    #[arg(long)]
     基音: Option<f64>,
     #[arg(long, value_enum)]
     律: Option<律>,
@@ -146,11 +148,16 @@ fn param(引: &引数) -> (検出param, 写像param) {
     if let Some(v) = 引.入力Nyquist比 {
         検.入力Nyquist比 = v;
     }
+    if let Some(v) = 引.入力帯域上限hz {
+        検.入力帯域上限hz = v;
+    }
     if let Some(v) = 引.基音 {
         写.基音 = v;
     }
     if let Some(v) = 引.律 {
         写.律 = v;
+        // 律選択はL域の実家数へ直結。--家数 はこの後の明示override。
+        写.家数 = match v { 律::八家 => 8, 律::十二平均律 => 12 };
     }
     写.家snap = 引.家snap;
     if let Some(v) = 引.家数 {

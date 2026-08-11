@@ -57,9 +57,18 @@ pub fn 家率(z: &Z, 律: 律) -> f64 {
     }
 }
 
-/// z→周波数 [Hz] = 基音 · 2^lap · 家率.
+/// Z総角をL域へ戻す。thetaは符号域へ正規化してからlapを一度だけ足す。
+/// `theta=-π/2,lap=1` はL=.75であり、θを正域へ折ってlapと重ねれば+1octとなる。
+fn l域(z: &Z) -> f64 {
+    let theta = (z.theta + std::f64::consts::PI).rem_euclid(TAU) - std::f64::consts::PI;
+    z.lap as f64 + theta / TAU
+}
+
+/// z→周波数 [Hz]。量子化は実際のL域で8/12家へ効く。
 pub fn 周波数(z: &Z, 設定: &音高律) -> f64 {
-    設定.基音 * 2f64.powi(z.lap as i32) * 家率(z, 設定.律)
+    let 家数 = match 設定.律 { 律::八家 => 8.0, 律::十二平均律 => 12.0 };
+    let l = (l域(z) * 家数).round() / 家数;
+    設定.基音 * 2f64.powf(l)
 }
 
 /// 周波数上限param — 出力側Nyquist防壁 (梯3 音声合成). 既定=sample_rate·0.45.
@@ -104,6 +113,14 @@ pub fn 周波数_上限付(z: &Z, 設定: &音高律, sample率: u32, 上限: �
 mod tests {
     use super::*;
     use crate::契約::Z構;
+
+    #[test]
+    fn 下半環とlapは一度だけ合成する() {
+        let 設定 = 音高律::default();
+        let z = Z::new(-std::f64::consts::FRAC_PI_2, 1.0, 1);
+        let f = 周波数(&z, &設定);
+        assert!((f / 設定.基音 - 2f64.powf(0.75)).abs() < 1e-12, "f={f}");
+    }
 
     #[test]
     fn lap成一_周波数厳密二倍() {

@@ -22,6 +22,8 @@ pub struct 検出param {
     pub 無音閾rms: f64,
     /// 入力側Nyquist防壁比。既定0.45。
     pub 入力Nyquist比: f64,
+    /// 声帯域pre-filter上限Hz。高域純音の偽subharmonicをYINへ渡さぬ。
+    pub 入力帯域上限hz: f64,
 }
 
 impl Default for 検出param {
@@ -37,6 +39,7 @@ impl Default for 検出param {
             明瞭閾: 0.90,
             無音閾rms: 0.001,
             入力Nyquist比: 0.45,
+            入力帯域上限hz: 800.0,
         }
     }
 }
@@ -62,8 +65,10 @@ fn 範囲(p: &検出param, 標本長: usize) -> Option<(usize, usize, f64)> {
         || !p.下限hz.is_finite()
         || !p.上限hz.is_finite()
         || !p.入力Nyquist比.is_finite()
+        || !p.入力帯域上限hz.is_finite()
         || p.下限hz <= 0.0
         || p.入力Nyquist比 <= 0.0
+        || p.入力帯域上限hz <= 0.0
     {
         return None;
     }
@@ -80,6 +85,21 @@ fn 範囲(p: &検出param, 標本長: usize) -> Option<(usize, usize, f64)> {
     } else {
         Some((最小, 最大, 上限))
     }
+}
+
+/// 四段one-pole low-pass。基音帯域を残し、高域だけのalias/subharmonicを検出路から隔離する。
+/// 出力rmsは原入力を保つため、声の倍音は音量写像を失わない。
+fn 入力帯域(標本: &[f32], p: &検出param) -> Vec<f32> {
+    let α = 1.0 - (-std::f64::consts::TAU * p.入力帯域上限hz / p.標本率 as f64).exp();
+    let mut 現 = 標本.to_vec();
+    for _ in 0..4 {
+        let mut y = 0.0;
+        for x in &mut 現 {
+            y += α * (*x as f64 - y);
+            *x = y as f32;
+        }
+    }
+    現
 }
 
 fn 中心化(標本: &[f32]) -> Vec<f64> {
@@ -193,17 +213,17 @@ pub fn 音高検出(標本: &[f32], p: &検出param) -> 検出結果 {
         };
     }
     let Some((最小, 最大, 上限)) = 範囲(p, 窓.len()) else {
-        return 検出結果 {
-            hz: None,
-            明瞭度: 0.0,
-            rms: 音量,
-        };
+        return 検出結果 { hz: None, 明瞭度: 0.0, rms: 音量 };
     };
-    // 法に関わらず差分→CMND→最初の閾内谷→補間を通す。生自己相関単独路は無い。
-    let y = yin(窓, p, 最小, 最大, 上限);
+    let 帯域 = 入力帯域(窓, p);
+    if rms(&帯域) <= p.無音閾rms.max(0.0) {
+        return 検出結果 { hz: None, 明瞭度: 0.0, rms: 音量 };
+    }
+    // 法に関わらず帯域入力→差分→CMND→最初の閾内谷→補間を通す。生自己相関単独路は無い。
+    let y = yin(&帯域, p, 最小, 最大, 上限);
     let hz = match p.法 {
         検出法::YIN => y.hz,
-        検出法::自己相関 if 自己相関確認(窓, 最大, y.lag) => y.hz,
+        検出法::自己相関 if 自己相関確認(&帯域, 最大, y.lag) => y.hz,
         検出法::自己相関 => None,
     };
     検出結果 {
@@ -249,5 +269,11 @@ mod tests {
             assert_eq!(r.hz, None, "{r:?}");
             assert_eq!(r.rms, 0.0);
         }
+    }
+
+    #[test]
+    fn 高域純音は声帯域外で無声() {
+        let p = 検出param { 上限hz: 21_600.0, ..Default::default() };
+        assert_eq!(音高検出(&正弦(21_000.0, &p), &p).hz, None);
     }
 }
