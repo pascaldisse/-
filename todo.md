@@ -57,3 +57,4 @@
 - [ ] 段二=Steam Controller (~€50中古, sc-controller直結): 触覚detent環×2 = 二卦=hexagram両手 · 圧trigger=magnitude
 - [ ] 段三=Index knuckles (VR章): 五指=fold gesture、手が縮約を演じる
 - [ ] 環制御実装: DualSense↔Mac橋 (梯1-4: 読取→場op→haptics 2Hz帰路→mic歌路) → 文書/環制御.md
+- [ ] 環統合: 全界面→z=r·e^{iθ}+lap 一物 (Euler=公理形) · 梯2-5 (z変換器→stickが歌う→場注入→声入力) → 文書/環統合.md
