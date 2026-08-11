@@ -56,3 +56,4 @@
 - [ ] 段一=Watch SE crown (深眼): 純環、detent walk
 - [ ] 段二=Steam Controller (~€50中古, sc-controller直結): 触覚detent環×2 = 二卦=hexagram両手 · 圧trigger=magnitude
 - [ ] 段三=Index knuckles (VR章): 五指=fold gesture、手が縮約を演じる
+- [ ] 環制御実装: DualSense↔Mac橋 (梯1-4: 読取→場op→haptics 2Hz帰路→mic歌路) → 文書/環制御.md
