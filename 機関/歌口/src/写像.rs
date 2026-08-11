@@ -42,12 +42,13 @@ fn 螺旋(l: f64, p: &写像param) -> Option<(f64, i64)> {
     if !l.is_finite() || p.lap下限 > p.lap上限 {
         return None;
     }
-    // 定1: round= floor(L+1/2)。θ+全環·lap は全環·L と厳密一致する。
+    // C13: lapだけを後段clampすると、総角は範囲外Lを保持して巻を反復する。
+    // L全体を先に飽和し、正典 lap=round(L), theta=2π(L-lap) を分解する。
+    let l = l.clamp(p.lap下限 as f64, p.lap上限 as f64);
     // 半巻tieでは θ=−π, lapが上位へ進む。総角保存を優先する同値端である。
     let lap実 = (l + 0.5).floor();
     let theta = 全環 * (l - lap実);
-    let lap = lap実.clamp(p.lap下限 as f64, p.lap上限 as f64) as i64;
-    Some((theta, lap))
+    Some((theta, lap実 as i64))
 }
 
 pub fn 声z(検出: &検出結果, p: &写像param) -> Z {
@@ -144,6 +145,20 @@ mod tests {
         };
         assert_eq!(声z(&検(Some(p.基音 * 16.0), 1.0, p.満音rms), &p).lap, 2);
         assert_eq!(声z(&検(Some(p.基音 / 16.0), 1.0, p.満音rms), &p).lap, -2);
+    }
+
+    #[test]
+    fn c13_l全体飽和は総角を反復させない() {
+        let p = 写像param {
+            lap下限: -2,
+            lap上限: 2,
+            ..Default::default()
+        };
+        for hz in [p.基音 * 2f64.powf(-3.0), p.基音 * 2f64.powf(3.0)] {
+            let z = 声z(&検(Some(hz), 1.0, p.満音rms), &p);
+            assert!(z.lap >= -2 && z.lap <= 2, "{z:?}");
+            assert!((z.総角() - 全環 * z.lap as f64).abs() < 1e-12, "{z:?}");
+        }
     }
 
     #[test]
