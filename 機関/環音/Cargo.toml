@@ -13,6 +13,7 @@ description = "梯3: z→音 — stickを回すと歌う. 文書/環統合.md §
 cpal = "0.15"
 hound = "3"
 clap = { version = "4", features = ["derive"] }
+"環制御" = { path = "../環制御" }
 
 [[bin]]
 name = "環音"

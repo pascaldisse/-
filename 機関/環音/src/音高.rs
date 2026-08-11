@@ -31,7 +31,7 @@ impl Default for 音高律 {
 /// θ→八扇形snap. 家0=θ=0中心±22.5° (θ増加方向=反時計回り=家番号増加方向, atan2慣習と同一).
 /// 境界: [h·45°−22.5°, h·45°+22.5°) — 上限側open (丁度22.5°は次家へ倒れる).
 pub fn 家番号(z: &Z) -> u8 {
-    let theta = z.theta正規();
+    let theta = z.theta.rem_euclid(TAU);
     let 幅 = TAU / 8.0;
     let 半幅 = 幅 / 2.0;
     let idx = ((theta + 半幅) / 幅).floor() as i64;
@@ -49,7 +49,7 @@ pub fn 家率(z: &Z, 律: 律) -> f64 {
             2f64.powf(h / 8.0)
         }
         律::十二平均律 => {
-            let theta = z.theta正規();
+            let theta = z.theta.rem_euclid(TAU);
             let n = (theta / TAU * 12.0).round() as i64;
             let n = n.rem_euclid(12);
             2f64.powf(n as f64 / 12.0)
@@ -65,6 +65,7 @@ pub fn 周波数(z: &Z, 設定: &音高律) -> f64 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::契約::Z構;
 
     #[test]
     fn lap成一_周波数厳密二倍() {
