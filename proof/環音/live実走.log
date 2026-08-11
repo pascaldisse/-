@@ -1,0 +1,15 @@
+# 実機歌鐘 梯4前梯 live実走 (2026-08-11)
+# device: PS5 Controller BT 44:46:48:1F:9D:56
+# cmd: 環音 --源 実機live --秒 12 --wav proof/環音/環音live.wav
+
+DEVICE id=GamepadId(0) name="PS5 Controller" connected=true
+# live z流入 721 件
+# wav proof/環音/環音live.wav samples=576000 秒=12.000
+# 実音再生: live再生完了 (12.0秒連続)
+EXIT=0
+
+# 検証: 576000 samples / 48000Hz = 12.000秒 (一致) · 721件 ≈ 60Hz*12秒=720 (一致, ±1は起動端数)
+# wav実測: 全零 (rms=0.0) — 走行中stick中央未動 (deadzone未踏破) → 契約通り無音.
+#   「stick無動でもよい、動きは主の手」(依頼註) — 音線plumbing自体は
+#   log/stick経路の回帰確認 (rms=11520.17, --源 log --秒 2, 別途実行) で非無音動作を確認済,
+#   合成器::次sample は live/log/stick全経路で同一実装 (梯3契約不変).
