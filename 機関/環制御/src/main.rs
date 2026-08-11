@@ -2,8 +2,6 @@
 //! 文書/環制御.md 参照. crate選択: gilrs (pure rust, mac Bluetooth gamepad対応,
 //! SDL2/hidapiのC依存無しで完結するため).
 
-mod polar;
-
 use std::fs::{self, File};
 use std::io::{self, Write};
 use std::path::PathBuf;
@@ -12,7 +10,7 @@ use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 use clap::Parser;
 use gilrs::{Axis, Button, Event, EventType, Gilrs};
 
-use polar::{clamp_trigger, stick_to_polar};
+use wa::polar::{clamp_trigger, stick_to_polar};
 
 /// 既知の Button 全種 (Unknown除く, gilrs::Button 定義順).
 const ALL_BUTTONS: &[Button] = &[

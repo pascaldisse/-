@@ -9,6 +9,17 @@ description = "DualSense→場 制御界面 — 梯1 (読取). 文書/環制御.
 gilrs = "0.11"
 clap = { version = "4", features = ["derive"] }
 
+# lib名のみascii "wa" (=環) — rustcは --extern に非ascii crate名を受けぬ宿主配管制約.
+# 中身の識別子は全て鳴語. 下流は `use wa::z::Z;`.
+[lib]
+name = "wa"
+path = "src/lib.rs"
+
 [[bin]]
 name = "環制御"
 path = "src/main.rs"
+
+# 梯2 — stick生値→z変換器 (文書/環統合.md §主座標). 梯1binは不変のまま残す.
+[[bin]]
+name = "環z"
+path = "src/z主.rs"
