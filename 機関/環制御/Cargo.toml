@@ -1,0 +1,14 @@
+[package]
+name = "環制御"
+version = "0.1.0"
+edition = "2021"
+description = "DualSense→場 制御界面 — 梯1 (読取). 文書/環制御.md 参照."
+
+# crate選択: gilrs — pure rust, mac Bluetooth gamepad (DualSense含) 対応, SDL2/hidapiのC依存無しで完結するため.
+[dependencies]
+gilrs = "0.11"
+clap = { version = "4", features = ["derive"] }
+
+[[bin]]
+name = "環制御"
+path = "src/main.rs"
