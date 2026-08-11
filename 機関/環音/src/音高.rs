@@ -30,12 +30,12 @@ impl Default for 音高律 {
 
 /// θ→八扇形snap. 家0=θ=0中心±22.5° (θ増加方向=反時計回り=家番号増加方向, atan2慣習と同一).
 /// 境界: [h·45°−22.5°, h·45°+22.5°) — 上限側open (丁度22.5°は次家へ倒れる).
+///
+/// B9是正 (敵対審査乙.4 B9, 08-11): 私有floor/rem_euclid再実装を解消し, 契約層
+/// (機関/環制御 src/z.rs) 唯一実装 wa::z::家番号 へ委譲 (polar.rsも同関数を使う).
+/// 八家=8は公理定数 (param化しない — 十二平均律側は本fileの固有規約として残置).
 pub fn 家番号(z: &Z) -> u8 {
-    let theta = z.theta.rem_euclid(TAU);
-    let 幅 = TAU / 8.0;
-    let 半幅 = 幅 / 2.0;
-    let idx = ((theta + 半幅) / 幅).floor() as i64;
-    idx.rem_euclid(8) as u8
+    wa::z::家番号(z.theta, 8) as u8
 }
 
 /// z→家率∈[1,2). 律により算出法分岐:

@@ -70,18 +70,18 @@ pub fn stick_to_polar_param(x: f32, y: f32, deadzone: f32, param: PolarParam) ->
     let 活性判定可 = 生magnitude.is_finite();
     let 活性 = 活性判定可 && 生magnitude >= dz;
 
-    let angle_deg = if 生magnitude == 0.0 {
-        // 欠陥-2是正 (a9): atan2(0,0)は数学的に無効定義点 — θ=0=愛方位を偽って名乗らせない.
-        f64::NAN
-    } else {
-        y.atan2(x).to_degrees().rem_euclid(360.0)
+    // 欠陥-2是正 (a9): atan2(0,0)は数学的に無効定義点 — θ=0=愛方位を偽って名乗らせない.
+    let 生θ_rad = if 生magnitude == 0.0 { None } else { Some(y.atan2(x)) };
+    let angle_deg = match 生θ_rad {
+        Some(θ) => θ.to_degrees().rem_euclid(360.0),
+        None => f64::NAN,
     };
 
     let house_active = 活性 && angle_deg.is_finite();
+    // B9是正 (敵対審査乙.4 B9, 08-11): 家番号算出は crate::z::家番号 (契約層唯一実装) へ委譲
+    // — 度数域での私有floor/rem_euclid再実装を解消 (音高.rs も同関数を輸入して使う).
     let house = if house_active {
-        let 刻 = 360.0 / (param.家数.max(1) as f64);
-        let idx = ((angle_deg + 刻 / 2.0) / 刻).floor() as i64;
-        Some((idx.rem_euclid(param.家数.max(1) as i64)) as u8)
+        生θ_rad.map(|θ| crate::z::家番号(θ, param.家数.max(1)) as u8)
     } else {
         None
     };
