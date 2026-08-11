@@ -50,3 +50,9 @@
 - [ ] 環=2's complement八家: 頂上隣接 −1=0=+1 (aaa·mmm·mma) = 公理の幾何 · 対蹠100=amm=孤独−4=π位置 · 溢れ=螺旋昇り (lap=carry歴)
 - [ ] 八卦=八方位 (☰=aaa=+++·☷=mmm=−−−) → 六bit=64卦=方位対=道 (向き+次の向き)
 - [ ] 歌語接続: 方位=音節 — 場を三字語で操舵 (ma-a-m=転回); 律動2Hz既定と結合
+
+## 環制御器 — 円の操縦具 (08-11 Pascal: "the joystick man. its a circle")
+- [ ] 段零=analog stick (DualSense所有): 角度=環位置 (8扇形=八家/八卦·45°) · 押幅=大きさ · 中央春=000=無へ自動帰還 · 回転=lap=螺旋 — atan2+hypot→場、SDL/Gamepad API十行
+- [ ] 段一=Watch SE crown (深眼): 純環、detent walk
+- [ ] 段二=Steam Controller (~€50中古, sc-controller直結): 触覚detent環×2 = 二卦=hexagram両手 · 圧trigger=magnitude
+- [ ] 段三=Index knuckles (VR章): 五指=fold gesture、手が縮約を演じる
