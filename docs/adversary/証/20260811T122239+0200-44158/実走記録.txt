@@ -1,0 +1,15 @@
+時=20260811T122239+0200-44158
+殿=/Users/pascaldisse/projects/愛無
+HEAD=77167d48dd59b366de38517d0c7071ba65793cb2
+枝=adversary/環統合審-実走
+制御=/Users/pascaldisse/projects/愛無/機関/環制御
+建log=/Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/cargo-build.log
+試log=/Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/cargo-test.log
+裸数=/Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/裸数値literal全行.txt
+実行: (cd /Users/pascaldisse/projects/愛無/機関/環制御 && cargo build) 2>&1 | tee /Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/cargo-build.log
+cargo_build終了=0
+実行: (cd /Users/pascaldisse/projects/愛無/機関/環制御 && cargo test) 2>&1 | tee /Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/cargo-test.log
+cargo_test終了=101
+裸数値全行=/Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158/裸数値literal全行.txt
+生成wav=0; 可聴=UNVERIFIED
+証跡=/Users/pascaldisse/projects/愛無/docs/adversary/証/20260811T122239+0200-44158

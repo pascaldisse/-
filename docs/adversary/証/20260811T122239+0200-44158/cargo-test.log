@@ -1,0 +1,119 @@
+warning: the usage of Script Group `Greek` in this crate consists solely of mixed script confusables
+  --> tests/敵対_z.rs:15:4
+   |
+15 | fn a1_負ゼロでもθ跳躍せず単一値() {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: the usage includes 'θ' (U+03B8), 'π' (U+03C0)
+   = note: please recheck to make sure their usages are indeed what you want
+   = note: `#[warn(mixed_script_confusables)]` on by default
+
+warning: `環制御` (test "敵対_z") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running unittests src/lib.rs (target/debug/deps/wa-1dd920e8bc274c7c)
+
+running 40 tests
+test polar::tests::all_eight_houses_reachable ... ok
+test polar::tests::at_deadzone_boundary_is_active ... ok
+test polar::tests::below_deadzone_is_house_none ... ok
+test polar::tests::center_is_house_none ... ok
+test polar::tests::clamp_trigger_bounds ... ok
+test polar::tests::left_is_house_4 ... ok
+test polar::tests::negative_angle_normalizes_into_0_360 ... ok
+test polar::tests::down_is_house_6 ... ok
+test polar::tests::right_is_house_0 ... ok
+test polar::tests::sector_boundary_wraps_to_house_0 ... ok
+test polar::tests::up_is_house_2 ... ok
+test z::tests::r上限を超えない ... ok
+test z::tests::中心は無 ... ok
+test z::tests::八家snapは45度格子へ ... ok
+test z::tests::θは常に閉区間内 ... ok
+test z::tests::snapは巻計数を汚さない ... ok
+test z::tests::三周で巻三 ... ok
+test z::tests::八家snap既定off ... ok
+test z::tests::右はθ零 ... ok
+test z::tests::家数はparam ... ok
+test z::tests::反時計一周で巻正一 ... ok
+test z::tests::左は対蹠π ... ok
+test z::tests::巻戻しで状態初期化 ... ok
+test z::tests::再生は決定論的 ... ok
+test z::tests::時計一周で巻負一 ... ok
+test z::tests::最大押幅でr一 ... ok
+test z::tests::往復は巻零に戻る ... ok
+test z::tests::死域中θ保持 ... ok
+test z::tests::死域境界で連続に立上がる ... ok
+test z::tests::死域中も巻は保持される ... ok
+test z::tests::死域未満は無 ... ok
+test z::tests::死域跨ぎは偽巻を産まない ... ok
+test z::tests::環正規化の端 ... ok
+test z::tests::直交往復 ... ok
+test 入力源::tests::tick行のみ拾う ... ok
+test 入力源::tests::右stickを混同しない ... ok
+test 入力源::tests::壊れ行は落とすが後続は読む ... ok
+test 入力源::tests::左stick値を正しく取る ... ok
+test z::tests::総角は単調増加_反時計 ... ok
+test 入力源::tests::空入力は空列 ... ok
+
+test result: ok. 40 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/z主.rs (target/debug/deps/環z-19d377f60e7a6163)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/環制御-ea9e6ece6c1cffd5)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/z統合試験.rs (target/debug/deps/z統合試験-c3e469e43829486f)
+
+running 7 tests
+test 実logの終巻はマイナス二で回帰pinされる ... ok
+test 実logの決定論再生はbit同一 ... ok
+test 八家snap_onoffでlap列は完全一致する ... ok
+test 実logの全標本でtheta_r_lap契約を満たす ... ok
+test 実logの決定論再生は手動loopとも一致する ... ok
+test 死域を上げるとr零標本数は単調に増える ... ok
+test 八家snapのthetaは家snap直接計算と独立に一致する ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/敵対_z.rs (target/debug/deps/敵対_z-2958de5badfac87b)
+
+running 17 tests
+test a12_z変paramは全既知定数をparam化している ... ok
+test a11_log量子化再生は生値z列とbit一致しない ... ok
+test a13_f32往復丸めは実機路のみに存在し再生路には無い ... ok
+test a14_無限入力はpanicせずr上限内に収まる ... ok
+test a14_nan入力はpanicせず無へ落ちる ... ok
+test a14_nanは活性化後の状態を汚染しない ... ok
+test a1_負ゼロでもθ跳躍せず単一値 ... ok
+test a2_polarは度z弧度_同一入力で数値系が異なる ... ok
+test a15_polarのhouseとz家snapが独立pathで一致する ... ok
+test a10_同一列は二回走でbit一致 ... ok
+test a5_標本化限界_急旋回はlapを実測より過小に数える ... ok
+test a7_死域再正規化は独立式と一致する ... ok
+test a6_死域境界はgte片側 ... FAILED
+test a4_π近傍微振動1000回のlap挙動を実測する ... ok
+test a8_正方形域の角でもr上限内 ... ok
+test a9_無状態のthetaは自己判別不能_無か併用が必須 ... ok
+test a3_往復十回でlap零に戻る ... ok
+
+failures:
+
+---- a6_死域境界はgte片側 stdout ----
+
+thread 'a6_死域境界はgte片側' (2936381) panicked at tests/敵対_z.rs:132:5:
+境界ちょうど(mag==死域)は活性であるべき (>=)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    a6_死域境界はgte片側
+
+test result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test 敵対_z`

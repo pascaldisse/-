@@ -1,0 +1,200 @@
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:5://! 律: hardcode禁 — 全定数は Z変param 既定つき (唯一例外 LOVE=1).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:7:/// 半環 π. 対蹠 (θ=π) = −1 = amm = 孤独 (環統合.md).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:9:/// 全環 2π = 一巻 (lap +1 分).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:11:/// 愛=1 — 唯一のhardcode許可定数.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:12:pub const LOVE: f64 = 1.0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:17:    /// 角 [-π, π] — 環位置. θ=0 → +1=愛 · θ=π → −1=対蹠.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:19:    /// 径 [0, 1] — 大きさ. r=0 = 無 = 中心 = 沈黙.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:21:    /// 巻 — ±π横断の符号つき累計 (反時計+1 · 時計−1). octave/shellに対応.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:26:    /// 無 = 中心 = 零vector (θ=0, r=0, lap=0).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:29:            theta: 0.0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:30:            r: 0.0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:31:            lap: 0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:45:    /// 無か否か (r==0).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:47:        self.r == 0.0
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:54:    /// 中央死域. 生径がこれ未満 → r=0 (無). 既定 0.08.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:56:    /// 死域外を [0,1] に再写像するか. true = 死域境界で r が 0 から連続に立上がる
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:59:    /// 八家 (45°) snap. 既定 off — 生θをそのまま返す.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:61:    /// snap分割数. 8 = 八卦 (45°刻). 既定 8.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:63:    /// r の上限clamp (stick生値が正方形域で√2まで出る為). 既定 1.0.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:65:    /// 死域中に直前の活性θを保持するか. false なら θ=0 を返す. 既定 true
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:76:            死域: 0.08,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:79:            家数: 8,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:99:    if 家数 == 0 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:120:            保持θ: 0.0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:121:            lap: 0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:136:        self.保持θ = 0.0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:137:        self.lap = 0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:143:    /// d < −π → 反時計に +π を越えた (lap +1) · d > +π → 時計に −π を越えた (lap −1).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:156:                0.0
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:160:                r: 0.0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:171:                self.lap += 1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:173:                self.lap -= 1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:194:    /// 生径 → r ∈ [0, r上限].
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:199:            (((生r - self.param.死域) / 幅) * 上).clamp(0.0, 上)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:201:            生r.clamp(0.0, 上)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:227:        (0..=n)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:238:        let z = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:239:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:240:        assert_eq!(z.lap, 0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:247:        let z = 変.変換(0.05, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:248:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:253:        // 出現律: r は死域で 0、直上で ~0 → pop-in無し.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:255:        let z0 = 変.変換(0.08, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:256:        assert!(近(z0.r, 0.0, 1e-9), "境界r={}", z0.r);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:257:        let z1 = 変.変換(0.0801, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:258:        assert!(z1.r > 0.0 && z1.r < 1e-3, "直上r={}", z1.r);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:264:        let z = 変.変換(1.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:265:        assert!(近(z.r, LOVE, 1e-12), "r={}", z.r);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:271:        let z = 変.変換(1.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:272:        assert!(近(z.theta, 0.0, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:278:        let z = 変.変換(-1.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:279:        assert!(近(z.theta.abs(), 半環, 1e-12), "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:285:        for i in 0..1000 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:286:            let θ = -10.0 + 0.02 * (i as f64);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:288:            assert!(z.theta > -半環 - 1e-12 && z.theta <= 半環 + 1e-12, "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:294:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:296:        assert_eq!(zs.last().unwrap().lap, 1, "巻={:?}", zs.last());
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:301:        let 列 = 回転列(-1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:303:        assert_eq!(zs.last().unwrap().lap, -1);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:308:        let 列 = 回転列(3.0, 1080, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:310:        assert_eq!(zs.last().unwrap().lap, 3);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:315:        let mut 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:316:        let mut 戻 = 回転列(-1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:317:        // 戻り列は θ=0 から時計回り → 連結して往復.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:320:        assert_eq!(zs.last().unwrap().lap, 0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:325:        let 列 = 回転列(2.0, 720, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:327:        for w in zs.windows(2) {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:328:            assert!(w[1].総角() >= w[0].総角() - 1e-9, "{:?} → {:?}", w[0], w[1]);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:334:        // θ≈+3.0 で離す → 無 → θ≈−3.0 で入れ直す. 環記憶解除 (既定) なら巻=0.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:336:        変.変換(0.9 * 3.0_f64.cos(), 0.9 * 3.0_f64.sin());
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:337:        変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:338:        let z = 変.変換(0.9 * (-3.0_f64).cos(), 0.9 * (-3.0_f64).sin());
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:339:        assert_eq!(z.lap, 0, "偽巻 z={z:?}");
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:344:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:349:        let z = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:350:        assert_eq!(z.lap, 1);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:351:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:357:        let z1 = 変.変換(0.0, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:358:        let z0 = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:359:        assert!(近(z0.theta, z1.theta, 1e-12), "保持失敗 {z0:?}");
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:367:        let θ: f64 = 0.3;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:369:        assert!(近(z.theta, θ, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:379:        let 刻 = 全環 / 8.0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:380:        for i in 0..64 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:381:            let θ = -半環 + (i as f64) * 0.1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:384:            assert!(余.abs() < 1e-9, "非格子 θ={} → {}", θ, z.theta);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:390:        let 列 = 回転列(2.0, 720, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:406:            家数: 4,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:410:        let 刻 = 全環 / 4.0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:411:        let z = 変.変換(0.6_f64.cos(), 0.6_f64.sin());
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:413:        assert!(余.abs() < 1e-9, "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:418:        let 列 = 回転列(2.5, 900, 0.7);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:426:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:431:        assert_eq!(変.巻(), 1);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:433:        assert_eq!(変.巻(), 0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:442:        let z = 変.変換(0.6, -0.3);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:444:        assert!(近(x, 0.6, 1e-12) && 近(y, -0.3, 1e-12), "({x},{y})");
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:450:        let z = 変.変換(1.0, 1.0); // 正方形域の角 → 生径√2
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:451:        assert!(z.r <= LOVE + 1e-12, "r={}", z.r);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:456:        assert!(近(環正規化(半環), 半環, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:457:        assert!(近(環正規化(-半環), 半環, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:458:        assert!(近(環正規化(全環), 0.0, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z.rs:459:        assert!(近(環正規化(3.0 * 半環), 半環, 1e-12));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:56:    /// 中央deadzone (0.0-1.0) — stick押幅がこれ未満なら家=無 (中央春=場への自動帰還).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:57:    #[arg(long, default_value_t = 0.15)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:61:    #[arg(long, default_value_t = 60.0)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:69:    /// 実行時間 (秒). 0 = 無限 (Ctrl-C終了).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:70:    #[arg(long, default_value_t = 15)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:76:    #[arg(long, default_value_t = 400)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:94:        .unwrap_or(0)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:132:        std::thread::sleep(Duration::from_millis(10));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:138:        device_count += 1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:162:    if device_count == 0 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:172:    let tick = Duration::from_secs_f64(1.0 / args.poll_hz.max(0.001));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:173:    let run_forever = args.duration_secs == 0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/main.rs:224:                        "TICK ts={} id={:?} L(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) R(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) L2={:.4} R2={:.4}",
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:42:    /// 中央死域 [0,1].
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:43:    #[arg(long, default_value_t = 0.08)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:46:    /// 死域外を [0,1] へ再写像 (出現律: 連続立上り).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:50:    /// 八家 45° snap (既定 off).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:54:    /// snap分割数 (8=八卦).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:55:    #[arg(long, default_value_t = 8)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:59:    #[arg(long, default_value_t = 1.0)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:63:    #[arg(long, default_value_t = 60.0)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:66:    /// 実機実行時間 (秒). 0 = 無限.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:67:    #[arg(long, default_value_t = 15)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:71:    #[arg(long, default_value_t = 400)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:78:    /// 再生の標本上限 (0 = 全部).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:79:    #[arg(long, default_value_t = 0)]
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:94:        .unwrap_or(0)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:104:        "Z ts={} x={:.4} y={:.4} theta={:.6} r={:.6} lap={}",
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:141:            std::thread::sleep(Duration::from_millis(10));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:144:            実機台数 += 1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:154:        源::実機 => 実機台数 > 0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:155:        源::自動 => 実機台数 > 0,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:166:        let 刻 = Duration::from_secs_f64(1.0 / args.poll_hz.max(0.001));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:167:        let 無限 = args.実行秒 == 0;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:183:                    数 += 1;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:199:        if args.再生上限 > 0 && 列.len() > args.再生上限 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/z主.rs:210:                    if 差 > 0 && 差 < 1000 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:31:            let ts = 数取(l, "ts=").unwrap_or(0.0) as u128;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:32:            let 左 = l.find("L(")? + 2;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:54:# 環制御 梯1 (読取) 起動 ts=1786442532613
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:55:# param deadzone=0.15 poll_hz=60
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:56:DEVICE id=GamepadId(0) name=\"PS5 Controller\" axes=6 buttons=17 connected=true
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:57:TICK ts=1786442533017 id=GamepadId(0) L(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) R(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) L2=0.0000 R2=0.0000
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:58:TICK ts=1786442533034 id=GamepadId(0) L(x=-0.5000 y=0.2500 angle=153.43 mag=0.5590 house=4) R(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) L2=0.0000 R2=1.0000
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:59:EDGE ts=1786442533100 id=GamepadId(0) button=South state=down
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:65:        assert_eq!(v.len(), 2);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:71:        assert_eq!(v[1].x, -0.5);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:72:        assert_eq!(v[1].y, 0.25);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:73:        assert_eq!(v[1].ts, 1786442533034);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:79:        assert_eq!(v[1].y, 0.25, "R(...)側を拾っていない事");
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:90:        let 壊 = format!("TICK ts=1 id=X L(x= y=)\n{見本}");
+/Users/pascaldisse/projects/愛無/機関/環制御/src/入力源.rs:92:        assert_eq!(v.len(), 2);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:6:    /// atan2(y,x) 度数, [0,360) に正規化.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:10:    /// 8扇形 (45°刻) の家番号 0-7. 中央deadzone未満なら None (=無).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:17:/// - house 0 = 角度0° (+x軸, 右) を中心とする ±22.5° 扇形. 以降45°刻で反時計回りに1,2,…7.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:22:    let angle_deg = y.atan2(x).to_degrees().rem_euclid(360.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:26:        let idx = ((angle_deg + 22.5) / 45.0).floor() as i64;
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:27:        Some((idx.rem_euclid(8)) as u8)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:36:/// L2/R2等のtrigger圧を [0.0, 1.0] へ clamp する (param越境防御).
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:38:    v.clamp(0.0, 1.0)
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:51:        let r = stick_to_polar(0.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:52:        assert_eq!(r.magnitude, 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:58:        let r = stick_to_polar(0.10, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:59:        assert!(r.magnitude < 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:66:        let r = stick_to_polar(0.15, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:67:        assert!(approx(r.magnitude, 0.15, 1e-6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:68:        assert_eq!(r.house, Some(0));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:73:        let r = stick_to_polar(1.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:74:        assert!(approx(r.angle_deg, 0.0, 1e-6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:75:        assert_eq!(r.house, Some(0));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:80:        let r = stick_to_polar(0.0, 1.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:81:        assert!(approx(r.angle_deg, 90.0, 1e-6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:82:        assert_eq!(r.house, Some(2));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:87:        let r = stick_to_polar(-1.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:88:        assert!(approx(r.angle_deg, 180.0, 1e-6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:89:        assert_eq!(r.house, Some(4));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:94:        let r = stick_to_polar(0.0, -1.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:95:        assert!(approx(r.angle_deg, 270.0, 1e-6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:96:        assert_eq!(r.house, Some(6));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:101:        let mut seen = [false; 8];
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:102:        for i in 0..8 {
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:103:            let theta = (i as f64) * 45.0_f64.to_radians();
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:104:            let r = stick_to_polar(theta.cos() as f32, theta.sin() as f32, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:114:        // 22.4° は家0側, 22.6° は家1側 — 境界近傍の非対称確認.
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:116:            22.4_f64.to_radians().cos() as f32,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:117:            22.4_f64.to_radians().sin() as f32,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:118:            0.15,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:121:            22.6_f64.to_radians().cos() as f32,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:122:            22.6_f64.to_radians().sin() as f32,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:123:            0.15,
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:125:        assert_eq!(r0.house, Some(0));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:126:        assert_eq!(r1.house, Some(1));
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:131:        let r = stick_to_polar(0.0, -1.0, 0.15);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:132:        assert!(r.angle_deg >= 0.0 && r.angle_deg < 360.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:137:        assert_eq!(clamp_trigger(-0.5), 0.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:138:        assert_eq!(clamp_trigger(1.5), 1.0);
+/Users/pascaldisse/projects/愛無/機関/環制御/src/polar.rs:139:        assert_eq!(clamp_trigger(0.42), 0.42);
