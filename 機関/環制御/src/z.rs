@@ -79,6 +79,11 @@ pub struct Z変param {
     /// 千分の一の確率で 死域化 を下回り, 「境界ちょうど=活性」仕様が
     /// 実測不能になる。許容幅無しの >= は仕様ではなく丸め誤差の役。既定 1e-12.
     pub 境界許容: f64,
+    /// |d| = π 厳密 (半回転) の巻 tie-break 規約。反時計/時計が原理上不分別
+    /// (solas審査欠陷3): (0,+r)→(0,-r) は d=-π 厳密で, strict比較のみだと
+    /// 巻不動→総角がπ後退する非対称に黙って倒れる。
+    /// +1=反時計優先 (既定) · -1=時計優先 · 0=巻不動.
+    pub 半回転規約: i8,
 }
 
 impl Default for Z変param {
@@ -93,12 +98,18 @@ impl Default for Z変param {
             死域で環記憶解除: true,
             最小幅: f64::EPSILON,
             境界許容: 1e-12,
+            半回転規約: 1,
         }
     }
 }
 
 /// 角を (-π, π] へ環正規化.
+/// 非有限値は 0 へ吸収 — rem_euclid は NaN/±∞ をそのまま通し契約 (-π,π] を破る
+/// (solas審査欠陷1, 08-11).
 pub fn 環正規化(θ: f64) -> f64 {
+    if !θ.is_finite() {
+        return 0.0;
+    }
     let t = θ.rem_euclid(全環);
     if t > 半環 {
         t - 全環
@@ -196,6 +207,13 @@ impl Z変換器 {
                 self.lap += 1;
             } else if d > 半環 {
                 self.lap -= 1;
+            } else if d.abs() == 半環 {
+                // 半回転 = 方向不分別点. 規約で明示的に決める (黙って後退させない).
+                match self.param.半回転規約.signum() {
+                    1 if d < 0.0 => self.lap += 1,
+                    -1 if d > 0.0 => self.lap -= 1,
+                    _ => {}
+                }
             }
         }
         self.前θ = Some(生θ);
@@ -219,7 +237,9 @@ impl Z変換器 {
     /// 生径 → r ∈ [0, r上限].
     fn 径写像(&self, 生r: f64) -> f64 {
         let 上 = self.param.r上限;
-        if self.param.死域再正規化 {
+        // r上限 <= 死域 の逆転構成では再正規化の幅が最小幅へ丸まり瞬時飽和する
+        // → 連続立上り契約 (出現律) が壊れる (solas審査欠陷4) → 生径clampへ退避.
+        if self.param.死域再正規化 && 上 > self.param.死域 {
             let 幅 = (上 - self.param.死域).max(self.param.最小幅);
             (((生r - self.param.死域) / 幅) * 上).clamp(0.0, 上)
         } else {
@@ -521,6 +541,48 @@ mod tests {
             assert!(z.theta.is_finite(), "theta汚染 ({x},{y}) → {z:?}");
             assert!(z.r.is_finite(), "r汚染 ({x},{y}) → {z:?}");
         }
+    }
+
+    #[test]
+    fn 環正規化は非有限を吸収() {
+        for v in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+            let t = 環正規化(v);
+            assert!(t.is_finite() && t > -半環 && t <= 半環, "{v} → {t}");
+        }
+    }
+
+    #[test]
+    fn 半回転は規約で巻を決める() {
+        // solas審査欠陷3 回帰: (0,+r)→(0,-r) は d=-π 厳密.
+        let 上下 = |規: i8| {
+            let mut 変 = Z変換器::新(Z変param {
+                半回転規約: 規,
+                ..Default::default()
+            });
+            変.変換(0.0, 0.9);
+            変.変換(0.0, -0.9)
+        };
+        assert_eq!(上下(1).lap, 1, "反時計優先規約が効かぬ");
+        assert_eq!(上下(0).lap, 0, "不動規約が効かぬ");
+        assert!(上下(1).総角() > 0.0, "既定規約で総角が後退した");
+    }
+
+    #[test]
+    fn r上限が死域以下の退化構成も境界を守る() {
+        // solas審査欠陷4. 判定: r上限<=死域 は **退化構成** — 活性標本は必ず
+        // 生径>=死域>=上限 で連続立上りは原理上不可能。求め得るのは
+        // 「爆発せず境界を守り決定論的」まで — 再正規化を切って生clampへ退避する.
+        let p = Z変param {
+            r上限: 0.05,
+            ..Default::default()
+        };
+        let mut 変 = Z変換器::新(p);
+        for i in 0..100 {
+            let z = 変.変換(0.08 + (i as f64) * 1e-9, 0.0);
+            assert!(z.r.is_finite() && z.r <= p.r上限, "境界破り r={}", z.r);
+        }
+        // 死域未満は従前通り無.
+        assert_eq!(変.変換(0.05, 0.0).r, 0.0);
     }
 
     #[test]
