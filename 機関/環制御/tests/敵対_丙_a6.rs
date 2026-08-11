@@ -1,0 +1,45 @@
+//! 批根丙 独立検証 — A6 死域境界の片側性を **Nyquist適合**の跨ぎで測る.
+//! (甲節A6の初版試験は200°単tick跳躍=Nyquist違反で無効だった. その再測定.)
+use wa::z::{Z変param, Z変換器};
+
+fn 極(r: f64, deg: f64) -> (f64, f64) {
+    let t = deg.to_radians();
+    (r * t.cos(), r * t.sin())
+}
+
+#[test]
+fn a6丙_境界ちょうどは活性側_lap発火で観測() {
+    let dz = Z変param::default().死域;
+    let mut v = Z変換器::既定();
+    let (x0, y0) = 極(0.9, 170.0);
+    v.変換(x0, y0); // 前θ=170°
+    let (x1, y1) = 極(dz, 190.0); // 生r==dz ちょうど, +π縫目を20°で跨ぐ (Nyquist適合)
+    let z = v.変換(x1, y1);
+    assert_eq!(z.lap, 1, "境界(mag==dz)が活性扱いされていない → >= 規約違反");
+    assert_eq!(z.r, 0.0, "境界のrは0であるべき (連続立上り)");
+}
+
+#[test]
+fn a6丙_境界直下は非活性_同じ跨ぎでlap不動() {
+    let dz = Z変param::default().死域;
+    let mut v = Z変換器::既定();
+    let (x0, y0) = 極(0.9, 170.0);
+    v.変換(x0, y0);
+    let (x1, y1) = 極(dz - 1e-9, 190.0);
+    let z = v.変換(x1, y1);
+    assert_eq!(z.lap, 0, "死域直下が活性化した → < 規約違反");
+}
+
+#[test]
+fn a6丙_境界半径は三角経路で一部が死域下に落ちる() {
+    // 契約「mag==dz は活性」は浮動小数上ほぼ到達不能 = 実効的に無意味な条項.
+    let dz = Z変param::default().死域;
+    let 下 = (0..3600)
+        .filter(|i| {
+            let (x, y) = 極(dz, *i as f64 / 10.0);
+            x.hypot(y) < dz
+        })
+        .count();
+    println!("境界半径で死域下に落ちた角度: {下}/3600");
+    assert!(下 > 0, "1ulp下振れが皆無 (環境依存)");
+}
