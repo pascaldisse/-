@@ -1,6 +1,6 @@
-//! 声→Z写像。比の小数巻を環角、整数巻をlapへ分離する。
+//! 声→Z写像。総角=全環·log2(hz/基音) を巻込みで連続に保つ。
 
-use wa::z::{全環, 家snap, 環正規化};
+use wa::z::全環;
 
 use crate::契約::Z;
 use crate::検出::検出結果;
@@ -26,49 +26,60 @@ impl Default for 写像param {
             律: 律::八家,
             家snap: false,
             家数: 8,
-            満音rms: 1.0,
-            明瞭閾: 0.70,
-            無音閾rms: 0.01,
+            // 話者較正前の−18dBFS相当。較正有声音RMS P95で置換するparam。
+            満音rms: 0.125_892_541_179_416_73,
+            明瞭閾: 0.90,
+            // −60dBFS相当。較正noise床+6dBへ上書き可能。
+            無音閾rms: 0.001,
             lap下限: -8,
             lap上限: 8,
         }
     }
 }
 
+fn 螺旋(l: f64, p: &写像param) -> Option<(f64, i64)> {
+    if !l.is_finite() || p.lap下限 > p.lap上限 {
+        return None;
+    }
+    // 定1: round= floor(L+1/2)。θ+全環·lap は全環·L と厳密一致する。
+    // 半巻tieでは θ=−π, lapが上位へ進む。総角保存を優先する同値端である。
+    let lap実 = (l + 0.5).floor();
+    let theta = 全環 * (l - lap実);
+    let lap = lap実.clamp(p.lap下限 as f64, p.lap上限 as f64) as i64;
+    Some((theta, lap))
+}
+
 pub fn 声z(検出: &検出結果, p: &写像param) -> Z {
     let Some(hz) = 検出.hz else { return Z::無() };
     if !hz.is_finite()
+        || hz <= 0.0
         || !p.基音.is_finite()
         || p.基音 <= 0.0
         || !検出.rms.is_finite()
-        || 検出.rms < p.無音閾rms.max(0.0)
+        || 検出.rms <= p.無音閾rms.max(0.0)
         || !検出.明瞭度.is_finite()
         || 検出.明瞭度 < p.明瞭閾
         || !p.満音rms.is_finite()
-        || p.満音rms <= 0.0
+        || p.満音rms <= p.無音閾rms
     {
         return Z::無();
     }
-    let 巻実 = (hz / p.基音).log2();
-    if !巻実.is_finite() {
-        return Z::無();
-    }
-    let 巻床 = 巻実.floor();
-    let mut theta = 環正規化(全環 * (巻実 - 巻床));
+    let mut l = (hz / p.基音).log2();
     if p.家snap {
-        // B9: 家番号の私有算出を持たぬ。甲契約層だけが格子規約を所有する。
-        theta = 家snap(theta, p.家数);
+        if p.家数 == 0 {
+            return Z::無();
+        }
+        // 定2: θ域のwa::z::家snapは家0縫目でcarryを持てぬ為ここでは使わない。
+        // L域の量子化は巻込み整数格子を直接丸め、337.5°/345°で必ずlapへcarryする。
+        // 家番号を算出しない歌口固有写像であり、番号が要る層のB9契約を侵さない。
+        l = (l * p.家数 as f64 + 0.5).floor() / p.家数 as f64;
     }
-    let lap = if p.lap下限 <= p.lap上限 {
-        巻床.clamp(p.lap下限 as f64, p.lap上限 as f64) as i64
-    } else {
-        p.lap下限
+    let Some((theta, lap)) = 螺旋(l, p) else {
+        return Z::無();
     };
-    Z {
-        theta,
-        r: (検出.rms / p.満音rms).clamp(0.0, 1.0),
-        lap,
-    }
+    // RMS線形deadzone再正規化: 境界r=0、直上も連続。dBは較正だけに留める。
+    let r = ((検出.rms - p.無音閾rms) / (p.満音rms - p.無音閾rms)).clamp(0.0, 1.0);
+    Z { theta, r, lap }
 }
 
 #[cfg(test)]
@@ -81,26 +92,43 @@ mod tests {
 
     #[test]
     fn 基音は環零_lap零() {
-        let z = 声z(&検(Some(220.0), 1.0, 0.5), &写像param::default());
+        let p = 写像param::default();
+        let z = 声z(&検(Some(p.基音), 1.0, p.満音rms), &p);
         assert!(z.theta.abs() < 1e-12, "{z:?}");
         assert_eq!(z.lap, 0);
-        assert!((z.r - 0.5).abs() < 1e-12);
+        assert_eq!(z.r, 1.0);
     }
 
     #[test]
-    fn octaveはlapへ入る() {
-        let z = 声z(&検(Some(440.0), 1.0, 1.0), &写像param::default());
+    fn 総角は連続真値と一致() {
+        let p = 写像param::default();
+        for l in [-2.49, -0.5, -0.14, 0.0, 0.49, 0.5, 1.31] {
+            let hz = p.基音 * 2f64.powf(l);
+            let z = 声z(&検(Some(hz), 1.0, p.満音rms), &p);
+            assert!((z.総角() - 全環 * l).abs() < 1e-11, "L={l} z={z:?}");
+        }
+    }
+
+    #[test]
+    fn 家snapはl域carryを保つ() {
+        let p = 写像param {
+            家snap: true,
+            家数: 8,
+            ..Default::default()
+        };
+        let l = 0.99;
+        let z = 声z(&検(Some(p.基音 * 2f64.powf(l)), 1.0, p.満音rms), &p);
+        assert_eq!(z.lap, 1, "{z:?}");
         assert!(z.theta.abs() < 1e-12, "{z:?}");
-        assert_eq!(z.lap, 1);
     }
 
     #[test]
     fn 無音無声欠hzは無() {
         let p = 写像param::default();
         for r in [
-            検(None, 1.0, 1.0),
-            検(Some(220.0), 0.0, 1.0),
-            検(Some(220.0), 1.0, 0.0),
+            検(None, 1.0, p.満音rms),
+            検(Some(p.基音), 0.0, p.満音rms),
+            検(Some(p.基音), 1.0, p.無音閾rms),
         ] {
             assert_eq!(声z(&r, &p), Z::無());
         }
@@ -113,18 +141,7 @@ mod tests {
             lap上限: 2,
             ..Default::default()
         };
-        assert_eq!(声z(&検(Some(220.0 * 16.0), 1.0, 1.0), &p).lap, 2);
-        assert_eq!(声z(&検(Some(220.0 / 16.0), 1.0, 1.0), &p).lap, -2);
-    }
-
-    #[test]
-    fn 家snapは甲契約格子へ委譲() {
-        let p = 写像param {
-            家snap: true,
-            家数: 8,
-            ..Default::default()
-        };
-        let z = 声z(&検(Some(220.0 * 2f64.powf(0.14)), 1.0, 1.0), &p);
-        assert!((z.theta - 家snap(z.theta, p.家数)).abs() < 1e-12, "{z:?}");
+        assert_eq!(声z(&検(Some(p.基音 * 16.0), 1.0, p.満音rms), &p).lap, 2);
+        assert_eq!(声z(&検(Some(p.基音 / 16.0), 1.0, p.満音rms), &p).lap, -2);
     }
 }
