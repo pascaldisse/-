@@ -1,0 +1,19 @@
+[package]
+name = "環音"
+version = "0.1.0"
+edition = "2021"
+description = "梯3: z→音 — stickを回すと歌う. 文書/環統合.md §実装梯3 参照."
+
+# crate選択理由:
+#  cpal — Mac実音出力 (CoreAudio直結, pure rust, sample callbackを我々が書く).
+#         rodioは「音源を再生する」高層 — 我々は毎sample合成する側なのでcpalが素直,
+#         かつ同一合成器の出力をwav保存にもそのまま流用できる (proof二重化).
+#  hound — wav書出/読取の最小crate (proof検査に読取も要る).
+[dependencies]
+cpal = "0.15"
+hound = "3"
+clap = { version = "4", features = ["derive"] }
+
+[[bin]]
+name = "環音"
+path = "src/main.rs"
