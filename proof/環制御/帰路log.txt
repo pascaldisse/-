@@ -1,0 +1,13 @@
+# 帰路 起動 ts=1786451969260 param=帰路param { 搬送hz: 2.0, duty: 0.5, 最大強度: 39321, 最小強度: 0, 継続秒: 2.0 } 径=1
+# 注: macOS gilrsのforce feedbackはAPI成功でも実振動0が既知 (gilrs-core-0.6.8 platform/macos/ff.rs::Device::set_ff_state=空実装). 実振動は常にUNVERIFIED申告する.
+# UNVERIFIED: force feedback対応gamepad 0台 (実機BT不在 or ff未対応)
+# 代替帰路 (param通りの仕様行 — 実振動の証跡ではない) 周期ms=500 on_ms=250 off_ms=250 強度=39321 反復=4
+HAPTIC t_ms=0 phase=on dur_ms=250 強度=39321
+HAPTIC t_ms=250 phase=off dur_ms=250 強度=0
+HAPTIC t_ms=500 phase=on dur_ms=250 強度=39321
+HAPTIC t_ms=750 phase=off dur_ms=250 強度=0
+HAPTIC t_ms=1000 phase=on dur_ms=250 強度=39321
+HAPTIC t_ms=1250 phase=off dur_ms=250 強度=0
+HAPTIC t_ms=1500 phase=on dur_ms=250 強度=39321
+HAPTIC t_ms=1750 phase=off dur_ms=250 強度=0
+# 帰路 終了 ts=1786451969673
