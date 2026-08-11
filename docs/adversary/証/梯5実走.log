@@ -1,0 +1,116 @@
+$ cd /Users/pascaldisse/projects/愛無/.scratch/審-梯5/機関/歌口 && cargo build && cargo test
+   Compiling proc-macro2 v1.0.107
+   Compiling libc v0.2.189
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling glob v0.3.4
+   Compiling regex-syntax v0.8.11
+   Compiling memchr v2.8.3
+   Compiling minimal-lexical v0.2.1
+   Compiling cfg-if v1.0.4
+   Compiling either v1.17.0
+   Compiling libloading v0.8.9
+   Compiling bindgen v0.72.1
+   Compiling itertools v0.13.0
+   Compiling bitflags v2.13.1
+   Compiling shlex v1.3.0
+   Compiling rustc-hash v2.1.3
+   Compiling clang-sys v1.9.1
+   Compiling nom v7.1.3
+   Compiling utf8parse v0.2.2
+   Compiling anstyle-parse v1.0.0
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling colorchoice v1.0.5
+   Compiling objc2-core-foundation v0.3.2
+   Compiling anstyle v1.0.14
+   Compiling anstyle-query v1.1.5
+   Compiling vec_map v0.8.2
+   Compiling anstream v1.0.0
+   Compiling log v0.4.33
+   Compiling gilrs v0.11.2
+   Compiling strsim v0.11.1
+   Compiling uuid v1.24.0
+   Compiling heck v0.5.0
+   Compiling regex-automata v0.4.18
+   Compiling clap_lex v1.1.0
+   Compiling clap_builder v4.6.6
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling bitflags v1.3.2
+   Compiling cexpr v0.6.0
+   Compiling cpal v0.15.3
+   Compiling fnv v1.0.7
+   Compiling objc2-io-kit v0.3.2
+   Compiling core-foundation-sys v0.8.7
+   Compiling mach2 v0.4.3
+   Compiling dasp_sample v0.11.0
+   Compiling hound v3.5.1
+   Compiling gilrs-core v0.6.8
+   Compiling regex v1.13.1
+   Compiling clap_derive v4.6.4
+   Compiling clap v4.6.6
+   Compiling 環制御 v0.1.0 (/Users/pascaldisse/projects/愛無/.scratch/審-梯5/機関/環制御)
+   Compiling coreaudio-sys v0.2.18
+   Compiling coreaudio-rs v0.11.3
+   Compiling 歌口 v0.1.0 (/Users/pascaldisse/projects/愛無/.scratch/審-梯5/機関/歌口)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 12.02s
+   Compiling 歌口 v0.1.0 (/Users/pascaldisse/projects/愛無/.scratch/審-梯5/機関/歌口)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running unittests src/lib.rs (target/debug/deps/utagu-34889e7eb47beb61)
+
+running 8 tests
+test 写像::tests::lapは飽和し折返さぬ ... ok
+test 写像::tests::無音無声欠hzは無 ... ok
+test 写像::tests::octaveはlapへ入る ... ok
+test 写像::tests::基音は環零_lap零 ... ok
+test 写像::tests::家snapは甲契約格子へ委譲 ... ok
+test 検出::tests::無音は無声 ... ok
+test 検出::tests::自己相関正弦を捉える ... ok
+test 検出::tests::yin正弦を捉える ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running unittests src/main.rs (target/debug/deps/歌口-a18b0d9d09b9f29a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests utagu
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+終了=0
+$ cargo run --bin 歌口 -- --help
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running `target/debug/歌口 --help`
+梯5: 声→音高→Z。
+
+Usage: 歌口 [OPTIONS]
+
+Options:
+      --源 <源>            [default: mic] [possible values: mic, wav, 合成]
+      --wav <WAV>        
+      --合成hz <合成HZ>      
+      --秒 <秒>            [default: 10]
+      --出力 <出力>          
+      --標本率 <標本率>        
+      --窓長 <窓長>          
+      --跳幅 <跳幅>          
+      --法 <法>            [possible values: YIN, 自己相関]
+      --下限hz <下限HZ>      
+      --上限hz <上限HZ>      
+      --明瞭閾 <明瞭閾>        
+      --無音閾rms <無音閾RMS>  
+      --基音 <基音>          
+      --律 <律>            [possible values: 八家, 十二平均律]
+      --家snap            
+      --家数 <家数>          
+      --満音rms <満音RMS>    
+      --lap下限 <LAP下限>    
+      --lap上限 <LAP上限>    
+      --合成振幅 <合成振幅>      
+  -h, --help             Print help
+help終了=0

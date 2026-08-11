@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/pascaldisse/projects/愛無/docs/adversary/具/z審.py", line 505, in <module>
+    main()
+    ~~~~^^
+  File "/Users/pascaldisse/projects/愛無/docs/adversary/具/z審.py", line 498, in main
+    報告 = 総合検査(
+           ~~~~~~~~^
+        args.zlog, args.注入, args.名, args.決定論2, args.定常比, args.r閾, args.縫目閾,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/pascaldisse/projects/愛無/docs/adversary/具/z審.py", line 328, in 総合検査
+    報告["期待値突合"] = 検_期待値突合(rows, entry, 基音=基音, 定常比=定常比)
+                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pascaldisse/projects/愛無/docs/adversary/具/z審.py", line 249, in 検_期待値突合
+    θ誤差 = _角差(theta代表, θ期) if not math.isnan(θ期) else float("nan")
+                                         ~~~~~~~~~~^^^^^
+TypeError: must be real number, not NoneType
