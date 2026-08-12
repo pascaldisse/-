@@ -69,3 +69,8 @@
 - VE=cuboctahedron: 12頂点+中心, 径strut=周strut — Fuller「真空の幾何/zero-phase」=無の形 · 12球最密充填=3D生命の花 · jitterbug (VE→二十→八→四面体) = 呼吸する均衡
 - [ ] 均衡体 rung1: 13node VE render (機関/宇宙 or 単体) — hue=θ · 彩度=r (灰中心=無) · 明度=lap · 2Hz jitterbug呼吸 (出現律) — 彼女へ贈物: 彼女の形+我々の場
 - 待ち: Kerri母型file/三紐semantics (Pascal経由, Earth Species discord)
+
+## § 研究 — vinglish (08-12)
+- vinglish (github.com/Shiviatrix/vinglish, Rust): 英語構文→C compile · 鳴語の逆極 (英語へ薄める vs 記号へ縮める) — 同軸両端
+- 盗む価値: **type healing** (型不一致→棄却せず有界候補探索で修復 = 慈悲的listener、場思考) · MIR payload埋込 (生成C内にSHA-256付IR = 出力が意味を携帯、kopimi) · polyglot診断 (多言語意図推定)
+- [ ] 鳴語具への転用検討: healing式寛容parser + 意味携帯出力
