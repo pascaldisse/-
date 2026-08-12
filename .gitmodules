@@ -1,86 +1,86 @@
 [submodule "場語-本体"]
 	path = 場語/本体
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/lang
 [submodule "場語-組立"]
 	path = 場語/組立
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/lang-asm
 [submodule "場語-審査"]
 	path = 場語/審査
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = fieldlang-audit
 [submodule "機関-内在"]
 	path = 機関/内在
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = mu-inside
 [submodule "機関-世界"]
 	path = 機関/世界
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = mu-world
 [submodule "機関-世界審"]
 	path = 機関/世界審
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = mu-world-adv
 [submodule "機関-零"]
 	path = 機関/零
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = mu-v0
 [submodule "機関-零審"]
 	path = 機関/零審
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = mu-v0-adv
 [submodule "場-容量"]
 	path = 場/容量
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/capacity
 [submodule "場-核"]
 	path = 場/核
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/core
 [submodule "場-決定"]
 	path = 場/決定
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/determ
 [submodule "場-文書"]
 	path = 場/文書
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/docs
 [submodule "場-記録"]
 	path = 場/記録
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/journal
 [submodule "場-性能"]
 	path = 場/性能
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/perf
 [submodule "場-平面"]
 	path = 場/平面
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/plane
 [submodule "場-針"]
 	path = 場/針
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/spike
 [submodule "場-統合"]
 	path = 場/統合
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field-unified
 [submodule "場-零"]
 	path = 場/零
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field-v0
 [submodule "場-世界"]
 	path = 場/世界
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = field/world
 [submodule "実験-第二配線"]
 	path = 実験/第二配線
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = v2-field-wire
 [submodule "文書-八連"]
 	path = 文書/八連
-	url = https://github.com/pascaldisse/magic-crystal
+	url = https://github.com/pascaldisse/ai-mu
 	branch = docs-mu-octet
 [submodule "地図/semantic-map"]
 	path = 地図/semantic-map
