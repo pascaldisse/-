@@ -57,6 +57,32 @@ $ shasum -a 256 regen.bin
 - F5 = 境界 off-by-one 訂正 (2^29-1 → 2^29)。
 - 新: F7 lap項の mulc 非利用(inline複製)。
 
+## (5) round7 第二審 — 被審artifact 不在
+
+時=2026-08-14。指定 `94c8617` と `vishnu/round7-build` を本laneから独立に照会:
+
+```
+$ git fetch origin --prune
+$ git rev-parse --verify 94c8617^{commit}
+$ git branch -a | grep -E 'vishnu|kali'
+  kali/audit-v1
+* kali/round7-numeric-refute
+```
+
+`94c8617`=本object database・fetch後origin双方に不在、`vishnu/round7-build`=ref不在。故 `wave_neon.s` / `q30_wave/gate.sh` 無読取、NEON実機・disasm・ABI sentinel・mutation5 は開始不能。
+
+同時に旧frozen artifactだけは再生確認:
+
+```
+$ python3 scratch/audit/round7/oracle_copy.py --emit scratch/audit/round7/regen-r8.bin --expect-digest 1973cf60a0cf4b20e2117d64af66ed99a79a3751646d8f3f51837e33648e2397
+vectors=scratch/audit/round7/regen-r8.bin cases=133 sha256=1973cf60a0cf4b20e2117d64af66ed99a79a3751646d8f3f51837e33648e2397
+$ shasum -a 256 scratch/audit/round7/regen-r8.bin
+1973cf60a0cf4b20e2117d64af66ed99a79a3751646d8f3f51837e33648e2397  scratch/audit/round7/regen-r8.bin
+```
+
+判: digest=真。ただし旧oracle自己再生のみ、被審round7実行との一致=未判。
+
 ## UNVERIFIED
 - Rust実行(cargo test)未 — 静的読取のみ。
 - 第二独立oracle実装による vectors 相互検証 未。
+- `94c8617` / `vishnu/round7-build` の供給待ち: scalar ABI同型、frozen133被審実行、NEON disasm、4-lane/border/tail/alias、x18・x19-x28、mutation5、C/Swift/Python非混入。
