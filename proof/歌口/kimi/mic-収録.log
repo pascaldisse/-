@@ -1,0 +1,5 @@
+開始=2026-08-11T14:00:06Z
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running `機関/歌口/target/debug/歌口 '--源' mic '--秒' 2 '--出力' 'proof/歌口/kimi/mic-z.txt'`
+終=2026-08-11T14:00:08Z
+status=0

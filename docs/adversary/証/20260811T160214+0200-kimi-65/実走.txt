@@ -1,0 +1,5 @@
+HEAD=67b601e9ce3d73fb6053fc9c823791470ef67341
+branch=審/歌口-kimi
+歌口注入 実走=      65
+証=docs/adversary/証/20260811T160214+0200-kimi-65
+z審65済
