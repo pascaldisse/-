@@ -1,0 +1,15 @@
+時=20260811T160007+0200-560
+殿=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi
+HEAD=c9de9345e6bb92b9adcd582b22046175c9b3c01b
+枝=審/歌口-kimi
+制御=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御
+建log=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/cargo-build.log
+試log=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/cargo-test.log
+裸数=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/裸数値literal全行.txt
+実行: (cd /Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御 && cargo build) 2>&1 | tee /Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/cargo-build.log
+cargo_build終了=0
+実行: (cd /Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御 && cargo test) 2>&1 | tee /Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/cargo-test.log
+cargo_test終了=0
+裸数値全行=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560/裸数値literal全行.txt
+生成wav=0; 可聴=UNVERIFIED
+証跡=/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/docs/adversary/証/20260811T160007+0200-560

@@ -1,0 +1,273 @@
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:43:    /// 中央死域 [0,1].
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:44:    #[arg(long, default_value_t = 0.08)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:47:    /// 死域外を [0,1] へ再写像 (出現律: 連続立上り).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:51:    /// 八家 45° snap (既定 off).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:55:    /// snap分割数 (8=八卦).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:56:    #[arg(long, default_value_t = 8)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:60:    #[arg(long, default_value_t = 1.0)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:64:    #[arg(long, default_value_t = 60.0)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:67:    /// 実機実行時間 (秒). 0 = 無限.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:68:    #[arg(long, default_value_t = 15)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:72:    #[arg(long, default_value_t = 400)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:79:    /// 再生の標本上限 (0 = 全部).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:80:    #[arg(long, default_value_t = 0)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:84:    #[arg(long, default_value_t = 10)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:88:    #[arg(long, default_value_t = 0.001)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:92:    #[arg(long, default_value_t = 1000)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:107:        .unwrap_or(0)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:117:        "Z ts={} x={:.4} y={:.4} theta={:.6} r={:.6} lap={}",
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:157:            実機台数 += 1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:167:        源::実機 => 実機台数 > 0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:168:        源::自動 => 実機台数 > 0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:179:        let 刻 = Duration::from_secs_f64(1.0 / args.poll_hz.max(args.最小poll_hz));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:180:        let 無限 = args.実行秒 == 0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:196:                    数 += 1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:212:        if args.再生上限 > 0 && 列.len() > args.再生上限 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z主.rs:223:                    if 差 > 0 && 差 < args.再生最大待機ms as u128 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:34:            let 左 = l.find("L(")? + 2;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:56:# 環制御 梯1 (読取) 起動 ts=1786442532613
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:57:# param deadzone=0.15 poll_hz=60
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:58:DEVICE id=GamepadId(0) name=\"PS5 Controller\" axes=6 buttons=17 connected=true
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:59:TICK ts=1786442533017 id=GamepadId(0) L(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) R(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) L2=0.0000 R2=0.0000
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:60:TICK ts=1786442533034 id=GamepadId(0) L(x=-0.5000 y=0.2500 angle=153.43 mag=0.5590 house=4) R(x=0.0000 y=0.0000 angle=0.00 mag=0.0000 house=無) L2=0.0000 R2=1.0000
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:61:EDGE ts=1786442533100 id=GamepadId(0) button=South state=down
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:67:        assert_eq!(v.len(), 2);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:73:        assert_eq!(v[1].x, -0.5);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:74:        assert_eq!(v[1].y, 0.25);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:75:        assert_eq!(v[1].ts, 1786442533034);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:81:        assert_eq!(v[1].y, 0.25, "R(...)側を拾っていない事");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:92:        let 壊 = format!("TICK ts=1 id=X L(x= y=)\n{見本}");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/入力源.rs:94:        assert_eq!(v.len(), 2);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:56:    /// 中央deadzone (0.0-1.0) — stick押幅がこれ未満なら家=無 (中央春=場への自動帰還).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:57:    #[arg(long, default_value_t = 0.15)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:61:    #[arg(long, default_value_t = 60.0)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:69:    /// 実行時間 (秒). 0 = 無限 (Ctrl-C終了).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:70:    #[arg(long, default_value_t = 15)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:76:    #[arg(long, default_value_t = 400)]
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:94:        .unwrap_or(0)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:132:        std::thread::sleep(Duration::from_millis(10));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:138:        device_count += 1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:162:    if device_count == 0 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:172:    let tick = Duration::from_secs_f64(1.0 / args.poll_hz.max(0.001));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:173:    let run_forever = args.duration_secs == 0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/main.rs:224:                        "TICK ts={} id={:?} L(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) R(x={:.4} y={:.4} angle={:.2} mag={:.4} house={}) L2={:.4} R2={:.4}",
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:3://! 是正 (梯1 既知欠陥1-5, 敵対審査 docs/adversary/2026-08-11-環統合審.md 甲.2 受け, 08-11):
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:11:    /// atan2(y,x) 度数, [0,360) に正規化.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:12:    /// 例外 (欠陥-2是正, a9): x==0 かつ y==0 (真中心, atan2数学的に無効定義点) の時は
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:13:    /// **NaN** — θ=0=愛方位を偽って主張しない為の明示的無効印
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:17:    /// hypot(x,y) を死域外 [0, r上限] へ再写像した押幅 (欠陥-1/-3是正, a7/a8:
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:21:    /// `家数` 扇形 (既定8=45°刻) の家番号. 中央死域未満 or 非有限入力なら None (=無, 欠陥-4是正).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:29:    /// 死域外を [0,1] へ再写像するか. true = 境界で magnitude が0から連続に立上がる
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:30:    /// (出現律: pop-in禁 — z.rs死域再正規化と同法, 欠陥-1). 既定 true.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:32:    /// magnitude の上限. stick生値が正方形域(√2)で出る為, これでclamp/再写像する
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:33:    /// (z.rsのr上限と整合, 欠陥-3). 既定 LOVE (=1.0).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:35:    /// 8扇形snapの分割数 — 45°=360/家数 をここから導出する (直書き禁, 欠陥-4).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:36:    /// z.rs `Z変param.家数` と同名同義. 既定 8.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:47:            家数: 8,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:56:/// - house 0 = 角度0° (+x軸, 右) を中心とする ±(360/家数/2)° 扇形. 以降刻で反時計回りに1,2,….
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:61:/// stick生値(x,y)を StickReading に変換する (param明示版 — 欠陥1/3/4是正の実体).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:73:    // 欠陥-2是正 (a9): atan2(0,0)は数学的に無効定義点 — θ=0=愛方位を偽って名乗らせない.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:74:    let 生θ_rad = if 生magnitude == 0.0 { None } else { Some(y.atan2(x)) };
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:76:        Some(θ) => θ.to_degrees().rem_euclid(360.0),
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:81:    // B9是正 (敵対審査乙.4 B9, 08-11): 家番号算出は crate::z::家番号 (契約層唯一実装) へ委譲
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:84:        生θ_rad.map(|θ| crate::z::家番号(θ, param.家数.max(1)) as u8)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:95:        0.0
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:105:/// 生magnitude → [0, r上限] へ死域再正規化 (z.rs `径写像` と同法, 欠陥-1/-3是正).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:109:        (((生magnitude - deadzone) / 幅) * param.r上限).clamp(0.0, param.r上限)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:111:        生magnitude.clamp(0.0, param.r上限)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:115:/// L2/R2等のtrigger圧を [0.0, 1.0] へ clamp する (param越境防御).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:117:    v.clamp(0.0, 1.0)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:130:        let r = stick_to_polar(0.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:131:        assert_eq!(r.magnitude, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:137:        let r = stick_to_polar(0.10, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:138:        assert!(r.magnitude < 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:145:        // 是正(a7, 08-11): magnitude自体は死域再正規化で境界=0から連続に立上がる契約
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:147:        let r = stick_to_polar(0.15, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:148:        assert!(approx(r.magnitude, 0.0, 1e-6), "境界magnitudeは連続立上りで0付近であるべき r={}", r.magnitude);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:149:        assert_eq!(r.house, Some(0));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:154:        let r = stick_to_polar(1.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:155:        assert!(approx(r.angle_deg, 0.0, 1e-6));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:156:        assert_eq!(r.house, Some(0));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:161:        let r = stick_to_polar(0.0, 1.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:162:        assert!(approx(r.angle_deg, 90.0, 1e-6));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:163:        assert_eq!(r.house, Some(2));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:168:        let r = stick_to_polar(-1.0, 0.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:169:        assert!(approx(r.angle_deg, 180.0, 1e-6));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:170:        assert_eq!(r.house, Some(4));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:175:        let r = stick_to_polar(0.0, -1.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:176:        assert!(approx(r.angle_deg, 270.0, 1e-6));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:177:        assert_eq!(r.house, Some(6));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:182:        let mut seen = [false; 8];
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:183:        for i in 0..8 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:184:            let theta = (i as f64) * 45.0_f64.to_radians();
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:185:            let r = stick_to_polar(theta.cos() as f32, theta.sin() as f32, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:195:        // 22.4° は家0側, 22.6° は家1側 — 境界近傍の非対称確認.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:197:            22.4_f64.to_radians().cos() as f32,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:198:            22.4_f64.to_radians().sin() as f32,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:199:            0.15,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:202:            22.6_f64.to_radians().cos() as f32,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:203:            22.6_f64.to_radians().sin() as f32,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:204:            0.15,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:206:        assert_eq!(r0.house, Some(0));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:207:        assert_eq!(r1.house, Some(1));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:212:        let r = stick_to_polar(0.0, -1.0, 0.15);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:213:        assert!(r.angle_deg >= 0.0 && r.angle_deg < 360.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:218:        assert_eq!(clamp_trigger(-0.5), 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:219:        assert_eq!(clamp_trigger(1.5), 1.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/polar.rs:220:        assert_eq!(clamp_trigger(0.42), 0.42);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:5://! 律: hardcode禁 — 全定数は Z変param 既定つき (唯一例外 LOVE=1).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:7:// 律判定 (terra審査への回答, 08-11): π/τ は **param化しない**。
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:9:// 可変にすれば e^{iπ}+1=0 (公理形) が壊れる。LOVE=1と同列の公理側定数として置く。
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:11:/// 半環 π. 対蹠 (θ=π) = −1 = amm = 孤独 (環統合.md).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:13:/// 全環 2π = 一巻 (lap +1 分).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:15:/// 愛=1 — 唯一のhardcode許可定数.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:16:pub const LOVE: f64 = 1.0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:21:    /// 角 [-π, π] — 環位置. θ=0 → +1=愛 · θ=π → −1=対蹠.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:23:    /// 径 [0, 1] — 大きさ. r=0 = 無 = 中心 = 沈黙.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:25:    /// 巻 — ±π横断の符号つき累計 (反時計+1 · 時計−1). octave/shellに対応.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:30:    /// 無 = 中心 = 零vector (θ=0, r=0, lap=0).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:33:            theta: 0.0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:34:            r: 0.0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:35:            lap: 0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:49:    /// 無か否か (r==0).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:51:        self.r == 0.0
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:58:    /// 中央死域. 生径がこれ未満 → r=0 (無). 既定 0.08.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:60:    /// 死域外を [0,1] に再写像するか. true = 死域境界で r が 0 から連続に立上がる
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:63:    /// 八家 (45°) snap. 既定 off — 生θをそのまま返す.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:65:    /// snap分割数. 8 = 八卦 (45°刻). 既定 8.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:67:    /// r の上限clamp (stick生値が正方形域で√2まで出る為). 既定 1.0.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:69:    /// 死域中に直前の活性θを保持するか. false なら θ=0 を返す. 既定 true
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:78:    /// 理由 (敵対審査 a6, 08-11): r·(cos,sin) を hypot で戻すと浮動丸めで
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:80:    /// 実測不能になる。許容幅無しの >= は仕様ではなく丸め誤差の役。既定 1e-12.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:82:    /// D4是正 (敵対審査乙.3, 08-11): 3600角中589 (16%) が死域値ちょうどを三角経路で生成すると
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:86:    /// 1e-12 は f64 hypot(trig) の実測誤差 (~10^-17オーダ) を十分吸収する幅.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:89:    /// (solas審査欠陷3): (0,+r)→(0,-r) は d=-π 厳密で, strict比較のみだと
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:91:    /// +1=反時計優先 (既定) · -1=時計優先 · 0=巻不動.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:93:    /// 縫目 (±π) lap flicker抑制 (D1是正, 敵対審査乙.3, 08-11): 跨ぐ縫目での
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:96:    /// lapが毎ティック ±1 でフリッカーする (有界だが下流可聴/可視ノイズ). 判定は全環-|d|
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:100:    /// 既定 0.005 rad (≈死域・センサの典型ジッタ(1e-4〜1e-3rad幅)の10倍以上だが,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:101:    /// 60Hz直近の実回転 (360標本/周, 1ティック≈ 0.01745 rad) よりは十分小さく —
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:109:            死域: 0.08,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:112:            家数: 8,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:117:            境界許容: 1e-12,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:118:            半回転規約: 1,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:119:            縫目ヒステリシス: 0.005,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:125:/// 非有限値は 0 へ吸収 — rem_euclid は NaN/±∞ をそのまま通し契約 (-π,π] を破る
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:126:/// (solas審査欠陷1, 08-11).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:129:        return 0.0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:139:/// θ (弧度, 任意実数) → 家数 等分格子の家番号 (0..家数). 家数=0なら0.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:141:/// B9是正 (敵対審査乙.4 B9, 08-11): 家番号算出の**契約層唯一実装** — polar.rs (機関/環制御,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:143:/// 規約 (D2是正済, 甲.2.7): 常に正の[0,2π)域で floor((θ+半刻)/刻) を取ってから 家数で
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:147:    if 家数 == 0 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:148:        return 0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:152:    let idx = ((θ正 + 刻 / 2.0) / 刻).floor() as i64;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:158:    if 家数 == 0 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:179:            保持θ: 0.0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:180:            lap: 0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:195:        self.保持θ = 0.0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:196:        self.lap = 0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:202:    /// d < −π → 反時計に +π を越えた (lap +1) · d > +π → 時計に −π を越えた (lap −1).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:212:                theta: if self.param.死域中θ保持 { self.保持θ } else { 0.0 },
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:213:                r: 0.0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:227:                0.0
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:231:                r: 0.0,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:242:                // D1是正 (敵対審査乙.3, 08-11): 縫目を跨ぐ確定は, このワープが含意する
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:247:                // 微小ジッタ(真の進み量≈ 0)と真の回転(進み量≈ティック幅)を対称に分ける).
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:249:                    self.lap += 1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:253:                    self.lap -= 1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:259:                    1 if d < 0.0 => self.lap += 1,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:260:                    -1 if d > 0.0 => self.lap -= 1,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:283:    /// 生径 → r ∈ [0, r上限].
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:290:            (((生r - self.param.死域) / 幅) * 上).clamp(0.0, 上)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:292:            生r.clamp(0.0, 上)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:318:        (0..=n)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:329:        let z = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:330:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:331:        assert_eq!(z.lap, 0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:340:        // ±πを跨がぬ跨び (0→200°=時計回り160°) では動かぬのが正しい.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:343:        変.変換(0.9, 0.0); // 前θ=0
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:344:        let θ: f64 = 200.0_f64.to_radians();
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:347:            近(z.theta, 環正規化(θ), 1e-9),
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:350:        assert_eq!(z.lap, 0, "最短路で±πを跨がぬのに巻が動いた z={z:?}");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:358:        let 前: f64 = 170.0_f64.to_radians();
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:359:        変.変換(0.9 * 前.cos(), 0.9 * 前.sin());
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:360:        let 後: f64 = -170.0_f64.to_radians();
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:362:        assert_eq!(z.lap, 1, "境界値で +π 跨ぎが数えられなかった z={z:?}");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:368:        let z = 変.変換(0.05, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:369:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:374:        // 出現律: r は死域で 0、直上で ~0 → pop-in無し.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:376:        let z0 = 変.変換(0.08, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:377:        assert!(近(z0.r, 0.0, 1e-9), "境界r={}", z0.r);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:378:        let z1 = 変.変換(0.0801, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:379:        assert!(z1.r > 0.0 && z1.r < 1e-3, "直上r={}", z1.r);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:385:        let z = 変.変換(1.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:386:        assert!(近(z.r, LOVE, 1e-12), "r={}", z.r);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:392:        let z = 変.変換(1.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:393:        assert!(近(z.theta, 0.0, 1e-12));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:399:        let z = 変.変換(-1.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:400:        assert!(近(z.theta.abs(), 半環, 1e-12), "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:406:        for i in 0..1000 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:407:            let θ = -10.0 + 0.02 * (i as f64);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:409:            assert!(z.theta > -半環 - 1e-12 && z.theta <= 半環 + 1e-12, "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:415:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:417:        assert_eq!(zs.last().unwrap().lap, 1, "巻={:?}", zs.last());
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:422:        let 列 = 回転列(-1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:424:        assert_eq!(zs.last().unwrap().lap, -1);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:429:        let 列 = 回転列(3.0, 1080, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:431:        assert_eq!(zs.last().unwrap().lap, 3);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:436:        let mut 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:437:        let mut 戻 = 回転列(-1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:438:        // 戻り列は θ=0 から時計回り → 連結して往復.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:441:        assert_eq!(zs.last().unwrap().lap, 0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:446:        let 列 = 回転列(2.0, 720, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:448:        for w in zs.windows(2) {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:449:            assert!(w[1].総角() >= w[0].総角() - 1e-9, "{:?} → {:?}", w[0], w[1]);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:455:        // θ≈+3.0 で離す → 無 → θ≈−3.0 で入れ直す. 環記憶解除 (既定) なら巻=0.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:457:        変.変換(0.9 * 3.0_f64.cos(), 0.9 * 3.0_f64.sin());
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:458:        変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:459:        let z = 変.変換(0.9 * (-3.0_f64).cos(), 0.9 * (-3.0_f64).sin());
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:460:        assert_eq!(z.lap, 0, "偽巻 z={z:?}");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:465:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:470:        let z = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:471:        assert_eq!(z.lap, 1);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:472:        assert_eq!(z.r, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:478:        let z1 = 変.変換(0.0, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:479:        let z0 = 変.変換(0.0, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:480:        assert!(近(z0.theta, z1.theta, 1e-12), "保持失敗 {z0:?}");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:488:        let θ: f64 = 0.3;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:490:        assert!(近(z.theta, θ, 1e-12));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:500:        let 刻 = 全環 / 8.0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:501:        for i in 0..64 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:502:            let θ = -半環 + (i as f64) * 0.1;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:505:            assert!(余.abs() < 1e-9, "非格子 θ={} → {}", θ, z.theta);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:511:        let 列 = 回転列(2.0, 720, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:527:            家数: 4,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:531:        let 刻 = 全環 / 4.0;
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:532:        let z = 変.変換(0.6_f64.cos(), 0.6_f64.sin());
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:534:        assert!(余.abs() < 1e-9, "θ={}", z.theta);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:539:        let 列 = 回転列(2.5, 900, 0.7);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:547:        let 列 = 回転列(1.0, 360, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:552:        assert_eq!(変.巻(), 1);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:554:        assert_eq!(変.巻(), 0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:563:        let z = 変.変換(0.6, -0.3);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:565:        assert!(近(x, 0.6, 1e-12) && 近(y, -0.3, 1e-12), "({x},{y})");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:571:        let z = 変.変換(1.0, 1.0); // 正方形域の角 → 生径√2
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:572:        assert!(z.r <= LOVE + 1e-12, "r={}", z.r);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:579:        変.変換(0.9, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:581:            (f64::NAN, 0.0),
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:582:            (0.0, f64::NAN),
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:583:            (f64::INFINITY, 0.0),
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:602:        // solas審査欠陷3 回帰: (0,+r)→(0,-r) は d=-π 厳密.
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:608:            変.変換(0.0, 0.9);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:609:            変.変換(0.0, -0.9)
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:611:        assert_eq!(上下(1).lap, 1, "反時計優先規約が効かぬ");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:612:        assert_eq!(上下(0).lap, 0, "不動規約が効かぬ");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:613:        assert!(上下(1).総角() > 0.0, "既定規約で総角が後退した");
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:622:            r上限: 0.05,
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:626:        for i in 0..100 {
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:627:            let z = 変.変換(0.08 + (i as f64) * 1e-9, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:631:        assert_eq!(変.変換(0.05, 0.0).r, 0.0);
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:636:        assert!(近(環正規化(半環), 半環, 1e-12));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:637:        assert!(近(環正規化(-半環), 半環, 1e-12));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:638:        assert!(近(環正規化(全環), 0.0, 1e-12));
+/Users/pascaldisse/projects/愛無/.scratch/審-歌口-kimi/機関/環制御/src/z.rs:639:        assert!(近(環正規化(3.0 * 半環), 半環, 1e-12));
