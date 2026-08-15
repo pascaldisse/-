@@ -1,0 +1,16 @@
+lap_max= 17179869180 =2^34-4? True
+lap_min= -17179869180
+契約 6*2^31 = 12884901888 < 真 2^34-4 = 17179869180  => 契約は過小
+c_lap= 536870911 max項= 9223372018064293892  fits= True  min項fits= True
+c_lap= 536870912 max項= 9223372035244163072  fits= True  min項fits= True
+c_lap= 536870913 max項= 9223372052424032252  fits= False  min項fits= False
+c_lap= 1073741824 max項= 18446744069951455232  fits= False  min項fits= False
+mulc項 絶対上限≈ 4294967296 2^33? 0.5
+lap項(合法c_lap最大)= 8589934574 ~2^33
+acc 上限 <= 17179869166 << 2^63 ∴ 合算後 溢れ無
+dd=0 c_cur=2147483648 i32溢れ=True
+dd=1e-09 c_cur=2147483647 i32溢れ=False
+dd=9.3e-10 c_cur=2147483647 i32溢れ=False
+dd=9.31323e-10 c_cur=2147483647 i32溢れ=False
+dd=0.5 c_cur=1610612736 i32溢れ=False
+c_ret dd=0 → 1073741824 収まる
