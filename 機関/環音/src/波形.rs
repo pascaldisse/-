@@ -12,7 +12,10 @@ pub struct wav仕様 {
 
 impl Default for wav仕様 {
     fn default() -> Self {
-        Self { sample率: 48000, bit深: 16 }
+        Self {
+            sample率: 48000,
+            bit深: 16,
+        }
     }
 }
 
@@ -30,8 +33,7 @@ pub fn wav書出(path: &Path, 仕様: &wav仕様, samples: &[f32]) -> std::io::R
         bits_per_sample: 仕様.bit深,
         sample_format: hound::SampleFormat::Int,
     };
-    let mut writer = hound::WavWriter::create(path, spec)
-        .map_err(hound_err_変換)?;
+    let mut writer = hound::WavWriter::create(path, spec).map_err(hound_err_変換)?;
     let 最大: f32 = ((1i32 << (仕様.bit深 - 1)) - 1) as f32; // 16bit→32767
     for &s in samples {
         let clip = s.clamp(-1.0, 1.0); // 飽和 (clip防止)
@@ -47,7 +49,10 @@ pub fn wav書出(path: &Path, 仕様: &wav仕様, samples: &[f32]) -> std::io::R
 pub fn wav読取(path: &Path) -> std::io::Result<(wav仕様, Vec<f32>)> {
     let mut reader = hound::WavReader::open(path).map_err(hound_err_変換)?;
     let spec = reader.spec();
-    let 仕様 = wav仕様 { sample率: spec.sample_rate, bit深: spec.bits_per_sample };
+    let 仕様 = wav仕様 {
+        sample率: spec.sample_rate,
+        bit深: spec.bits_per_sample,
+    };
     let 最大: f32 = ((1i32 << (仕様.bit深 - 1)) - 1) as f32;
     let samples: Vec<f32> = match spec.sample_format {
         hound::SampleFormat::Int => reader

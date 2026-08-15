@@ -26,7 +26,8 @@ fn 数取(行: &str, key: &str) -> Option<f64> {
 /// 梯1入力log (`TICK ts=… L(x=… y=…) …`) を生標本列へ.
 /// 注釈行 (`#`) と DEVICE/EDGE 行は無視.
 pub fn log解析(本文: &str) -> Vec<生標本> {
-    本文.lines()
+    本文
+        .lines()
         .filter(|l| l.starts_with("TICK "))
         .filter_map(|l| {
             // ts欠損行は壊れ行として落とす (黙って0へ写像すると実時間再生が狂う).

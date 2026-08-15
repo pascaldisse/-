@@ -71,7 +71,11 @@ pub fn stick_to_polar_param(x: f32, y: f32, deadzone: f32, param: PolarParam) ->
     let 活性 = 活性判定可 && 生magnitude >= dz;
 
     // 欠陥-2是正 (a9): atan2(0,0)は数学的に無効定義点 — θ=0=愛方位を偽って名乗らせない.
-    let 生θ_rad = if 生magnitude == 0.0 { None } else { Some(y.atan2(x)) };
+    let 生θ_rad = if 生magnitude == 0.0 {
+        None
+    } else {
+        Some(y.atan2(x))
+    };
     let angle_deg = match 生θ_rad {
         Some(θ) => θ.to_degrees().rem_euclid(360.0),
         None => f64::NAN,
@@ -145,7 +149,11 @@ mod tests {
         // 是正(a7, 08-11): magnitude自体は死域再正規化で境界=0から連続に立上がる契約
         // (z.rs死域再正規化と同法) — 旧仕様(生値0.15がそのまま出力)は既知欠陥-1だった.
         let r = stick_to_polar(0.15, 0.0, 0.15);
-        assert!(approx(r.magnitude, 0.0, 1e-6), "境界magnitudeは連続立上りで0付近であるべき r={}", r.magnitude);
+        assert!(
+            approx(r.magnitude, 0.0, 1e-6),
+            "境界magnitudeは連続立上りで0付近であるべき r={}",
+            r.magnitude
+        );
         assert_eq!(r.house, Some(0));
     }
 

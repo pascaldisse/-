@@ -23,9 +23,8 @@ fn 欄(line: &str, 名: &str) -> Option<f64> {
         .filter(|value| value.is_finite())
 }
 
-/// 梯1 `TICK … L(… angle=… mag=… house=…)` をz列へ読む。
-///
-/// deadzone内は中心=無へ畳む。中心滞在を跨ぐ角飛びは巻に数えない。
+/// 唯一の行parser。梯1 `TICK … L(angle=… mag=…)` と梯5 `Z … theta=… r=… lap=…` をZ列へ読む。
+/// deadzone内は中心=無へ畳む。梯1の中心滞在を跨ぐ角飛びは巻に数えない。
 pub fn log再生(path: &Path, deadzone: f64) -> io::Result<Vec<Z>> {
     let text = fs::read_to_string(path)?;
     Ok(文字列再生(&text, deadzone))
@@ -38,6 +37,24 @@ fn 文字列再生(text: &str, deadzone: f64) -> Vec<Z> {
     let mut lap = 0_i64;
 
     for line in text.lines() {
+        // 梯5は既に巻込みZを出す。再巻算定を絶対に加えない。
+        if line.starts_with("Z ") {
+            let (Some(theta), Some(r), Some(lap)) =
+                (欄(line, "theta="), 欄(line, "r="), 欄(line, "lap="))
+            else {
+                continue;
+            };
+            if r < 0.0 || lap.fract() != 0.0 || lap < i64::MIN as f64 || lap > i64::MAX as f64 {
+                continue;
+            }
+            zs.push(Z {
+                theta,
+                r: r.clamp(0.0, 1.0),
+                lap: lap as i64,
+            });
+            前theta = None;
+            continue;
+        }
         let Some(左始) = line.find("L(") else {
             continue;
         };
@@ -51,13 +68,11 @@ fn 文字列再生(text: &str, deadzone: f64) -> Vec<Z> {
         if 大きさ < 0.0 {
             continue;
         }
-
         if 大きさ < deadzone {
             zs.push(Z::無());
             前theta = None;
             continue;
         }
-
         let theta = {
             let theta = 角度.to_radians().rem_euclid(std::f64::consts::TAU);
             if theta > std::f64::consts::PI {
@@ -65,16 +80,20 @@ fn 文字列再生(text: &str, deadzone: f64) -> Vec<Z> {
             } else {
                 theta
             }
-        }; 
+        };
         if let Some(前) = 前theta {
             let 差 = theta - 前;
             if 差 < -std::f64::consts::PI {
-                lap += 1;
+                lap += 1
             } else if 差 > std::f64::consts::PI {
-                lap -= 1;
+                lap -= 1
             }
         }
-        zs.push(Z { theta, r: 大きさ.clamp(0.0, 1.0), lap });
+        zs.push(Z {
+            theta,
+            r: 大きさ.clamp(0.0, 1.0),
+            lap,
+        });
         前theta = Some(theta);
     }
     zs
@@ -86,6 +105,20 @@ mod tests {
 
     fn tick(angle: f64, mag: f64) -> String {
         format!("TICK ts=1 L(x=0 y=0 angle={angle} mag={mag} house=0) R(x=0 y=0)")
+    }
+
+    #[test]
+    fn 歌口zを直接読む_巻を保持() {
+        let zs = 文字列再生("Z ts=1 x=0 y=0 theta=-1.570796 r=0.75 lap=-2 hz=185", 0.15);
+        assert_eq!(zs.len(), 1);
+        assert!((zs[0].theta + 1.570796).abs() < 1e-12, "{:?}", zs[0]);
+        assert_eq!(zs[0].lap, -2);
+        assert!((zs[0].r - 0.75).abs() < 1e-12);
+    }
+
+    #[test]
+    fn 壊れ歌口zは飛ばす() {
+        assert!(文字列再生("Z theta=0 r=1 lap=0.5", 0.15).is_empty());
     }
 
     #[test]

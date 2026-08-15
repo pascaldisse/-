@@ -4,7 +4,7 @@
 //! 批側=審査のみ、是正は建根甲の仕事.
 
 use wa::polar::stick_to_polar;
-use wa::z::{環正規化, 家snap, 全環, 半環, Z変param, Z変換器, 列変換};
+use wa::z::{Z変param, Z変換器, 全環, 列変換, 半環, 家snap, 環正規化};
 
 fn 近(a: f64, b: f64, eps: f64) -> bool {
     (a - b).abs() < eps
@@ -206,7 +206,10 @@ fn a9_無状態のthetaは自己判別不能_無か併用が必須() {
     // theta field 単独では見分けがつかない — 無か()/r==0 の別途チェックが必須契約である事の実測.
     let mut 変2 = Z変換器::既定();
     let 活性z = 変2.変換(1.0, 0.0); // θ=0, r=1 (真に愛方位)
-    assert_eq!(活性z.theta, 無z.theta, "θ値だけでは無/活性を区別不可能 (θ=0が両方に出現)");
+    assert_eq!(
+        活性z.theta, 無z.theta,
+        "θ値だけでは無/活性を区別不可能 (θ=0が両方に出現)"
+    );
     assert_ne!(活性z.r, 無z.r);
 }
 
@@ -350,7 +353,11 @@ fn a14_nanは活性化後の状態を汚染しない() {
     assert!(z_nan.無か());
     assert!(!z_nan.lap.to_string().contains("NaN")); // lapはi64なのでNaN化は原理上不可, 実測確認のみ
     let z戻 = 変.変換(1.0, 0.0);
-    assert!(!z戻.theta.is_nan(), "NaN混入後にthetaがNaN汚染 θ={}", z戻.theta);
+    assert!(
+        !z戻.theta.is_nan(),
+        "NaN混入後にthetaがNaN汚染 θ={}",
+        z戻.theta
+    );
 }
 
 #[test]
@@ -377,7 +384,7 @@ fn a15_polarのhouseとz家snapが独立pathで一致する() {
         let 刻 = 全環 / 8.0;
         let z_snap = 家snap(環正規化(rad), 8);
         let house_angle = 環正規化((house as f64) * 刻);
-        let 差= (z_snap - house_angle).abs();
+        let 差 = (z_snap - house_angle).abs();
         let 差 = 差.min((差 - 全環).abs());
         if 差 > 1e-6 {
             不一致.push((deg, house, house_angle, z_snap));

@@ -5,8 +5,8 @@
 use std::fs;
 use std::path::PathBuf;
 
-use wa::z::{Z, Z変param, Z変換器, 列変換, 環正規化, 家snap};
-use wa::z::{LOVE, 半環};
+use wa::z::{Z変param, Z変換器, 列変換, 家snap, 環正規化, Z};
+use wa::z::{半環, LOVE};
 use wa::入力源::log解析;
 
 /// 実測回帰pin — proof/環制御/入力log.txt (900標本, 既定param) を通した現測定の終巻.
@@ -30,7 +30,11 @@ fn 実log列() -> Vec<(f64, f64)> {
     let 本文 = fs::read_to_string(&path)
         .unwrap_or_else(|e| panic!("実proof log読込失敗 path={} err={e}", path.display()));
     let 標本 = log解析(&本文);
-    assert!(!標本.is_empty(), "実proof logにTICK行なし path={}", path.display());
+    assert!(
+        !標本.is_empty(),
+        "実proof logにTICK行なし path={}",
+        path.display()
+    );
     標本.iter().map(|s| (s.x, s.y)).collect()
 }
 
@@ -50,7 +54,10 @@ fn 実logの決定論再生は手動loopとも一致する() {
     let 一括 = 列変換(Z変param::default(), &列);
     let mut 変 = Z変換器::新(Z変param::default());
     let 手動: Vec<Z> = 列.iter().map(|&(x, y)| 変.変換(x, y)).collect();
-    assert_eq!(一括, 手動, "列変換と手動loopの結果が食い違う — 状態機械の非決定性の疑い");
+    assert_eq!(
+        一括, 手動,
+        "列変換と手動loopの結果が食い違う — 状態機械の非決定性の疑い"
+    );
 }
 
 #[test]
@@ -79,11 +86,7 @@ fn 実logの全標本でtheta_r_lap契約を満たす() {
             z.theta
         );
         // r ∈ [0, 1] (r上限既定=LOVE).
-        assert!(
-            z.r >= 0.0 && z.r <= LOVE + 1e-9,
-            "r範囲外 i={i} r={}",
-            z.r
-        );
+        assert!(z.r >= 0.0 && z.r <= LOVE + 1e-9, "r範囲外 i={i} r={}", z.r);
     }
 
     // lap は1tickで高々±1しか動かぬ (±π横断は一tickにつき一度が契約前提).
@@ -111,7 +114,10 @@ fn 八家snap_onoffでlap列は完全一致する() {
     );
     let 生lap: Vec<i64> = 生.iter().map(|z| z.lap).collect();
     let snaplap: Vec<i64> = snap.iter().map(|z| z.lap).collect();
-    assert_eq!(生lap, snaplap, "八家snap on/offでlap列が食い違う — snapが巻計数を汚した");
+    assert_eq!(
+        生lap, snaplap,
+        "八家snap on/offでlap列が食い違う — snapが巻計数を汚した"
+    );
 }
 
 #[test]
