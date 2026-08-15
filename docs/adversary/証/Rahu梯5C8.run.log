@@ -1,0 +1,11 @@
+{"名": "C8_揺_440_50cent", "exit": 0, "z行": 70, "active": 70, "lap": [0], "errors": ["C8 50cent lap=[0] (期待[1])"]}
+{"名": "C8_滑走_220_880", "exit": 0, "z行": 93, "active": 93, "lap": [0, 1], "errors": ["C8 上滑走 lap非単調"]}
+{"名": "C8_滑走_880_220", "exit": 0, "z行": 93, "active": 93, "lap": [0, 1], "errors": ["C8 下滑走 lap非単調"]}
+corpus=65 exit0=65 failures=3
+{"名": "C8_揺_440_120cent", "exit": 0, "z行": 70, "active": 70, "lap": [0, 1], "errors": []}
+{"名": "C8_揺_440_50cent", "exit": 0, "z行": 70, "active": 70, "lap": [0], "errors": ["C8 50cent lap=[0] (期待[1])"]}
+{"名": "C8_滑走_220_880", "exit": 0, "z行": 93, "active": 93, "lap": [0, 1], "errors": ["C8 上滑走 lap非単調"]}
+{"名": "C8_滑走_880_220", "exit": 0, "z行": 93, "active": 93, "lap": [0, 1], "errors": ["C8 下滑走 lap非単調"]}
+{"名": "C13_低域_27_5", "exit": 0, "z行": 46, "active": 0, "lap": [], "errors": []}
+{"名": "C13_超高域_21000", "exit": 0, "z行": 46, "active": 0, "lap": [], "errors": []}
+{"名": "C13_高域_14080", "exit": 0, "z行": 46, "active": 0, "lap": [], "errors": []}

@@ -1,0 +1,76 @@
+warning: type `wav仕様` should have an upper camel case name
+ --> src/波形.rs:8:12
+  |
+8 | pub struct wav仕様 {
+  |            ^^^^^^^ help: convert the identifier to upper camel case (notice the capitalization): `Wav仕様`
+  |
+  = note: `#[warn(non_camel_case_types)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: enum `源` is never used
+  --> src/源.rs:12:10
+   |
+12 | pub enum 源 {
+   |          ^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `wav読取` is never used
+  --> src/波形.rs:47:8
+   |
+47 | pub fn wav読取(path: &Path) -> std::io::Result<(wav仕様, Vec<f32>)> {
+   |        ^^^^^^^
+
+warning: function `実効値` is never used
+  --> src/波形.rs:74:8
+   |
+74 | pub fn 実効値(samples: &[f32]) -> f64 {
+   |        ^^^^^^
+
+warning: function `無音か` is never used
+  --> src/波形.rs:83:8
+   |
+83 | pub fn 無音か(samples: &[f32], 閾: f64) -> bool {
+   |        ^^^^^^
+
+warning: function `支配周波数` is never used
+  --> src/波形.rs:92:8
+   |
+92 | pub fn 支配周波数(samples: &[f32], sample率: u32) -> f64 {
+   |        ^^^^^^^^^^
+
+warning: function `支配周波数_探索` is never used
+  --> src/波形.rs:97:8
+   |
+97 | pub fn 支配周波数_探索(
+   |        ^^^^^^^^^^^^^^^
+
+warning: function `goertzel応答` is never used
+   --> src/波形.rs:140:4
+    |
+140 | fn goertzel応答(samples: &[f32], n: usize, sample率: f64, freq_hz: f64) -> f64 {
+    |    ^^^^^^^^^^^^
+
+warning: function `家番号` is never used
+  --> src/音高.rs:37:8
+   |
+37 | pub fn 家番号(z: &Z) -> u8 {
+   |        ^^^^^^
+
+warning: function `家率` is never used
+  --> src/音高.rs:45:8
+   |
+45 | pub fn 家率(z: &Z, 律: 律) -> f64 {
+   |        ^^^^
+
+warning: structure field `律動Hz` should have a snake case name
+  --> src/合成.rs:12:9
+   |
+12 |     pub 律動Hz: f64,
+   |         ^^^^^^ help: convert the identifier to snake case: `律動_hz`
+   |
+   = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `環音` (bin "環音") generated 11 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running `target/debug/環音 '--源' log --log-path '/Users/pascaldisse/projects/愛無/.scratch/審-梯5-Rahu/docs/adversary/証/Rahu梯5C8/C8_揺_440_120cent.log' '--秒' 3 '--律動' off '--掃引' off '--実音' off --wav '/Users/pascaldisse/projects/愛無/.scratch/審-梯5-Rahu/docs/adversary/証/Rahu梯5C8/C17b.wav'`
+# wav /Users/pascaldisse/projects/愛無/.scratch/審-梯5-Rahu/docs/adversary/証/Rahu梯5C8/C17b.wav samples=144000 秒=3.000

@@ -1,0 +1,28 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.05s
+     Running unittests src/lib.rs (機関/歌口/target/debug/deps/utagu-cf82a560488a6ccb)
+
+running 9 tests
+test 写像::tests::lapは飽和し折返さぬ ... ok
+test 写像::tests::無音無声欠hzは無 ... ok
+test 写像::tests::総角は連続真値と一致 ... ok
+test 写像::tests::基音は環零_lap零 ... ok
+test 写像::tests::家snapはl域carryを保つ ... ok
+test 検出::tests::無音とdcは無声 ... ok
+test 検出::tests::高域純音は声帯域外で無声 ... ok
+test 検出::tests::yin正弦を捉える ... ok
+test 検出::tests::自己相関もyinを通る ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/main.rs (機関/歌口/target/debug/deps/歌口-96a944b534bfbebd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests utagu
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
