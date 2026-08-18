@@ -1,0 +1,9 @@
+pass_id	language_id	frame_id	question_id	lanes	valid_lanes	median	range	cell_status
+en-plain	en	plain	1	5	5	5	1-6	eligible
+en-plain	en	plain	2	5	5	6	0-10	eligible
+en-symbol	en	symbol	1	5	5	7	5-9	eligible
+en-symbol	en	symbol	2	6	5	5	2-5	eligible
+ja-plain	ja	plain	1	5	0	NA	NA	N<5
+ja-plain	ja	plain	2	5	0	NA	NA	N<5
+ja-symbol	ja	symbol	1	5	0	NA	NA	N<5
+ja-symbol	ja	symbol	2	5	0	NA	NA	N<5
