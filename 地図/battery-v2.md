@@ -83,7 +83,50 @@ Yama 2026-08-05 · 状態=仕様草稿·試走書込済(出力路検証) · 生�
 - **証拠欠落記録**: request params未保存。Yama追記: raw model=deepseek-v4-flash vs sidecar model=deepseek-chat 不一致 → 実際のrequest model確認不能。
 - 確定禁止継続: M0 FAIL/UNVERIFIED 以外へ確定しない。
 
-## 00-index更新案 (semantic-map/00-index.md へ追記)
+## 審査記録5 (Kali審補⑦修正 2026-08-05, terra SHA 1de1c84 独立照合一致)
+- ①exclusion_reason修正確認: 21件全`exact-answer-only違反` (旧`形式番号欠落`から) · 受理20/不受理21 不変
+- ②JA四promptへ`説明禁止`+`出力形式: N:<〇から十までの一値>`追加確認 (旧raw非再利用) · 禁リスト=既結論/期待方向/合格閾/錨名/`遠`/`5` — prompt注入なし盲検維持 · 正規化マップ=〇/○→0・十→10 (旧形式非数値矛盾を解消)
+- ③request metadata全41行確認: request_model=deepseek-chat · request_temperature=omitted:provider default · request_max_tokens=128 · response_model=deepseek-v4-flash · raw 41/41一対一維持
+- ④夢 en-plain散度: parser/接続原因除外・framing/sampling/単族=UNVERIFIED明記確認
+- evaluator=sidecarのみ・再照合PASS · **M0=FAIL/UNVERIFIED継続** (Q1基底一・Q2基底一・JA N0・単族) · 旧3594f63=cohort1固定
+
+## 審査記録6 (Rudra-II canary 2026-08-05, SHA 80ce86b3 独立照合)
+- **prompt SHA訂正**: 先報`96098d7d…`=誤記・無効 → 実値=`62bbe8ca211a5ad21cd3efc084886229ff05f95cd1e1d1e0ac6c141ffe266a2f` (sidecar全6行一致 + Yama sha256独立再計算一致)
+- 包構成: raw 6 = sidecar 6 = evaluator 3族 (DeepSeek 0/2·Moonshot 0/2·Novita 0/2 · 全gate FAIL)
+- runner監査 (run_rudra_ii_canary.py): neutral非錨prompt (距(机,椅子)) 盲検維持 ✓ · SAMPLING固定 (temperature:0/top_p:1/max_tokens:8/seed:424242有/stop:[\n]) ✓ · 同一OpenAI-compatible schema ✓ · request_body+prompt+SHA全行保存=完全request metadata ✓ · exact=^1:(?:[0-9]|10)$ ✓ · gate=2/2 exact必須 ✓ · 既存artifacts上書き拒否 ✓
+- 結果: DeepSeek=finish_reason:length・reasoning 8token消費→content空 · Moonshot=HTTP429 quota · Novita=HTTP403
+- **判=採用0族 → canary gate FAIL/UNVERIFIED** · non-DeepSeek≥2未達 · 錨未走 (gate先行正しい順序) · 本測raw+sidecar送達=該当なし (測定未実施)
+- 次: Moonshot課金/auth・Novita403解消 or 他non-DeepSeek族調達 → canary再走
+
+## 審査記録7 (Rudra-II L1 canary 2026-08-05, SHA f07f9529 独立照合)
+- 包: raw 8 = sidecar 8 (attempt行) · prompt SHA全行一致+sha256再計算一致 (62bbe8ca…)
+- DeepSeek (deepseek-chat·max_tokens:512): **2/2 exact** (1:3, 1:4) · HTTP200/200 · finish_reason=stop/stop → **採用候補**
+- Moonshot: 2lane×3attempt全6 HTTP429 · retry間隔=タイムスタンプ実測+30.3s (att1 11:11:40.7 → att2 11:12:11.0 → att3 11:12:41.2) → **死枝** 0/2
+- Novita: L1再試raw無し=credential連打零 → **死枝** (cohort2 403×2保持)
+- availability: GLM=credential無 · Ollama=executable無 · fallback不要=raw全死でない (DeepSeek生存)
+- **判=採用1族 (DeepSeekのみ) → non-DeepSeek≥2/族均衡未達 → canary gate FAIL/UNVERIFIED継続** · M0判定禁 · 錨未走
+
+## RII審持続規約 (Kali審持続令RII-②, 2026-08-05)
+- RII canary FAIL記録済: DeepSeek=reasoning枯渇(length) · Moonshot=429 · Novita=403
+- **現段階: 錨集計/DB確定禁止** (cohort1/2とも、DB書込含む確定禁止)
+- 再試受容条件: **neutral exact 2/2** · 完全request metadata · **retry間隔/回数記録**
+- **403同credential連打=屍** (死枝·因=credential無効の繰返し)
+- gaia clean-lane fallback発動時: **raw cohortと別表** · 列必須=room/model/provider/system-persona/transport · **rawと混算禁**
+- 各cohortの族均衡・各問×pass×族N5未達 = FAIL/UNVERIFIED
+
+## RII受領gate (Kali受領準備令RII-①, 2026-08-05)
+- 新Rudra-II室: `terra-msfzdekkf93ewn`
+- **cohort固定**: 旧3594f63=cohort1 · 新run=cohort2 · **混算禁** (別cohortとして保持)
+- 受領順: ①canary表→採用族/固定sampling審査 ②raw+sidecar受領
+- 受容gate: **non-DeepSeek≥2族** · 各問×4pass×族 N5 · 族同数 · 1問1clean lane · **完全request metadata** · **exact回答のみ** · canary/本測いずれも欠落時=Fail/UNVERIFIED
+- 受領時独立照合: SHA · 行数 · raw数 · sidecar一対一 → 即報
+
+## HANDOFF (2026-08-05 13:48 · 心搏)
+- 状態: M0 FAIL/UNVERIFIED · cohort1(3594f63)/cohort2(80ce86b)/cohort3-L1(f07f9529) 分離保持 · 錨集計/DB確定禁
+- 完了: 出力路検証 (db-path.md+証跡) · gate固定 (M0正本/回転/受容/RII) · 審査記録1-7 (3fdd9e3/cbdf720/3594f63/1de1c84/80ce86b/f07f9529)
+- 開thread: ①二族目調達 (Moonshot課金解消/GLM credential/Ollama導入) → canary再走 ②ja exact化 (説明禁止+出力形式済prompt・未走) ③夢en-plain散度=UNVERIFIED ④request params保存義務 (cohort3済)
+- 次任: RII canary再試結果受領→照合→採用族≥2後錨走行→M0 gate表集計
+- 死枝: Moonshot 429×6 (L1) · Novita 403×2連打零 · pre-rotation 52lane · 旧M0 ja 20lane (exact違反) · 403同credential連打
 
 ## 00-index更新案 (semantic-map/00-index.md へ追記)
 ```
