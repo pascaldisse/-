@@ -1,0 +1,6 @@
+{
+  "error": {
+    "type": "HTTPError",
+    "message": "HTTP Error 403: Forbidden"
+  }
+}

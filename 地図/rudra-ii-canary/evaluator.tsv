@@ -1,0 +1,4 @@
+family	candidate	valid	total	exact_rate	gate	http_statuses	model_responses	model_configured
+DeepSeek	deepseek-v4-flash	0	2	0/2	FAIL	200,200	deepseek-v4-flash,deepseek-v4-flash	deepseek-v4-flash
+Moonshot	kimi-k2.6	0	2	0/2	FAIL	429,429	None,None	kimi-k2.6
+Novita	novita-llama-3.1-8b	0	2	0/2	FAIL	403,403	None,None	meta-llama/llama-3.1-8b-instruct

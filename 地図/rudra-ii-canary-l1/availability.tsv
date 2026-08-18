@@ -1,0 +1,6 @@
+family	transport	availability	reason
+Novita	raw API	dead	cohort2 HTTP403 twice
+Moonshot	raw API	measured	cohort3 heartbeat canary
+DeepSeek	raw API	measured	cohort3 deepseek-chat 512-token canary
+GLM	raw API	unavailable	no configured raw credential
+Ollama/local	raw API	unavailable	no ollama executable
