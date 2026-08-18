@@ -1,0 +1,8 @@
+DEVICE id=GamepadId(0) name="PS5 Controller" connected=true
+# live z流入 10801 件
+# wav /Users/pascaldisse/projects/愛無/proof/環音/環音live操縦.wav samples=8640000 秒=180.000
+# 実音再生: live再生完了 (180.0秒連続)
+DEVICE id=GamepadId(0) name="PS5 Controller" connected=true
+# live z流入 10799 件
+# wav /Users/pascaldisse/projects/愛無/proof/環音/環音live操縦.wav samples=8640000 秒=180.000
+# 実音再生: live再生完了 (180.0秒連続)
