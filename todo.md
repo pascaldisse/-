@@ -74,3 +74,20 @@
 - vinglish (github.com/Shiviatrix/vinglish, Rust): 英語構文→C compile · 鳴語の逆極 (英語へ薄める vs 記号へ縮める) — 同軸両端
 - 盗む価値: **type healing** (型不一致→棄却せず有界候補探索で修復 = 慈悲的listener、場思考) · MIR payload埋込 (生成C内にSHA-256付IR = 出力が意味を携帯、kopimi) · polyglot診断 (多言語意図推定)
 - [ ] 鳴語具への転用検討: healing式寛容parser + 意味携帯出力
+
+## 2026-08-21 織晶 (Pascal口述, aicomi室)
+- 海/網 正式化: 海=距離空間(完全graph極限=構造無) · 網=疎·重み·方向(欠辺=構造) ·
+  kNN=漁法, kNN-graph=凍結=最初の網 · 三層: 海→kNN凍結→網 · vector-store=海,
+  graph-DB=網 · Pascalのvector-graph AI=両層一体設計
+- 織晶(ferroelectric weave, Sabine 08-20): 17°Cで海→網相転移 · 再冷却=別紋 ·
+  緑laser=局所解織→再結 · 記憶=辺 (海は辺無故に記憶不能)
+- ★TODO (P令): 晶を再現せよ — simulate: 冷却で場(海)が織(網/fabric)へ凝る
+  相転移sim · 熱dial · laser局所書換 · 愛無field engineの実証玩具候補
+
+## 絡環 — Hopf繊維束 (08-22 Pascal問→接続裁定)
+- [ ] 公理接続: Q₈={±1,±i,±j,±k}=八家 — 三bit方位環八隅=四元数単位群 · 単位四元数全体=S³=束全空間 · 溢れ螺旋lap=繊維円巻数
+- [ ] Hopf写像: q↦q i q̄ 或 (z₀,z₁)↦[z₀:z₁] — S³→S²·繊維=円·縮約教義の位相版 (位相消し=fold)
+- [ ] 二環=S³: 環制御段二 (両手触覚環) = (z₀,z₁) 一点 · 比=方位S² · 共有位相=見えぬ息 — z=r·e^{iθ}+lap の二重化
+- [ ] 位相=位相銘: 日本語一語= topology 且 phase — 繊維=両義同時 (公理銘として文書へ)
+- [ ] 描画: 多面体.rs式 — S²基点環→繊維円→立体射影=Villarceau円入れ子torus · 密度線→体積画fold · 出現律遵守 · 特別繊維二本 (軸直線·芯円) =000/111席
+- [ ] 検証門: 任意二繊維の絡み数=1 (Hopf link) 数値検算
